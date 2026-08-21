@@ -1203,7 +1203,7 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 
     .social-links {
-        justify-content: center;
+        justify-content: flex-start;
         flex-wrap: wrap;
     }
 
@@ -2949,8 +2949,6 @@ body.dark-mode .about-photo {
     .about-grid {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
         gap: 28px;
         margin-bottom: 40px;
     }
@@ -2969,19 +2967,19 @@ body.dark-mode .about-photo {
     }
 
     .about-grid .project-vision-content {
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
         width: 100%;
     }
 
     .about-grid .project-vision-content p {
-        text-align: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .about-grid .project-vision-content h3 {
-        text-align: center !important;
+        text-align: left !important;
     }
 
     .about-grid .social-links {
