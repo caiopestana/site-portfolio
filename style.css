@@ -1202,40 +1202,77 @@ body.dark-mode .timeline-item:hover .timeline-card {
         border-radius: var(--border-radius-full);
     }
 
-    .social-links {
-        justify-content: flex-start;
-        flex-wrap: wrap;
+    .sidebar {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .sidebar::after {
+        display: none !important; /* Remove o fade do fundo que criava espaço vazio no mobile */
+    }
+
+    .sidebar-scroll-area {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 28px !important; /* Espaçamento uniforme e harmônico entre todos os blocos */
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 0 !important; /* Remove o padding excessivo de 60px da rolagem desktop */
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .section-block {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 0;
+    }
+
+    .section-title {
+        text-align: left;
+        font-size: 13px !important;
+        font-weight: 800 !important;
+        letter-spacing: 1.5px !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .text-content {
+        text-align: left;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+    .list-content {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
     }
 
     .skills-tags {
         justify-content: flex-start;
         gap: 8px;
-    }
-
-    .section-title {
-        text-align: left;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-    }
-
-    .text-content {
-        text-align: left;
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .list-content {
-        text-align: left;
-        display: block;
-        font-size: 14px;
+        margin: 0;
     }
 
     .age-text {
         text-align: left;
-        font-size: 16px;
-        margin-top: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .social-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-top: 4px;
     }
 
     /* Melhorias na Linha do Tempo para Mobile */
