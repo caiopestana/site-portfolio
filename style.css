@@ -1281,11 +1281,15 @@ body.dark-mode .timeline-item:hover .timeline-card {
         height: auto !important;
     }
 
+    .carreira-section .section-title {
+        margin-bottom: 24px !important; /* Respiro claro entre o título e a linha do tempo */
+    }
+
     .timeline-container {
-        padding: 8px 0 0 32px !important;
+        padding: 0 0 0 32px !important;
         margin: 0 !important;
         flex-direction: column !important;
-        gap: 20px !important; /* Espaçamento uniforme e harmônico entre todos os cards */
+        gap: 24px !important; /* Espaçamento uniforme e harmônico entre todos os cards */
         overflow-x: visible !important;
         overflow-y: visible !important;
         position: relative !important;
@@ -1298,7 +1302,7 @@ body.dark-mode .timeline-item:hover .timeline-card {
     .timeline-line {
         position: absolute !important;
         left: 8px !important;
-        top: 24px !important;
+        top: 18px !important;
         bottom: 24px !important;
         width: 1px !important;
         height: auto !important;
