@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trueleven - Projeto | Caio Pestana</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="dark-mode">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('dark-mode');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = savedTheme !== null ? (savedTheme === 'true') : prefersDark;
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        })();
+    </script>
+    <div class="page-background">
+        <div class="container">
+            <!-- Header herda o estilo da home -->
+            <header class="card header">
+                <div class="profile-section">
+                    <div class="profile-pic" id="profile-flipper" data-tooltip-pt="Olha eu aqui!" data-tooltip-en="Hello there!" data-tooltip="Olha eu aqui!">
+                        <div class="profile-pic-inner">
+                            <div class="profile-pic-front">
+                                <img decoding="async" src="assets/profile.webp" alt="Caio Pestana" class="profile-img">
+                            </div>
+                            <div class="profile-pic-back">
+                                <img decoding="async" src="assets/profile_var.webp" alt="Caio Pestana Variante" class="profile-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <h1>Caio Pestana</h1>
+                        <h2><span id="role-slider">Analista de Marketing.</span></h2>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <div class="top-buttons">
+                        <a href="index.html" class="icon-btn" aria-label="Home"><i class="ph ph-house"></i></a>
+                        <button class="icon-btn" id="theme-toggle" aria-label="Toggle Theme"><i
+                                class="ph ph-sun"></i></button>
+                        <button class="icon-btn" id="translate-btn" aria-label="Translate"><i
+                                class="ph ph-translate"></i></button>
+                    </div>
+                    <div class="bottom-buttons">
+                        <a href="sobre.html" class="btn outline" style="text-decoration: none;" data-pt="Sobre" data-en="About">Sobre</a>
+                        <a href="https://docs.google.com/document/d/1KJeame_RH2Qb-yNFo8YF3k7IEUDBpC2NGD-uiaLhfX0/edit?usp=sharing"
+                            target="_blank" class="btn outline" style="text-decoration: none;" data-pt="Currículo"
+                            data-en="Resume">Currículo</a>
+                        <a href="projetos-estudos.html" class="btn outline" style="text-decoration: none;" data-pt="Estudos" data-en="Side projects">Estudos</a>
+                    </div>
+                </div>
+
+                <!-- Virtual Pet -->
+                <div id="virtual-pet" class="virtual-pet">
+                    <img decoding="async" src="assets/pet-dark.webp" alt="Virtual Pet" id="pet-img">
+                    <div class="speech-bubble" id="pet-speech">Oi!</div>
+                </div>
+            </header>
+
+            <main class="project-page-layout">
+                <!-- Container Principal do Projeto (Bento Card) -->
+                <div class="card project-content-card">
+                    <div class="project-scroll-area">
+                        <!-- Navegação Voltar -->
+                        <nav class="project-nav">
+                            <a href="index.html" class="back-link">
+                                <div class="icon-btn">
+                                    <i class="ph ph-arrow-left"></i>
+                                </div>
+                            </a>
+                        </nav>
+
+                        <!-- Hero Section -->
+                        <section class="project-hero-container">
+                            <div class="project-title-area">
+                                <h1>Trueleven</h1>
+                                <div class="project-meta-tags">
+                                    <span data-pt="Ano 2025" data-en="Year 2025">Ano 2025</span>
+                                </div>
+                            </div>
+                            <div class="project-main-cover">
+                                <img loading="lazy" decoding="async" src="assets/projetos/projeto_1/1_Capa.webp" alt="Trueleven Projeto">
+                            </div>
+                        </section>
+
+                        <!-- Descrição do Projeto (Sobre) -->
+                        <section class="project-vision-section">
+                            <h3 class="section-title" data-pt="Sobre" data-en="About">Sobre</h3>
+                            <div class="project-vision-content">
+                                <p data-pt="A Trueleven é um portal de conteúdo essencial e streaming ao vivo, desenhado para quem busca clareza em um mundo saturado de informações e ruídos. A plataforma oferece curadoria fidedigna e conexão real com temas que realmente importam, como Inteligência Artificial, Tecnologia, Gestão e Inovação."
+                                    data-en="Trueleven is an essential content portal and live streaming platform, designed for those seeking clarity in a world saturated with information and noise. The platform offers trustworthy curation and genuine connection with topics that truly matter, such as Artificial Intelligence, Technology, Management, and Innovation.">
+                                    A <strong>Trueleven</strong> é um portal de conteúdo essencial e streaming ao vivo,
+                                    desenhado para quem busca clareza em um mundo saturado de informações e ruídos. A
+                                    plataforma oferece curadoria fidedigna e conexão real com temas que realmente
+                                    importam, como Inteligência Artificial, Tecnologia, Gestão e Inovação.
+                                </p>
+                                <p data-pt="Fui responsável pelo desenvolvimento da Identidade Visual e pela criação e estrutura do website, do zero até a publicação."
+                                    data-en="I was responsible for developing the visual identity and for creating and structuring the website, from scratch to publication.">
+                                    Fui responsável pelo desenvolvimento da Identidade Visual e pela criação e estrutura
+                                    do website, do zero até a publicação.
+                                </p>
+
+                                <h3 data-pt="Identidade Visual" data-en="Visual identity">Identidade Visual</h3>
+                                <p data-pt="O ponto de partida foi traduzir o conceito True + Eleven: a busca pela verdade autêntica aliada à ideia de um portal que transcende o básico (Level 11). O desafio era comunicar autoridade sem arrogância e exclusividade sem elitismo."
+                                    data-en="The starting point was translating the concept of True + Eleven: the pursuit of authentic truth combined with the idea of a portal that transcends the basics (Level 11). The challenge was to communicate authority without arrogance and exclusivity without elitism.">
+                                    O ponto de partida foi traduzir o conceito True + Eleven: a busca pela verdade
+                                    autêntica aliada à ideia de um portal que transcende o básico (Level 11). O desafio
+                                    era comunicar autoridade sem arrogância e exclusividade sem elitismo.
+                                </p>
+
+                                <h3 data-pt="Website" data-en="Website">Website</h3>
+                                <p data-pt="A estrutura do site foi organizada para sustentar um ecossistema de lifelong learning e networking exclusivo. O layout prioriza a hierarquia visual para os pilares de conteúdo diário e debates ao vivo, garantindo que o usuário encontre contexto e profundidade rapidamente."
+                                    data-en="The site structure was organized to support an ecosystem of lifelong learning and exclusive networking. The layout prioritizes visual hierarchy for the daily content pillars and live debates, ensuring users quickly find context and depth.">
+                                    A estrutura do site foi organizada para sustentar um ecossistema de lifelong
+                                    learning e networking exclusivo. O layout prioriza a hierarquia visual para os
+                                    pilares de conteúdo diário e debates ao vivo, garantindo que o usuário encontre
+                                    contexto e profundidade rapidamente.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Etapas do Projeto -->
+                        <section class="project-highlights-section">
+                            <h3 class="section-title" data-pt="Etapas do projeto" data-en="Project Steps">Etapas do
+                                projeto</h3>
+                            <div class="project-highlights-grid">
+                                <div class="highlight-card">
+                                    <h4 data-pt="1. Imersão e Pesquisa" data-en="1. Immersion and Research">1. Imersão e
+                                        Pesquisa</h4>
+                                    <p data-pt="Compreensão das dores dos usuários, alinhamento de objetivos de negócio e análise de cenário."
+                                        data-en="Understanding user pain points, aligning business goals, and analyzing the landscape.">
+                                        Compreensão das dores dos usuários, alinhamento de objetivos de negócio e
+                                        análise de cenário.
+                                    </p>
+                                </div>
+                                <div class="highlight-card">
+                                    <h4 data-pt="2. Definição e Ideação" data-en="2. Definition and Ideation">2.
+                                        Definição e Ideação</h4>
+                                    <p data-pt="Cruzamento de dados, mapeamento da jornada do usuário e estruturação da arquitetura de informação."
+                                        data-en="Data synthesis, mapping the user journey, and structuring the information architecture.">
+                                        Cruzamento de dados, mapeamento da jornada do usuário e estruturação da
+                                        arquitetura de informação.
+                                    </p>
+                                </div>
+                                <div class="highlight-card">
+                                    <h4 data-pt="3. Interface e Prototipagem" data-en="3. Interface and Prototyping">3.
+                                        Interface e Prototipagem</h4>
+                                    <p data-pt="Criação do sistema visual, design de telas e desenvolvimento de protótipos interativos para testes."
+                                        data-en="Creating the visual system, screen design, and developing interactive prototypes for testing.">
+                                        Criação do sistema visual, design de telas e desenvolvimento de protótipos
+                                        interativos para testes.
+                                    </p>
+                                </div>
+                                <div class="highlight-card">
+                                    <h4 data-pt="4. Validação e Entrega" data-en="4. Validation and Handoff">4.
+                                        Validação e Entrega</h4>
+                                    <p data-pt="Testes de usabilidade com usuários reais, refinamento da interface e handoff para o time de desenvolvimento."
+                                        data-en="Usability testing with real users, interface refinement, and design handoff to the development team.">
+                                        Testes de usabilidade com usuários reais, refinamento da interface e handoff
+                                        para o time de desenvolvimento.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Resultado Final (Galeria) -->
+                        <section class="project-gallery-section">
+                            <h3 class="section-title" data-pt="Resultado final" data-en="Final result">Resultado final
+                            </h3>
+                            <div class="gallery-vertical">
+                                <div class="gallery-item">
+                                    <img loading="lazy" decoding="async" src="assets/projetos/projeto_1/2. Paleta de cores e tipografia.webp" alt="Tipografia e Paleta de cores">
+                                </div>
+                                <div class="gallery-item">
+                                    <img loading="lazy" decoding="async" src="assets/projetos/projeto_1/3. Logo.webp" alt="Logo Trueleven">
+                                </div>
+                                <div class="gallery-item">
+                                    <img loading="lazy" decoding="async" src="assets/projetos/projeto_1/4. Site 1.webp" alt="Site Desktop 1">
+                                </div>
+                                <div class="gallery-item">
+                                    <img loading="lazy" decoding="async" src="assets/projetos/projeto_1/5. Site 2.webp" alt="Site Desktop 2">
+                                </div>
+                                <div class="gallery-item">
+                                    <img loading="lazy" decoding="async" src="assets/projetos/projeto_1/9. Rodapé.webp" alt="Rodapé do site">
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Footer CTA -->
+                        <section class="project-cta-section custom-cta">
+                            <h2 data-pt="Vamos desenvolver um projeto juntos?"
+                                data-en="Let's build a project together?">Vamos
+                                desenvolver um projeto juntos?</h2>
+                            <a href="https://fern-lyric-bc0.notion.site/3a6a18203549806296c0e4f81b1b56b1?pvs=105" target="_blank" rel="noopener noreferrer" class="cta-button">
+                                <span data-pt="ENVIAR PROPOSTA" data-en="SEND PROPOSAL">ENVIAR PROPOSTA</span>
+                                <i class="ph ph-arrow-right"></i>
+                            </a>
+                        </section>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <!-- Script de Tradução e Tema -->
+        <script>
+            let currentLang = localStorage.getItem('portfolio-lang');
+            if (!currentLang) {
+                const userLang = navigator.language || navigator.userLanguage;
+                currentLang = userLang.startsWith('en') ? 'en' : 'pt';
+            }
+
+            function updateLanguage(lang) {
+                currentLang = lang;
+                localStorage.setItem('portfolio-lang', lang);
+                document.querySelectorAll('[data-pt]').forEach(el => {
+                    const text = el.getAttribute(`data-${lang}`);
+                    if (text) {
+                        el.innerHTML = text;
+                    }
+                });
+            }
+
+            const themeBtn = document.getElementById('theme-toggle');
+            const themeIcon = themeBtn ? themeBtn.querySelector('i') : null;
+
+            function updateThemeIcon() {
+                if (!themeIcon) return;
+                if (document.body.classList.contains('dark-mode')) {
+                    themeIcon.className = 'ph ph-sun';
+                } else {
+                    themeIcon.className = 'ph ph-moon';
+                }
+            }
+
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const isDark = document.body.classList.toggle('dark-mode');
+                    localStorage.setItem('dark-mode', isDark ? 'true' : 'false');
+                    updateThemeIcon();
+                    updatePetTheme();
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                updateLanguage(currentLang);
+                document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
+                updateThemeIcon();
+                updatePetTheme();
+            });
+
+            const translateBtn = document.getElementById('translate-btn');
+            if (translateBtn) {
+                translateBtn.addEventListener('click', () => {
+                    currentLang = currentLang === 'pt' ? 'en' : 'pt';
+                    updateLanguage(currentLang);
+                    document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
+                });
+            }
+
+            // Virtual Pet Logic
+            const pet = document.getElementById('virtual-pet');
+            const petImg = document.getElementById('pet-img');
+            const petSpeech = document.getElementById('pet-speech');
+            const header = document.querySelector('.card.header');
+
+            const petPhrases = {
+                pt: {
+                    hover: ["Ei, olá!", "Fala tu!", "Não me ignora não...", "Tô te vendo!"],
+                    click: ["Para com isso.", "Tô sentindo.", "Tá bom, tá bom."],
+                    drag: ["Não sou portátil.", "Posso ao menos saber o destino?"],
+                    drop: ["Ai.", "Poderia ter avisado.", "Sobrevivi."],
+                    idle: ["Alguém por aí?", "Tô com fome.", "Tô só esperando."]
+                },
+                en: {
+                    hover: ["Oh, it's you.", "Hello, there!", "You found me."],
+                    click: ["Again?", "That tickles.", "Was that necessary?"],
+                    drag: ["Excuse me...", "This is kidnapping"],
+                    drop: ["Oof.", "That landing was rough"],
+                    idle: ["Is anyone out there?", "I could really go for a snack right now."]
+                }
+            };
+
+            function say(category) {
+                const lang = currentLang;
+                const categoryPhrases = petPhrases[lang][category] || petPhrases['pt'][category];
+                const randomPhrase = categoryPhrases[Math.floor(Math.random() * categoryPhrases.length)];
+                petSpeech.textContent = randomPhrase;
+
+                pet.style.setProperty('--bubble-opacity', '1');
+                petSpeech.style.opacity = '1';
+                petSpeech.style.transform = 'translateX(-50%) translateY(-15px)';
+
+                clearTimeout(window.petSpeechTimeout);
+                window.petSpeechTimeout = setTimeout(() => {
+                    if (!isPaused && !isDragging) {
+                        petSpeech.style.opacity = '';
+                        petSpeech.style.transform = '';
+                    }
+                }, 3000);
+            }
+
+            const BASELINE_Y = 5;
+            let posX = parseFloat(localStorage.getItem('pet-pos-x')) || 50;
+            let posY = BASELINE_Y;
+            let velX = 0.3;
+            let isPaused = false;
+            let isDragging = false;
+            let direction = parseInt(localStorage.getItem('pet-direction')) || 1;
+            velX = Math.abs(velX) * direction;
+
+            window.updatePetTheme = function () {
+                if (!petImg) return;
+                const isDark = document.body.classList.contains('dark-mode');
+                petImg.src = isDark ? 'assets/pet-dark.webp' : 'assets/pet-light.webp';
+            };
+            updatePetTheme();
+
+            function updateBounds() {
+                return header ? header.getBoundingClientRect() : { width: 1000, height: 200 };
+            }
+
+            function patrol() {
+                if (isPaused || isDragging || !pet) return;
+                const bounds = updateBounds();
+                const petBounds = pet.getBoundingClientRect();
+                
+                // Garante que o pet não inicie fora dos limites se a tela encolheu
+                const maxSafeX = bounds.width - petBounds.width - 20;
+                if (posX > maxSafeX) posX = maxSafeX;
+                if (posX < 20) posX = 20;
+
+                posX += velX;
+                if (posX + petBounds.width > bounds.width - 20) {
+                    velX = -Math.abs(velX);
+                    direction = -1;
+                } else if (posX < 20) {
+                    velX = Math.abs(velX);
+                    direction = 1;
+                }
+                pet.style.left = `${posX}px`;
+                pet.style.bottom = `${posY}px`;
+                requestAnimationFrame(patrol);
+            }
+
+            if (pet) {
+                pet.addEventListener('mouseenter', () => {
+                    isPaused = true;
+                    window.hoverTimeout = setTimeout(() => {
+                        if (!isDragging) say('hover');
+                    }, 300);
+                });
+
+                pet.addEventListener('mouseleave', () => {
+                    isPaused = false;
+                    clearTimeout(window.hoverTimeout);
+                    velX *= -1;
+                    direction *= -1;
+                    if (!isDragging) requestAnimationFrame(patrol);
+                });
+
+                let startX, startY;
+                let dragDistance = 0;
+                let mouseDownTime = 0;
+                let lastTouchX = 0;
+                let lastTouchY = 0;
+
+                const handleStart = (x, y) => {
+                    isDragging = true;
+                    mouseDownTime = Date.now();
+                    dragDistance = 0;
+                    pet.style.transition = 'none';
+                    startX = x - pet.offsetLeft;
+                    startY = y - pet.offsetTop;
+                    lastTouchX = x;
+                    lastTouchY = y;
+                    clearTimeout(window.hoverTimeout);
+                };
+
+                const handleMove = (x, y) => {
+                    if (!isDragging) return;
+                    const bounds = updateBounds();
+                    const petBounds = pet.getBoundingClientRect();
+                    let newX = x - startX;
+                    let newY = y - startY;
+
+                    const movementX = x - lastTouchX;
+                    const movementY = y - lastTouchY;
+                    dragDistance += Math.abs(movementX) + Math.abs(movementY);
+                    lastTouchX = x;
+                    lastTouchY = y;
+
+                    if (dragDistance > 10 && !window.isActuallyDragging) {
+                        window.isActuallyDragging = true;
+                        say('drag');
+                    }
+                    newX = Math.max(0, Math.min(newX, bounds.width - petBounds.width));
+                    newY = Math.max(0, Math.min(newY, bounds.height - petBounds.height));
+                    posX = newX;
+                    pet.style.left = `${newX}px`;
+                    pet.style.top = `${newY}px`;
+                    pet.style.bottom = 'auto';
+                };
+
+                const handleEnd = () => {
+                    if (!isDragging) return;
+                    const isShortClick = (Date.now() - mouseDownTime < 200) && dragDistance < 15;
+                    const bounds = updateBounds();
+                    const petBounds = pet.getBoundingClientRect();
+                    if (isShortClick) {
+                        say('click');
+                    } else if (window.isActuallyDragging) {
+                        say('drop');
+                    }
+                    isDragging = false;
+                    window.isActuallyDragging = false;
+                    pet.style.transition = 'top 0.4s cubic-bezier(0.47, 0, 0.745, 0.715)';
+                    const targetTop = bounds.height - petBounds.height - BASELINE_Y;
+                    pet.style.top = `${targetTop}px`;
+                    setTimeout(() => {
+                        if (!isDragging) {
+                            pet.style.transition = 'transform 0.3s ease';
+                            pet.style.bottom = `${BASELINE_Y}px`;
+                            pet.style.top = 'auto';
+                            posY = BASELINE_Y;
+                            requestAnimationFrame(patrol);
+                        }
+                    }, 400);
+                };
+
+                pet.addEventListener('mousedown', (e) => handleStart(e.clientX, e.clientY));
+                document.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+                document.addEventListener('mouseup', handleEnd);
+
+                pet.addEventListener('touchstart', (e) => {
+                    const touch = e.touches[0];
+                    handleStart(touch.clientX, touch.clientY);
+                }, { passive: false });
+
+                document.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    const touch = e.touches[0];
+                    handleMove(touch.clientX, touch.clientY);
+                    if (e.cancelable) e.preventDefault();
+                }, { passive: false });
+
+                document.addEventListener('touchend', handleEnd);
+
+                setInterval(() => {
+                    if (!isPaused && !isDragging && Math.random() > 0.5) {
+                        say('idle');
+                    }
+                }, 6000);
+                requestAnimationFrame(patrol);
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+                document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+            });
+
+            const profileFlipper = document.getElementById('profile-flipper');
+            if (profileFlipper) {
+                profileFlipper.addEventListener('click', () => {
+                    profileFlipper.classList.toggle('flipped');
+                });
+            }
+
+            // --- ANIMATED TYPING EFFECT LOGIC ---
+            const animatedRoles = [
+                { pt: "Analista de Marketing.", en: "Marketing Analyst." },
+                { pt: "UX/UI Designer.", en: "UX/UI Designer." },
+                { pt: "Resolvedor de problemas.", en: "Problem Solver." },
+                { pt: "Curioso criativo.", en: "Creative Thinker." },
+                { pt: "Entusiasta de IA.", en: "AI Enthusiast." },
+                { pt: "Nerd.", en: "Nerd." }
+            ];
+            
+            let currentRoleIndex = 0;
+            let currentCharIndex = 0;
+            let isDeleting = false;
+            let typingTimeout = null;
+            
+            const roleSlider = document.getElementById('role-slider');
+            
+            function getLang() {
+                return document.documentElement.lang.startsWith('en') ? 'en' : 'pt';
+            }
+            
+            function typeEffect() {
+                if (!roleSlider) return;
+                
+                const lang = getLang();
+                const currentWord = animatedRoles[currentRoleIndex][lang];
+                
+                if (isDeleting) {
+                    currentCharIndex--;
+                    roleSlider.textContent = currentWord.substring(0, currentCharIndex);
+                    
+                    if (currentCharIndex === 0) {
+                        isDeleting = false;
+                        currentRoleIndex = (currentRoleIndex + 1) % animatedRoles.length;
+                        typingTimeout = setTimeout(typeEffect, 400); // Pausa antes de digitar a próxima palavra
+                        return;
+                    }
+                    
+                    typingTimeout = setTimeout(typeEffect, 30); // Velocidade de apagar
+                } else {
+                    currentCharIndex++;
+                    roleSlider.textContent = currentWord.substring(0, currentCharIndex);
+                    
+                    if (currentCharIndex === currentWord.length) {
+                        isDeleting = true;
+                        typingTimeout = setTimeout(typeEffect, 2000); // Pausa com a palavra inteira digitada
+                        return;
+                    }
+                    
+                    const humanDelay = 50 + Math.random() * 50; // Atraso de digitação natural
+                    typingTimeout = setTimeout(typeEffect, humanDelay);
+                }
+            }
+            
+            // Observer para mudanças de idioma
+            const langObserver = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
+                        if (roleSlider) {
+                            const newLang = getLang();
+                            const oldLang = newLang === 'en' ? 'pt' : 'en';
+                            
+                            const oldWord = animatedRoles[currentRoleIndex][oldLang];
+                            const newWord = animatedRoles[currentRoleIndex][newLang];
+                            
+                            // Ajusta o progresso de escrita de forma proporcional ao tamanho da nova palavra
+                            if (oldWord && oldWord.length > 0) {
+                                currentCharIndex = Math.round((currentCharIndex / oldWord.length) * newWord.length);
+                            } else {
+                                currentCharIndex = 0;
+                            }
+                            
+                            // Garante limites válidos
+                            currentCharIndex = Math.max(0, Math.min(currentCharIndex, newWord.length));
+                            
+                            roleSlider.textContent = newWord.substring(0, currentCharIndex);
+                        }
+                    }
+                });
+            });
+            
+            if (roleSlider) {
+                // Inicializa com o texto no idioma atual
+                const initialLang = getLang();
+                const initialWord = animatedRoles[currentRoleIndex][initialLang];
+                currentCharIndex = initialWord.length;
+                roleSlider.textContent = initialWord;
+                
+                // Começa a apagar após a pausa inicial
+                isDeleting = true;
+                typingTimeout = setTimeout(typeEffect, 2000);
+                
+                // Monitora o atributo lang no html
+                langObserver.observe(document.documentElement, { attributes: true });
+            }
+
+            // Transição suave de página na navegação
+            document.querySelectorAll('a').forEach(link => {
+                if (
+                    link.hostname === window.location.hostname &&
+                    link.getAttribute('target') !== '_blank' &&
+                    (link.getAttribute('href') && (link.getAttribute('href').endsWith('.html') || link.getAttribute('href') === 'index.html' || link.getAttribute('href') === 'sobre.html' || link.getAttribute('href') === '#'))
+                ) {
+                    const href = link.getAttribute('href');
+                    if (href.startsWith('#') || link.id === 'email-copy-btn') return;
+                    
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        document.body.classList.add('fade-out-active');
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 250);
+                    });
+                }
+            });
+        
+        // Persiste a posição e direção do pet na saída da página
+        window.addEventListener('beforeunload', () => {
+            localStorage.setItem('pet-pos-x', posX);
+            localStorage.setItem('pet-direction', velX >= 0 ? '1' : '-1');
+        });
+    </script>
+    </div>
+</body>
+
+</html>
+

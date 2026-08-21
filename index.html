@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caio Pestana | Portfolio</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="dark-mode">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('dark-mode');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = savedTheme !== null ? (savedTheme === 'true') : prefersDark;
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        })();
+    </script>
+    <div class="page-background">
+        <div class="container">
+            <header class="card header">
+                <div class="profile-section">
+                    <div class="profile-pic" id="profile-flipper" data-tooltip-pt="Olha eu aqui!" data-tooltip-en="Hello there!" data-tooltip="Olha eu aqui!">
+                        <div class="profile-pic-inner">
+                            <div class="profile-pic-front">
+                                <img decoding="async" src="assets/profile.webp" alt="Caio Pestana" class="profile-img">
+                            </div>
+                            <div class="profile-pic-back">
+                                <img decoding="async" src="assets/profile_var.webp" alt="Caio Pestana Variante" class="profile-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <h1>Caio Pestana</h1>
+                        <h2><span id="role-slider">Analista de Marketing.</span></h2>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <div class="top-buttons">
+                        <a href="index.html" class="icon-btn" aria-label="Home"><i class="ph ph-house"></i></a>
+                        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><i
+                                class="ph ph-sun"></i></button>
+                        <button class="icon-btn" id="translate-btn" aria-label="Translate"><i
+                                class="ph ph-translate"></i></button>
+                    </div>
+                    <div class="bottom-buttons">
+                        <a href="sobre.html" class="btn outline" style="text-decoration: none;" data-pt="Sobre" data-en="About">Sobre</a>
+                        <a href="https://docs.google.com/document/d/1KJeame_RH2Qb-yNFo8YF3k7IEUDBpC2NGD-uiaLhfX0/edit?usp=sharing"
+                            target="_blank" class="btn outline" style="text-decoration: none;" data-pt="Currículo"
+                            data-en="Resume">Currículo</a>
+                        <a href="projetos-estudos.html" class="btn outline" style="text-decoration: none;" data-pt="Estudos" data-en="Side projects">Estudos</a>
+                    </div>
+                </div>
+
+                <!-- Virtual Pet -->
+                <div id="virtual-pet" class="virtual-pet">
+                    <img decoding="async" src="assets/pet-dark.webp" alt="Virtual Pet" id="pet-img">
+                    <div class="speech-bubble" id="pet-speech">Oi!</div>
+                </div>
+            </header>
+
+            <div class="main-layout">
+                <aside class="card sidebar">
+                    <div class="sidebar-scroll-area">
+
+                        <section class="section-block">
+                            <p class="location-text">
+                                <i class="ph ph-map-pin"></i> BSB (DF) - JLLE (SC)
+                            </p>
+                            <p class="text-content" style="margin-top: 12px; margin-bottom: 0;" data-pt="Sou um Analista de Marketing apaixonado por design, construir e planejar soluções." data-en="I'm a Marketing Analyst passionate about design, building, and planning solutions.">
+                                Sou um Analista de Marketing apaixonado por design, construir e planejar soluções.
+                            </p>
+                        </section>
+
+                        <div class="divider"></div>
+
+                        <section class="section-block">
+                            <h3 class="section-title" data-pt="FORMAÇÃO" data-en="EDUCATION">FORMAÇÃO</h3>
+                            <ul class="list-content">
+                                <li>
+                                    <strong
+                                        data-pt="Pós-graduação em Marketing: Estratégias, Negócios Digitais e Experiência do Cliente"
+                                        data-en="Postgraduate in Marketing: Strategies, Digital Business and Customer Experience">Pós-graduação
+                                        em Marketing: Estratégias, Negócios Digitais e Experiência do
+                                        Cliente</strong><br>
+                                    <span style="color: var(--text-muted); font-size: 13px;">PUC Paraná &bull; Mai 2025
+                                        &mdash; Jun 2026</span>
+                                </li>
+                                <li>
+                                    <strong data-pt="Graduação em Publicidade e Propaganda"
+                                        data-en="Bachelor's in Advertising and Public Relations">Graduação em
+                                        Publicidade e Propaganda</strong><br>
+                                    <span style="color: var(--text-muted); font-size: 13px;">Faculdade IELUSC &bull; Fev
+                                        2020 &mdash; Dez 2024</span>
+                                </li>
+                                <li>
+                                    <strong data-pt="Técnico de Informática" data-en="IT Technician">Técnico de
+                                        Informática</strong><br>
+                                    <span style="color: var(--text-muted); font-size: 13px;">SENAI SC &bull; 2018
+                                        &mdash; 2019</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <div class="divider"></div>
+
+                        <section class="section-block">
+                            <h3 class="section-title" data-pt="HABILIDADES" data-en="SKILLS">HABILIDADES</h3>
+                            <div class="skills-tags">
+                                <span class="tag" data-pt="UI/UX" data-en="UI/UX">UI/UX</span>
+                                <span class="tag" data-pt="Pesquisa de mercado" data-en="Market research">Pesquisa de
+                                    mercado</span>
+                                <span class="tag" data-pt="IA" data-en="AI">IA</span>
+                                <span class="tag" data-pt="Adobe Photoshop" data-en="Adobe Photoshop">Adobe
+                                    Photoshop</span>
+                                <span class="tag" data-pt="SEO" data-en="SEO">SEO</span>
+                                <span class="tag" data-pt="Copywriting" data-en="Copywriting">Copywriting</span>
+                                <span class="tag" data-pt="Figma" data-en="Figma">Figma</span>
+                                <span class="tag" data-pt="Gestão de equipe" data-en="Team management">Gestão de
+                                    equipe</span>
+                                <span class="tag" data-pt="KPIs" data-en="KPIs">KPIs</span>
+                                <span class="tag" data-pt="Web design" data-en="Web design">Web design</span>
+                                <span class="tag" data-pt="Soft skills" data-en="Soft skills">Soft skills</span>
+                                <span class="tag" data-pt="Adobe Illustrator" data-en="Adobe Illustrator">Adobe
+                                    Illustrator</span>
+                                <span class="tag" data-pt="Inglês" data-en="English">Inglês</span>
+                                <span class="tag" data-pt="Planejamento" data-en="Planning">Planejamento</span>
+                            </div>
+                        </section>
+
+                        <div class="divider"></div>
+
+                        <section class="section-block">
+                            <h3 class="section-title" data-pt="IDADE" data-en="AGE">IDADE</h3>
+                            <p class="age-text"><span id="age-counter">24.000000000000</span><span
+                                    data-pt=" anos de idade." data-en=" years old."> anos de idade.</span></p>
+                        </section>
+
+                        <div class="divider"></div>
+
+                        <div class="social-links">
+                            <a href="#" class="social-icon" id="email-copy-btn" aria-label="Email"
+                                data-tooltip-pt="E-mail" data-tooltip-en="Email" data-tooltip="E-mail"><i
+                                    class="ph ph-envelope"></i></a>
+                            <a href="https://www.behance.net/caio-pestana" target="_blank" rel="noopener noreferrer"
+                                class="social-icon" aria-label="Behance"
+                                data-tooltip-pt="Behance" data-tooltip-en="Behance" data-tooltip="Behance"><i
+                                    class="ph ph-behance-logo"></i></a>
+                            <a href="https://www.instagram.com/caiopestanaa/" target="_blank" rel="noopener noreferrer"
+                                class="social-icon" aria-label="Instagram"
+                                data-tooltip-pt="Instagram" data-tooltip-en="Instagram" data-tooltip="Instagram"><i
+                                    class="ph ph-instagram-logo"></i></a>
+                            <a href="https://www.linkedin.com/in/caio-pestana/" target="_blank"
+                                rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"
+                                data-tooltip-pt="LinkedIn" data-tooltip-en="LinkedIn" data-tooltip="LinkedIn"><i
+                                    class="ph ph-linkedin-logo"></i></a>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="content-area">
+                    <section class="card projetos-section">
+                        <div class="projetos-header">
+                            <h3 class="section-title" data-pt="PROJETOS" data-en="PROJECTS">PROJETOS</h3>
+                            <div class="projetos-nav">
+                                <button class="nav-btn" id="prev-project" aria-label="Previous Project"><i
+                                        class="ph ph-caret-left"></i></button>
+                                <button class="nav-btn" id="next-project" aria-label="Next Project"><i
+                                        class="ph ph-caret-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="projetos-slider-container">
+                            <div class="projetos-slider-track" id="projetos-track">
+                                <!-- Slide 1 -->
+                                <div class="projetos-page">
+                                    <a href="projeto-trueleven.html" class="projeto-card">
+                                        <div class="projeto-cover" data-tooltip-pt="Ver projeto" data-tooltip-en="View project" data-tooltip="Ver projeto">
+                                            <img loading="lazy" decoding="async" src="assets/projetos/projeto_1/1_Capa.webp" alt="Trueleven">
+                                        </div>
+                                        <div class="projeto-info">
+                                            <h3 class="projeto-title" data-pt="Trueleven" data-en="Trueleven">Trueleven
+                                            </h3>
+                                            <p class="projeto-desc"
+                                                data-pt="Identidade Visual completa e desenvolvimento do website, do conceito estético até a arquitetura de informação e publicação."
+                                                data-en="Complete visual identity and website development, from aesthetic concept to information architecture and publishing.">
+                                                Identidade Visual completa e desenvolvimento do website, do conceito
+                                                estético até a arquitetura de informação e publicação.</p>
+                                        </div>
+                                    </a>
+                                    <a href="projeto-mentor.html" class="projeto-card">
+                                        <div class="projeto-cover" data-tooltip-pt="Ver projeto" data-tooltip-en="View project" data-tooltip="Ver projeto">
+                                            <img loading="lazy" decoding="async" src="assets/projetos/projeto_2/1_Capa.webp" alt="Mentor.ia">
+                                        </div>
+                                        <div class="projeto-info">
+                                            <h3 class="projeto-title" data-pt="Mentor.ia" data-en="Mentor.ia">Mentor.ia
+                                            </h3>
+                                            <p class="projeto-desc"
+                                                data-pt="Identidade Visual completa e design da página de vendas, do conceito e estratégia de conversão até a publicação."
+                                                data-en="Complete visual identity and sales page design, from concept and conversion strategy to publishing.">
+                                                Identidade Visual completa e design da página de vendas, do conceito e
+                                                estratégia de conversão até a publicação.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="projetos-page">
+                                    <a href="projeto-conexao.html" class="projeto-card">
+                                        <div class="projeto-cover" data-tooltip-pt="Ver projeto" data-tooltip-en="View project" data-tooltip="Ver projeto">
+                                            <img loading="lazy" decoding="async" src="assets/projetos/projeto_3/1_Capa.webp" alt="Conexão.IA">
+                                        </div>
+                                        <div class="projeto-info">
+                                            <h3 class="projeto-title" data-pt="Conexão.IA" data-en="Conexão.IA">
+                                                Conexão.IA</h3>
+                                            <p class="projeto-desc"
+                                                data-pt="Identidade Visual completa e desenvolvimento do website, do conceito estético até a arquitetura de dois públicos e publicação."
+                                                data-en="Complete visual identity and website development, from aesthetic concept to dual-audience architecture and publishing.">
+                                                Identidade Visual completa e desenvolvimento do website, do conceito
+                                                estético até a arquitetura de dois públicos e publicação.</p>
+                                        </div>
+                                    </a>
+                                    <a href="projeto-stackx.html" class="projeto-card">
+                                        <div class="projeto-cover" data-tooltip-pt="Ver projeto" data-tooltip-en="View project" data-tooltip="Ver projeto">
+                                            <img loading="lazy" decoding="async" src="assets/projetos/projeto_4/1_Capa 1.webp" alt="Projeto 4">
+                                        </div>
+                                        <div class="projeto-info">
+                                            <h3 class="projeto-title" data-pt="Projeto 4" data-en="Project 4">Projeto 4
+                                            </h3>
+                                            <p class="projeto-desc" data-pt="Redesign de e-commerce de grande escala..."
+                                                data-en="Large-scale e-commerce redesign...">Redesign de e-commerce de
+                                                grande escala...</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-indicators" id="projetos-dots">
+                            <div class="dot active" data-slide="0"></div>
+                            <div class="dot" data-slide="1"></div>
+                        </div>
+                    </section>
+
+                    <section class="card carreira-section">
+                        <h3 class="section-title" data-pt="CARREIRA" data-en="CAREER">CARREIRA</h3>
+                        <div class="timeline-container">
+                            <div class="timeline-line"></div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-card">
+                                    <div class="company">StackX</div>
+                                    <div class="role" data-pt="Analista de Mkt." data-en="Mkt. Analyst">Analista de Mkt.
+                                    </div>
+                                    <div class="date-range" data-pt="Jan 2024 &mdash; Atual"
+                                        data-en="Jan 2024 &mdash; Present">Jan 2024 &mdash; Atual</div>
+                                </div>
+                                <div class="timeline-point"></div>
+                                <div class="timeline-year online-status">
+                                    <span class="pulse-dot"></span> ONLINE
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-card">
+                                    <div class="company">StackX</div>
+                                    <div class="role" data-pt="Estagiário de Design" data-en="Design Intern">Estagiário
+                                        de Design</div>
+                                    <div class="date-range">Ago 2022 &mdash; Jan 2024</div>
+                                </div>
+                                <div class="timeline-point"></div>
+                                <div class="timeline-year">2022</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-card">
+                                    <div class="company" title="Faculdade Guilherme Guimbala">Faculdade ACE</div>
+                                    <div class="role" data-pt="Estagiário de Mkt." data-en="Mkt. Intern">Estagiário de
+                                        Mkt.</div>
+                                    <div class="date-range">Set 2021 &mdash; Mai 2022</div>
+                                </div>
+                                <div class="timeline-point"></div>
+                                <div class="timeline-year">2021</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-card">
+                                    <div class="company">Espaço DesEnvolver</div>
+                                    <div class="role" data-pt="Estagiário de Mkt." data-en="Mkt. Intern">Estagiário de
+                                        Mkt.</div>
+                                    <div class="date-range">Mai 2021 &mdash; Out 2021</div>
+                                </div>
+                                <div class="timeline-point"></div>
+                                <div class="timeline-year">2021</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-card">
+                                    <div class="company">Agência AEP</div>
+                                    <div class="role" data-pt="Estagiário de Mkt." data-en="Mkt. Intern">Estagiário de
+                                        Mkt.</div>
+                                    <div class="date-range">Mar 2021 &mdash; Jul 2021</div>
+                                </div>
+                                <div class="timeline-point"></div>
+                                <div class="timeline-year">2021</div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Career Details Modal Overlay -->
+    <div class="career-modal-overlay" id="career-modal-overlay">
+        <div class="career-modal">
+            <!-- Header Fixo -->
+            <div class="modal-header">
+                <div class="modal-header-info">
+                    <h2 class="modal-role-company" id="modal-role-company">Cargo - Empresa</h2>
+                    <div class="modal-date" id="modal-date">Data de Início - Data de Saída</div>
+                </div>
+                <button class="modal-close" id="modal-close" aria-label="Close"><i class="ph ph-x"></i></button>
+            </div>
+
+            <!-- Corpo Rolável -->
+            <div class="modal-body">
+                <div class="modal-content-wrapper" id="modal-content">
+                    <p class="modal-description" id="modal-description">Descrição detalhada...</p>
+
+                    <div class="modal-sections">
+                        <div class="modal-section">
+                            <h3 class="modal-section-title" data-pt="NO QUE EU TRABALHEI" data-en="WHAT I WORKED ON">NO QUE EU TRABALHEI</h3>
+                            <ul class="modal-list" id="modal-tasks"></ul>
+                        </div>
+
+                        <div class="modal-section">
+                            <h3 class="modal-section-title" data-pt="O QUE EU APRENDI" data-en="WHAT I LEARNED">O QUE EU APRENDI</h3>
+                            <ul class="modal-list" id="modal-learnings"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Fixo -->
+            <div class="modal-footer">
+                <button class="modal-nav-btn" id="modal-prev" aria-label="Previous"><i class="ph ph-caret-left"></i></button>
+                <div class="modal-indicators" id="modal-dots"></div>
+                <button class="modal-nav-btn" id="modal-next" aria-label="Next"><i class="ph ph-caret-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Career data for Modal
+        const careerData = [
+            {
+                company: "StackX",
+                role: "Analista de Mkt.",
+                roleEn: "Mkt. Analyst",
+                date: "Jan 2024 — Atual",
+                dateEn: "Jan 2024 — Present",
+                details: {
+                    pt: "Responsável por toda a operação de marketing da StackX, desde o planejamento estratégico até a execução. Atuo no posicionamento da marca, aquisição e retenção de alunos, e na comunicação em todos os canais da empresa, equilibrando decisões estratégicas com a produção diária de conteúdo.",
+                    en: "Responsible for the entire marketing operation at StackX, from strategic planning to execution. I work on brand positioning, student acquisition and retention, and communication across all company channels, balancing strategic decisions with daily content production."
+                },
+                tasks: {
+                    pt: [
+                        "Planejamento e execução de campanhas de aquisição e retenção de alunos",
+                        "Gestão de conteúdo para LinkedIn, Instagram, E-mail, Discord e WhatsApp",
+                        "Criação de materiais visuais e copies para eventos, imersões e lançamentos",
+                        "Automação de fluxos de comunicação com Zapier e Make",
+                        "SEO, copywriting e monitoramento de métricas com Google Analytics",
+                        "Operação de tráfego pago via Google Ads e Meta Business Suite",
+                        "Desenvolvimento de Identidade Visual e peças com Figma e Photoshop"
+                    ],
+                    en: [
+                        "Planning and execution of student acquisition and retention campaigns",
+                        "Content management for LinkedIn, Instagram, Email, Discord, and WhatsApp",
+                        "Creation of visual materials and copy for events, immersions, and launches",
+                        "Communication workflow automation with Zapier and Make",
+                        "SEO, copywriting, and metrics monitoring with Google Analytics",
+                        "Paid traffic operation via Google Ads and Meta Business Suite",
+                        "Development of visual identity and assets using Figma and Photoshop"
+                    ]
+                },
+                learnings: {
+                    pt: [
+                        "Aprendi que marketing de verdade é mais sobre clareza do que criatividade. A mensagem certa para a pessoa certa no momento certo vale mais do que qualquer campanha elaborada.",
+                        "Desenvolvi uma visão mais estratégica sobre comunicação: não basta publicar, é preciso entender por que aquele conteúdo existe, para quem ele fala e o que ele deve mover.",
+                        "Aprendi a operar sozinho sem perder a visão do todo, gerindo canais, campanhas, Identidade Visual e relacionamento com o público com organização e priorização."
+                    ],
+                    en: [
+                        "Learned that real marketing is more about clarity than creativity. The right message for the right person at the right time is worth more than any elaborate campaign.",
+                        "Developed a more strategic view of communication: it's not enough to publish, you must understand why content exists, who it speaks to, and what it should drive.",
+                        "Learned to operate solo without losing sight of the big picture, managing channels, campaigns, visual identity, and audience relationships with organization and prioritization."
+                    ]
+                }
+            },
+            {
+                company: "StackX",
+                role: "Estagiário de Design",
+                roleEn: "Design Intern",
+                date: "Ago 2022 — Jan 2024",
+                dateEn: "Aug 2022 — Jan 2024",
+                details: {
+                    pt: "Entrei na StackX como estagiário de design e fui assumindo responsabilidades além da criação visual, até migrar naturalmente para o marketing. Foi onde desenvolvi a base que uso até hoje: entender que design e comunicação são a mesma coisa quando bem alinhados.",
+                    en: "Joined StackX as a design intern and took on responsibilities beyond visual creation, eventually migrating naturally into marketing. This is where I built the foundation I use today: understanding that design and communication are one and the same when properly aligned."
+                },
+                tasks: {
+                    pt: [
+                        "Criação de peças gráficas para redes sociais, e-mail e site institucional",
+                        "Desenvolvimento de Identidade Visual para marca e projetos internos",
+                        "Direção de arte para mídias online e offline",
+                        "Produção de materiais para eventos internos e externos",
+                        "Monitoramento de métricas de redes sociais",
+                        "Manutenção e atualização do site institucional via CMS",
+                        "Ferramentas: Figma, Adobe Photoshop, Illustrator"
+                    ],
+                    en: [
+                        "Creation of graphic assets for social media, email, and institutional website",
+                        "Visual identity development for the brand and internal projects",
+                        "Art direction for online and offline media",
+                        "Production of materials for internal and external events",
+                        "Social media metrics monitoring",
+                        "Maintenance and update of the institutional website via CMS",
+                        "Tools: Figma, Adobe Photoshop, Illustrator"
+                    ]
+                },
+                learnings: {
+                    pt: [
+                        "Design sem estratégia é decoração. Comecei a questionar não só como as peças ficavam, mas por que existiam e o que precisavam comunicar.",
+                        "Isso me levou a assumir gradualmente a gestão do planejamento de conteúdo e a pensar com mais autonomia sobre posicionamento e comunicação. Enxergo o design como ferramenta estratégica."
+                    ],
+                    en: [
+                        "Design without strategy is just decoration. I started questioning not just how pieces looked, but why they existed and what they needed to communicate.",
+                        "This led me to gradually take over content planning management and think more autonomously about positioning and communication. I see design as a strategic tool."
+                    ]
+                }
+            },
+            {
+                company: "Faculdade ACE",
+                role: "Estagiário de Mkt.",
+                roleEn: "Marketing Intern",
+                date: "Set 2021 — Mai 2022",
+                dateEn: "Sep 2021 — May 2022",
+                details: {
+                    pt: "Ainda no início da faculdade, tive contato com marketing dentro de uma instituição de ensino estruturada. O ambiente formal e processos definidos me ensinaram a operar dentro de estruturas maiores e entender a comunicação institucional na prática.",
+                    en: "Early in college, I had contact with marketing within a structured educational institution. The formal environment and defined processes taught me how to operate within larger structures and understand institutional communication in practice."
+                },
+                tasks: {
+                    pt: [
+                        "Criação de campanhas para redes sociais e comunicação institucional",
+                        "Apoio na produção de peças gráficas e redação publicitária",
+                        "Gerenciamento do site e acompanhamento de métricas",
+                        "Atendimento interno e suporte ao setor de marketing"
+                    ],
+                    en: [
+                        "Creation of campaigns for social media and institutional communication",
+                        "Support in graphic production and advertising copywriting",
+                        "Website management and metrics tracking",
+                        "Internal service and marketing department support"
+                    ]
+                },
+                learnings: {
+                    pt: [
+                        "Aprendi a executar dentro de um ambiente estruturado com consistência. Foi essencial para entender como o marketing funciona em organizações complexas e alinhar comunicação com objetivos institucionais amplos."
+                    ],
+                    en: [
+                        "Learned to execute within a structured environment with consistency. It was essential for understanding how marketing works in complex organizations and aligning communication with broad institutional goals."
+                    ]
+                }
+            },
+            {
+                company: "Espaço DesEnvolver",
+                role: "Estagiário de Mkt.",
+                roleEn: "Marketing Intern",
+                date: "Mai 2021 — Out 2021",
+                dateEn: "May 2021 — Oct 2021",
+                details: {
+                    pt: "Atuei principalmente como designer, criando e gerenciando conteúdo para as redes sociais de uma clínica de saúde infantil. Foi onde aprendi o que significa ter responsabilidade real sobre a comunicação de uma marca.",
+                    en: "Worked primarily as a designer, creating and managing content for the social media of a children's health clinic. This is where I learned what real responsibility over a brand's communication means."
+                },
+                tasks: {
+                    pt: [
+                        "Criação de peças gráficas para redes sociais",
+                        "Gestão de postagens e calendário de conteúdo",
+                        "Gestão básica de campanhas e mídia paga via Facebook Ads",
+                        "Apoio na organização de eventos online e presenciais",
+                        "Ferramentas: Instagram, Facebook Ads, Adobe Photoshop"
+                    ],
+                    en: [
+                        "Creation of graphic assets for social media",
+                        "Post management and content calendar",
+                        "Basic management of campaigns and paid media via Facebook Ads",
+                        "Support in organizing online and in-person events",
+                        "Tools: Instagram, Facebook Ads, Adobe Photoshop"
+                    ]
+                },
+                learnings: {
+                    pt: [
+                        "Aprendi o que é entregar dentro de um contexto real, com marca e público definidos. Entendi por que as escolhas criativas precisam fazer sentido para o negócio além da estética."
+                    ],
+                    en: [
+                        "Learned what it means to deliver within a real context with a defined brand and audience. I understood why creative choices must make sense for the business beyond aesthetics."
+                    ]
+                }
+            },
+            {
+                company: "Agência AEP",
+                role: "Estagiário de Mkt.",
+                roleEn: "Marketing Intern",
+                date: "Mar 2021 — Jul 2021",
+                dateEn: "Mar 2021 — Jul 2021",
+                details: {
+                    pt: "Agência experimental da faculdade atendendo demandas reais de empresas parceiras. Ambiente onde design, comunicação e estratégia se misturavam e o trabalho em equipe era a base da operação.",
+                    en: "College experimental agency meeting real demands from partner companies. An environment where design, communication, and strategy blended and teamwork was the basis of the operation."
+                },
+                tasks: {
+                    pt: [
+                        "Criação de peças gráficas para redes sociais e materiais impressos",
+                        "Desenvolvimento de Identidade Visual e branding",
+                        "Organização de eventos internos",
+                        "Participação em reuniões de alinhamento e decisões coletivas de projeto",
+                        "Atendimento a demandas variadas de empresas parceiras da faculdade"
+                    ],
+                    en: [
+                        "Creation of graphic assets for social media and printed materials",
+                        "Visual identity and branding development",
+                        "Organization of internal events",
+                        "Participation in alignment meetings and collective project decisions",
+                        "Handling varied demands from college partner companies"
+                    ]
+                },
+                learnings: {
+                    pt: [
+                        "Aprendi a trabalhar com pessoas de diferentes experiências em prol de um objetivo comum. Defender ideias em grupo e enxergar a gestão de projetos como prática real e necessária."
+                    ],
+                    en: [
+                        "Learned to work with people of different experiences toward a common goal. Defending ideas in a group and seeing project management as a necessary real-world practice."
+                    ]
+                }
+            }
+        ];
+
+        let currentCareerIndex = 0;
+
+        // Modal Elements
+        const modalOverlay = document.getElementById('career-modal-overlay');
+        const modalClose = document.getElementById('modal-close');
+        const modalPrev = document.getElementById('modal-prev');
+        const modalNext = document.getElementById('modal-next');
+        const modalContent = document.getElementById('modal-content');
+        const modalBody = document.querySelector('.modal-body');
+
+        const modalRoleCompany = document.getElementById('modal-role-company');
+        const modalDate = document.getElementById('modal-date');
+        const modalDescription = document.getElementById('modal-description');
+        const modalTasksList = document.getElementById('modal-tasks');
+        const modalLearningsList = document.getElementById('modal-learnings');
+        const modalDotsContainer = document.getElementById('modal-dots');
+
+        // Create modal dots
+        careerData.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('modal-dot');
+            dot.addEventListener('click', () => updateModalContent(i));
+            modalDotsContainer.appendChild(dot);
+        });
+
+        function updateModalContent(index) {
+            currentCareerIndex = index;
+            const data = careerData[index];
+            const lang = currentLang;
+
+            modalContent.classList.add('changing');
+
+            setTimeout(() => {
+                const role = lang === 'pt' ? data.role : data.roleEn;
+                modalRoleCompany.textContent = `${role} - ${data.company}`;
+                modalDate.textContent = lang === 'pt' ? data.date : data.dateEn;
+                modalDescription.textContent = lang === 'pt' ? data.details.pt : data.details.en;
+
+                modalTasksList.innerHTML = '';
+                const taskItems = lang === 'pt' ? data.tasks.pt : data.tasks.en;
+                taskItems.forEach(task => {
+                    const li = document.createElement('li');
+                    li.textContent = task;
+                    modalTasksList.appendChild(li);
+                });
+
+                modalLearningsList.innerHTML = '';
+                const learningItems = lang === 'pt' ? data.learnings.pt : data.learnings.en;
+                learningItems.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    modalLearningsList.appendChild(li);
+                });
+
+                document.querySelectorAll('.modal-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === index);
+                });
+
+                modalContent.classList.remove('changing');
+                modalBody.scrollTop = 0;
+            }, 300);
+        }
+
+        // Open Modal
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateModalContent(index);
+                modalOverlay.classList.add('active');
+            });
+            item.style.cursor = 'pointer';
+        });
+
+        // Close Modal
+        modalClose.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+
+        // Slider Navigation
+        modalPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            let index = currentCareerIndex - 1;
+            if (index < 0) index = careerData.length - 1;
+            updateModalContent(index);
+        });
+
+        modalNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            let index = (currentCareerIndex + 1) % careerData.length;
+            updateModalContent(index);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modalOverlay.classList.contains('active')) return;
+            if (e.key === 'Escape') modalOverlay.classList.remove('active');
+            if (e.key === 'ArrowLeft') modalPrev.click();
+            if (e.key === 'ArrowRight') modalNext.click();
+        });
+
+        // --- GLOBAL LOGIC ---
+
+        // IDADE counter effect
+        const ageElement = document.getElementById('age-counter');
+        const birthDate = new Date('2001-11-01T00:00:00');
+
+        function updateAge() {
+            const now = new Date();
+            const ageInMs = now - birthDate;
+            const ageInYears = ageInMs / (1000 * 60 * 60 * 24 * 365.25);
+            if (ageElement) ageElement.textContent = ageInYears.toFixed(12);
+            requestAnimationFrame(updateAge);
+        }
+        updateAge();
+
+        // theme toggle effect
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
+
+        function updateThemeIcon() {
+            if (!themeIcon) return;
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.className = 'ph ph-sun';
+            } else {
+                themeIcon.className = 'ph ph-moon';
+            }
+        }
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                const isDark = document.body.classList.toggle('dark-mode');
+                localStorage.setItem('dark-mode', isDark ? 'true' : 'false');
+                updateThemeIcon();
+                if (window.updatePetTheme) window.updatePetTheme();
+            });
+        }
+        updateThemeIcon();
+
+        // Profile Flip effect
+        const profileFlipper = document.getElementById('profile-flipper');
+        if (profileFlipper) {
+            profileFlipper.addEventListener('click', () => {
+                profileFlipper.classList.toggle('flipped');
+            });
+        }
+
+        // mouse glow effect
+        document.addEventListener('mousemove', (e) => {
+            document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+            document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+        });
+
+        // projetos slider
+        const projetosTrack = document.getElementById('projetos-track');
+        const projetosDots = document.querySelectorAll('#projetos-dots .dot');
+        const prevBtn = document.getElementById('prev-project');
+        const nextBtn = document.getElementById('next-project');
+        let currentSlide = 0;
+        const totalSlides = 2;
+
+        function updateCarousel(index) {
+            if (!projetosTrack) return;
+            currentSlide = index;
+            projetosTrack.style.transform = `translateX(-${currentSlide * 50}%)`;
+            projetosDots.forEach((d, i) => {
+                d.classList.toggle('active', i === parseInt(currentSlide));
+            });
+        }
+
+        projetosDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = dot.getAttribute('data-slide');
+                updateCarousel(parseInt(slideIndex));
+            });
+        });
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                let index = currentSlide - 1;
+                if (index < 0) index = totalSlides - 1;
+                updateCarousel(index);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                let index = (currentSlide + 1) % totalSlides;
+                updateCarousel(index);
+            });
+        }
+
+        // translation logic
+        let currentLang = localStorage.getItem('portfolio-lang');
+        if (!currentLang) {
+            const userLang = navigator.language || navigator.userLanguage;
+            currentLang = userLang.startsWith('en') ? 'en' : 'pt';
+        }
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('portfolio-lang', lang);
+            document.querySelectorAll('[data-pt]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) el.innerHTML = text;
+            });
+            document.querySelectorAll('[data-tooltip-pt]').forEach(el => {
+                const tooltipText = el.getAttribute(`data-tooltip-${lang}`);
+                if (tooltipText) el.setAttribute('data-tooltip', tooltipText);
+            });
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+        }
+
+        const translateBtn = document.getElementById('translate-btn');
+        if (translateBtn) {
+            translateBtn.addEventListener('click', () => {
+                currentLang = currentLang === 'pt' ? 'en' : 'pt';
+                updateLanguage(currentLang);
+            });
+        }
+        updateLanguage(currentLang);
+
+        // --- VIRTUAL PET LOGIC ---
+        const pet = document.getElementById('virtual-pet');
+        const petImg = document.getElementById('pet-img');
+        const petSpeech = document.getElementById('pet-speech');
+        const header = document.querySelector('.card.header');
+
+        const petPhrases = {
+            pt: {
+                hover: ["Ei, olá!", "Fala tu!", "Não me ignora não...", "Tô te vendo!", "Olá!", "Como você está?", "Bom te ver por aqui!", "Que dia bonito né?", "Hmm?", "Receba!", "Psiu.", "Tecnicamente isso é trabalho."],
+                click: ["Para com isso.", "Tô sentindo.", "Tá bom, tá bom.", "Por quê?!", "...oi?", "Olá!", "Faz cócegas!", "Eu vou peidar!", "Receba!", "Não sou um botão!", "Ainda aqui?", "Por que você fica me cutucando?", "Paia", "Fui programado pra ser feliz. Tô trabalhando nisso."],
+                drag: ["Não sou portátil.", "Posso ao menos saber o destino?", "Tô enjoando.", "Minha mãe tá vendo isso.", "Espera, espera, espera...", "Isso tá no seu portfólio também?"],
+                drop: ["Ai.", "Poderia ter avisado.", "Sobrevivi.", "Que aterrissagem foi essa!", "Nunca mais.", "Tô bem. Acho. Ufa!", "Obrigado eu acho", "Essa foi por pouco", "Fiquei tonto"],
+                idle: ["Alguém por aí?", "Tô com fome.", "Tô só esperando.", "Você curte jazz?", "Receba!", "Tchetche", "Oi? Testando, testando...", "Hoje tá silencioso demais.", "Me sinto observado. Ou não. Não sei.", "Acho que esqueceram de mim.", "Será que tem outros como eu por aí?", "Eu podia estar dormindo.", "Psiu. Ei. Oi.", "Meu propósito é ficar aqui. Tô cumprindo.", "Não tenho órgãos mas de alguma forma tô com fome.", "Eu poderia ser um botão. Mas não sou. Ou sou?", "Tecnicamente sou um div.", "Meu diferencial? Existo.", "Não sou UI, não sou UX. Sou outra coisa.", "Versão 1.0. Sem previsão de update.", "Tô aqui pra agregar valor. Seja lá o que isso significa."]
+            },
+            en: {
+                hover: ["Oh, it's you.", "Hello, there!", "You found me.", "Hmm?", "Sup?", "Hey, hey, hey.", "Don't just stand there.", "I see you hovering.", "...hi.", "What's up?"],
+                click: ["Again?", "That tickles.", "Was that necessary?", "I have feelings, you know.", "Please stop.", "What's up?", "Why do you keep poking me?", "...okay fine.", "Hi!", "I'm not a button!"],
+                drag: ["Excuse me...", "This is kidnapping", "Do you know where we're going?", "I trusted you", "Careful!", "Where are you taking me?", "Wheee", "Oh no!", "Let's take a walk!", "Type shi!"],
+                drop: ["Oof.", "That landing was rough", "I'm okay. I think.", "Next time, warn me.", "Noted.", "Thank you I guess", "Okay okay"],
+                idle: ["Is anyone out there?", "I could really go for a snack right now.", "Do you ever just... stare at the ceiling?", "I learned a new trick. Nobody asked, but still.", "It's quiet. Too quiet.", "You should check out Caio's work. Just saying.", "Still waiting...", "I wonder what the other portfolio pets are doing.", "Blink if you can hear me.", "Do you like jazz?", "Technically I'm just a div with feelings.", "Nobody reads the alt text. I'm the alt text.", "Waiting for my origin story.", "I don't dream. Or maybe I only dream. Hard to say."]
+            }
+        };
+
+        function say(category) {
+            if (!petSpeech) return;
+            const lang = currentLang;
+            const categoryPhrases = petPhrases[lang][category];
+            const randomPhrase = categoryPhrases[Math.floor(Math.random() * categoryPhrases.length)];
+            petSpeech.textContent = randomPhrase;
+
+            pet.style.setProperty('--bubble-opacity', '1');
+            petSpeech.style.opacity = '1';
+            petSpeech.style.transform = 'translateX(-50%) translateY(-15px)';
+
+            clearTimeout(window.petSpeechTimeout);
+            window.petSpeechTimeout = setTimeout(() => {
+                if (!isPaused && !isDragging) {
+                    petSpeech.style.opacity = '';
+                    petSpeech.style.transform = '';
+                }
+            }, 3000);
+        }
+
+        const BASELINE_Y = 5;
+        let posX = parseFloat(localStorage.getItem('pet-pos-x')) || 50;
+        let posY = BASELINE_Y;
+        let velX = 0.3;
+        let isPaused = false;
+        let isDragging = false;
+        let direction = parseInt(localStorage.getItem('pet-direction')) || 1;
+        velX = Math.abs(velX) * direction;
+
+        window.updatePetTheme = function () {
+            if (!petImg) return;
+            const isDark = document.body.classList.contains('dark-mode');
+            petImg.src = isDark ? 'assets/pet-dark.webp' : 'assets/pet-light.webp';
+        };
+        updatePetTheme();
+
+        function updateBounds() {
+            return header ? header.getBoundingClientRect() : { width: 1000, height: 200 };
+        }
+
+        function patrol() {
+            if (isPaused || isDragging || !pet) return;
+            const bounds = updateBounds();
+            const petBounds = pet.getBoundingClientRect();
+            
+            // Garante que o pet não inicie fora dos limites se a tela encolheu
+            const maxSafeX = bounds.width - petBounds.width - 20;
+            if (posX > maxSafeX) posX = maxSafeX;
+            if (posX < 20) posX = 20;
+
+            posX += velX;
+            if (posX + petBounds.width > bounds.width - 20) {
+                velX = -Math.abs(velX);
+                direction = -1;
+            } else if (posX < 20) {
+                velX = Math.abs(velX);
+                direction = 1;
+            }
+            pet.style.left = `${posX}px`;
+            pet.style.bottom = `${posY}px`;
+            requestAnimationFrame(patrol);
+        }
+
+        if (pet) {
+            pet.addEventListener('mouseenter', () => {
+                isPaused = true;
+                window.hoverTimeout = setTimeout(() => {
+                    if (!isDragging) say('hover');
+                }, 300);
+            });
+
+            pet.addEventListener('mouseleave', () => {
+                isPaused = false;
+                clearTimeout(window.hoverTimeout);
+                velX *= -1;
+                direction *= -1;
+                if (!isDragging) requestAnimationFrame(patrol);
+            });
+
+            let startX, startY;
+            let dragDistance = 0;
+            let mouseDownTime = 0;
+            let lastTouchX = 0;
+            let lastTouchY = 0;
+
+            const handleStart = (x, y) => {
+                isDragging = true;
+                mouseDownTime = Date.now();
+                dragDistance = 0;
+                pet.style.transition = 'none';
+                startX = x - pet.offsetLeft;
+                startY = y - pet.offsetTop;
+                lastTouchX = x;
+                lastTouchY = y;
+                clearTimeout(window.hoverTimeout);
+            };
+
+            const handleMove = (x, y) => {
+                if (!isDragging) return;
+                const bounds = updateBounds();
+                const petBounds = pet.getBoundingClientRect();
+                let newX = x - startX;
+                let newY = y - startY;
+
+                const movementX = x - lastTouchX;
+                const movementY = y - lastTouchY;
+                dragDistance += Math.abs(movementX) + Math.abs(movementY);
+                lastTouchX = x;
+                lastTouchY = y;
+
+                if (dragDistance > 10 && !window.isActuallyDragging) {
+                    window.isActuallyDragging = true;
+                    say('drag');
+                }
+                newX = Math.max(0, Math.min(newX, bounds.width - petBounds.width));
+                newY = Math.max(0, Math.min(newY, bounds.height - petBounds.height));
+                posX = newX;
+                pet.style.left = `${newX}px`;
+                pet.style.top = `${newY}px`;
+                pet.style.bottom = 'auto';
+            };
+
+            const handleEnd = () => {
+                if (!isDragging) return;
+                const isShortClick = (Date.now() - mouseDownTime < 200) && dragDistance < 15;
+                const bounds = updateBounds();
+                const petBounds = pet.getBoundingClientRect();
+                if (isShortClick) {
+                    say('click');
+                } else if (window.isActuallyDragging) {
+                    say('drop');
+                }
+                isDragging = false;
+                window.isActuallyDragging = false;
+                pet.style.transition = 'top 0.4s cubic-bezier(0.47, 0, 0.745, 0.715)';
+                const targetTop = bounds.height - petBounds.height - BASELINE_Y;
+                pet.style.top = `${targetTop}px`;
+                setTimeout(() => {
+                    if (!isDragging) {
+                        pet.style.transition = 'transform 0.3s ease';
+                        pet.style.bottom = `${BASELINE_Y}px`;
+                        pet.style.top = 'auto';
+                        posY = BASELINE_Y;
+                        requestAnimationFrame(patrol);
+                    }
+                }, 400);
+            };
+
+            pet.addEventListener('mousedown', (e) => handleStart(e.clientX, e.clientY));
+            document.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+            document.addEventListener('mouseup', handleEnd);
+
+            pet.addEventListener('touchstart', (e) => {
+                const touch = e.touches[0];
+                handleStart(touch.clientX, touch.clientY);
+                // Previne scroll apenas se estiver interagindo com o pet
+            }, { passive: false });
+
+            document.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                const touch = e.touches[0];
+                handleMove(touch.clientX, touch.clientY);
+                if (e.cancelable) e.preventDefault(); // Previne o scroll da página ao arrastar o pet
+            }, { passive: false });
+
+            document.addEventListener('touchend', handleEnd);
+
+            setInterval(() => {
+                if (!isPaused && !isDragging && Math.random() > 0.5) {
+                    say('idle');
+                }
+            }, 6000);
+            requestAnimationFrame(patrol);
+        }
+
+        // --- EMAIL COPY LOGIC ---
+        const emailBtn = document.getElementById('email-copy-btn');
+        if (emailBtn) {
+            emailBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = 'caiobpestana@gmail.com';
+                navigator.clipboard.writeText(email).then(() => {
+                    const icon = emailBtn.querySelector('i');
+                    if (icon) {
+                        const originalClass = icon.className;
+                        icon.className = 'ph ph-check';
+                        
+                        const petSpeech = document.getElementById('pet-speech');
+                        const pet = document.getElementById('virtual-pet');
+                        if (petSpeech && pet) {
+                            const isEn = document.documentElement.lang.startsWith('en');
+                            petSpeech.textContent = isEn ? "Email copied!" : "E-mail copiado!";
+                            pet.style.setProperty('--bubble-opacity', '1');
+                            petSpeech.style.opacity = '1';
+                            petSpeech.style.transform = 'translateX(-50%) translateY(-15px)';
+                            
+                            setTimeout(() => {
+                                petSpeech.style.opacity = '';
+                                petSpeech.style.transform = '';
+                            }, 2000);
+                        }
+
+                        setTimeout(() => {
+                            icon.className = originalClass;
+                        }, 2000);
+                    }
+                }).catch(err => {
+                    console.error('Erro ao copiar o e-mail: ', err);
+                });
+            });
+        }
+
+        // --- ANIMATED TYPING EFFECT LOGIC ---
+        const animatedRoles = [
+            { pt: "Analista de Marketing.", en: "Marketing Analyst." },
+            { pt: "UX/UI Designer.", en: "UX/UI Designer." },
+            { pt: "Resolvedor de problemas.", en: "Problem Solver." },
+            { pt: "Curioso criativo.", en: "Creative Thinker." },
+            { pt: "Entusiasta de IA.", en: "AI Enthusiast." },
+            { pt: "Nerd.", en: "Nerd." }
+        ];
+        
+        let currentRoleIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        let typingTimeout = null;
+        
+        const roleSlider = document.getElementById('role-slider');
+        
+        function getLang() {
+            return document.documentElement.lang.startsWith('en') ? 'en' : 'pt';
+        }
+        
+        function typeEffect() {
+            if (!roleSlider) return;
+            
+            const lang = getLang();
+            const currentWord = animatedRoles[currentRoleIndex][lang];
+            
+            if (isDeleting) {
+                currentCharIndex--;
+                roleSlider.textContent = currentWord.substring(0, currentCharIndex);
+                
+                if (currentCharIndex === 0) {
+                    isDeleting = false;
+                    currentRoleIndex = (currentRoleIndex + 1) % animatedRoles.length;
+                    typingTimeout = setTimeout(typeEffect, 400); // Pausa antes de digitar a próxima palavra
+                    return;
+                }
+                
+                typingTimeout = setTimeout(typeEffect, 30); // Velocidade de apagar
+            } else {
+                currentCharIndex++;
+                roleSlider.textContent = currentWord.substring(0, currentCharIndex);
+                
+                if (currentCharIndex === currentWord.length) {
+                    isDeleting = true;
+                    typingTimeout = setTimeout(typeEffect, 2000); // Pausa com a palavra inteira digitada
+                    return;
+                }
+                
+                const humanDelay = 50 + Math.random() * 50; // Atraso de digitação natural
+                typingTimeout = setTimeout(typeEffect, humanDelay);
+            }
+        }
+        
+        // Observer para mudanças de idioma
+        const langObserver = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
+                    if (roleSlider) {
+                        const newLang = getLang();
+                        const oldLang = newLang === 'en' ? 'pt' : 'en';
+                        
+                        const oldWord = animatedRoles[currentRoleIndex][oldLang];
+                        const newWord = animatedRoles[currentRoleIndex][newLang];
+                        
+                        // Ajusta o progresso de escrita de forma proporcional ao tamanho da nova palavra
+                        if (oldWord && oldWord.length > 0) {
+                            currentCharIndex = Math.round((currentCharIndex / oldWord.length) * newWord.length);
+                        } else {
+                            currentCharIndex = 0;
+                        }
+                        
+                        // Garante limites válidos
+                        currentCharIndex = Math.max(0, Math.min(currentCharIndex, newWord.length));
+                        
+                        roleSlider.textContent = newWord.substring(0, currentCharIndex);
+                    }
+                }
+            });
+        });
+        
+        if (roleSlider) {
+            // Inicializa com o texto no idioma atual
+            const initialLang = getLang();
+            const initialWord = animatedRoles[currentRoleIndex][initialLang];
+            currentCharIndex = initialWord.length;
+            roleSlider.textContent = initialWord;
+            
+            // Começa a apagar após a pausa inicial
+            isDeleting = true;
+            typingTimeout = setTimeout(typeEffect, 2000);
+            
+            // Monitora o atributo lang no html
+            langObserver.observe(document.documentElement, { attributes: true });
+        }
+
+        // Transição suave de página na navegação
+        document.querySelectorAll('a').forEach(link => {
+            if (
+                link.hostname === window.location.hostname &&
+                link.getAttribute('target') !== '_blank' &&
+                (link.getAttribute('href') && (link.getAttribute('href').endsWith('.html') || link.getAttribute('href') === 'index.html' || link.getAttribute('href') === 'sobre.html' || link.getAttribute('href') === '#'))
+            ) {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#') || link.id === 'email-copy-btn') return;
+                
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.body.classList.add('fade-out-active');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 250);
+                });
+            }
+        });
+    
+        // Persiste a posição e direção do pet na saída da página
+        window.addEventListener('beforeunload', () => {
+            localStorage.setItem('pet-pos-x', posX);
+            localStorage.setItem('pet-direction', velX >= 0 ? '1' : '-1');
+        });
+    </script>
+</body>
+
+</html>
