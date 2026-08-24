@@ -1,5 +1,13 @@
 @font-face {
     font-family: 'Space Grotesk';
+    src: url('assets/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype-variations'),
+         url('assets/fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf') format('truetype');
+    font-weight: 300 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
     src: url('assets/fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
     font-weight: 300;
     font-display: swap;
@@ -2491,7 +2499,7 @@ body.dark-mode .project-cta-section {
         height: 44px;
     }
 
-    /* Efeito de Respiração/Cascata no Background Mobile */
+    /* Efeito de Respiração/Cascata no Background Mobile 100% GPU */
     .page-background::after {
         background-image: radial-gradient(circle at 50% 50%,
                 var(--dot-color-glow) 0%,
@@ -2502,24 +2510,26 @@ body.dark-mode .project-cta-section {
         height: 200%;
         top: -50%;
         left: -50%;
+        will-change: transform, opacity;
+        transform: translate3d(0, 0, 0);
     }
 }
 
 @keyframes ambientGlow {
     0% {
-        transform: translate(0, 0) scale(1);
+        transform: translate3d(0, 0, 0) scale(1);
         opacity: 0.15;
     }
     33% {
-        transform: translate(5%, 10%) scale(1.1);
+        transform: translate3d(5%, 10%, 0) scale(1.1);
         opacity: 0.3;
     }
     66% {
-        transform: translate(-10%, 5%) scale(0.9);
+        transform: translate3d(-10%, 5%, 0) scale(0.9);
         opacity: 0.15;
     }
     100% {
-        transform: translate(0, 0) scale(1);
+        transform: translate3d(0, 0, 0) scale(1);
         opacity: 0.15;
     }
 }

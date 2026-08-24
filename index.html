@@ -7,9 +7,11 @@
     <title>Caio Pestana | Portfolio</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
+        <link rel="preload" href="assets/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/profile.webp" as="image" type="image/webp" fetchpriority="high">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body class="dark-mode">
@@ -32,7 +34,7 @@
                     <div class="profile-pic" id="profile-flipper" data-tooltip-pt="Olha eu aqui!" data-tooltip-en="Hello there!" data-tooltip="Olha eu aqui!">
                         <div class="profile-pic-inner">
                             <div class="profile-pic-front">
-                                <img decoding="async" src="assets/profile.webp" alt="Caio Pestana" class="profile-img">
+                                <img decoding="async" src="assets/profile.webp" alt="Caio Pestana" fetchpriority="high" class="profile-img">
                             </div>
                             <div class="profile-pic-back">
                                 <img decoding="async" src="assets/profile_var.webp" alt="Caio Pestana Variante" class="profile-img">
