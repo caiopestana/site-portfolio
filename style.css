@@ -1028,106 +1028,125 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 }
 
-/* Responsive adjust for smaller screens and zoom (Ctrl +) */
-@media (max-width: 1024px),
-(max-height: 768px) {
+/* ============================================================
+   RESPONSIVIDADE INTELIGENTE PARA DESKTOP MENOR & LAPTOPS (1025px a 1366px e Alturas Menores)
+   Mantém o Bento Grid proporcional, fluido e sem quebrar os elementos.
+   ============================================================ */
+@media (max-width: 1280px) and (min-width: 901px),
+       (max-height: 850px) and (min-width: 901px) {
     body {
-        height: auto;
-        min-height: 100vh;
-        overflow: auto;
-        /* Permite rolagem quando hÃ¡ zoom ou tela pequena */
-        padding: 24px;
+        padding: 2vh 2vw;
     }
 
-    .page-background,
-    .container,
-    .main-layout,
-    .content-area {
-        height: auto;
-        min-height: 0;
+    .container {
+        gap: 16px;
+    }
+
+    .card {
+        padding: 24px 30px;
+        border-radius: var(--border-radius-md);
+    }
+
+    .card.header {
+        padding: 20px 30px;
+    }
+
+    .profile-pic {
+        width: 90px;
+        height: 90px;
+    }
+
+    .profile-details h1 {
+        font-size: 28px;
+    }
+
+    .profile-details h2 {
+        font-size: 15px;
+        height: 20px;
     }
 
     .main-layout {
-        grid-template-columns: 1fr;
-        flex: none;
+        grid-template-columns: 280px 1fr;
+        gap: 16px;
     }
 
-    .header {
-        flex-direction: column;
+    .sidebar-scroll-area {
         gap: 24px;
+        margin-right: -16px;
+        padding-right: 16px;
+        padding-bottom: 40px;
     }
 
-    .header-actions {
-        align-items: center;
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
+    .sidebar::after {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        height: 40px;
     }
 
-    .sidebar {
-        overflow-y: visible;
+    .content-area {
+        gap: 16px;
     }
 
-    .projetos-section,
-    .carreira-section,
+    .projetos-section {
+        min-height: 0;
+        padding: 24px 30px;
+    }
+
+    .projetos-header {
+        margin-bottom: 12px;
+    }
+
     .projetos-page {
-        flex: none;
+        gap: 16px;
+        padding: 0 4px 8px 4px;
     }
 
-    .projetos-page {
-        grid-template-columns: 1fr;
+    .projeto-info h3 {
+        font-size: 14px;
     }
 
-    .projeto-cover {
-        min-height: 200px;
-        /* Garante tamanho de capa bom ao rolar */
+    .projeto-desc {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .carreira-section {
+        padding: 20px 30px !important;
     }
 
     .timeline-container {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 40px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .timeline-container::after {
-        display: none;
+        padding: 10px 40px 5px 40px;
+        margin-left: -30px;
+        margin-right: -30px;
+        gap: 20px;
     }
 
     .timeline-line {
-        top: 0;
-        bottom: 0;
-        left: 26px;
-        right: auto;
-        width: 2px;
-        height: 100%;
+        left: 40px;
+        right: 40px;
+        bottom: 31px;
     }
 
     .timeline-item {
-        flex-direction: row;
-        width: 100%;
-        margin-bottom: 24px;
+        width: 140px;
     }
 
     .timeline-card {
-        margin-bottom: 0;
-        margin-left: 24px;
-        width: auto;
-        flex: 1;
+        padding: 6px 10px;
+        margin-bottom: 8px;
     }
 
-    .timeline-point {
-        position: absolute;
-        left: -20px;
-        top: 10px;
-        margin-bottom: 0;
+    .timeline-card .company {
+        font-size: 10px;
     }
 
-    .timeline-year {
-        position: absolute;
-        left: -80px;
-        top: 8px;
+    .timeline-card .role {
+        font-size: 10px;
+    }
+
+    .timeline-card .date-range {
+        font-size: 8.5px;
     }
 }
 
@@ -2274,7 +2293,7 @@ body.dark-mode .project-cta-section {
    RESPONSIVIDADE COMPLETA (MOBILE & TABLET)
    ============================================================ */
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     .main-layout {
         grid-template-columns: 1fr;
     }
