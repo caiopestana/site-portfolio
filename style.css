@@ -814,18 +814,23 @@ body.dark-mode .nav-btn:hover {
     /* Suaviza para melhor hierarquia */
 }
 
+.projetos-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 .carousel-indicators {
     display: flex;
-    gap: 10px;
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
-    z-index: 10;
+    align-items: center;
+    gap: 6px;
+    position: static;
+    z-index: 1;
 }
 
 .dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background-color: var(--border-color);
     cursor: pointer;
@@ -834,8 +839,8 @@ body.dark-mode .nav-btn:hover {
 
 .dot.active {
     background-color: var(--text-main);
-    width: 24px;
-    border-radius: 4px;
+    width: 18px;
+    border-radius: 3px;
 }
 
 /* Carreira Timeline */
@@ -1116,37 +1121,43 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 
     .timeline-container {
-        padding: 10px 40px 5px 40px;
+        padding: 10px 30px 10px 30px;
         margin-left: -30px;
         margin-right: -30px;
         gap: 20px;
+        align-items: stretch;
     }
 
     .timeline-line {
-        left: 40px;
-        right: 40px;
-        bottom: 31px;
+        left: 30px;
+        right: 30px;
+        bottom: 39px;
     }
 
     .timeline-item {
         width: 140px;
+        justify-content: flex-end;
     }
 
     .timeline-card {
-        padding: 6px 10px;
-        margin-bottom: 8px;
+        padding: 8px 10px;
+        margin-bottom: 12px;
     }
 
     .timeline-card .company {
-        font-size: 10px;
+        font-size: 10.5px;
     }
 
     .timeline-card .role {
-        font-size: 10px;
+        font-size: 10.5px;
     }
 
     .timeline-card .date-range {
         font-size: 8.5px;
+    }
+
+    .timeline-point {
+        margin-bottom: 8px;
     }
 }
 
