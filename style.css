@@ -1457,6 +1457,10 @@ body.dark-mode .timeline-item:hover .timeline-card {
     .projetos-section {
         padding: 24px 20px 20px 20px !important;
         height: auto !important;
+        min-height: 0 !important;
+        flex: none !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
 
     .projetos-header {
@@ -1466,8 +1470,11 @@ body.dark-mode .timeline-item:hover .timeline-card {
     .projetos-slider-container {
         overflow: hidden !important;
         width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        flex: none !important;
         margin: 0 !important;
-        padding: 2px 0 4px 0 !important;
+        padding: 4px 0 6px 0 !important;
     }
 
     .projetos-slider-track {
@@ -1475,6 +1482,7 @@ body.dark-mode .timeline-item:hover .timeline-card {
         flex-direction: row !important;
         gap: 20px !important;
         width: 100% !important;
+        height: auto !important;
         transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
 
@@ -1485,12 +1493,15 @@ body.dark-mode .timeline-item:hover .timeline-card {
         flex-direction: column !important; /* Empilha os 2 projetos um em cima do outro */
         gap: 16px !important;
         height: auto !important;
+        min-height: 0 !important;
+        box-sizing: border-box !important;
     }
 
     .projeto-card {
         flex: 0 0 auto !important;
         width: 100% !important;
         max-width: 100% !important;
+        height: auto !important;
         margin: 0 !important;
         display: flex !important;
         flex-direction: column !important;
@@ -1501,9 +1512,8 @@ body.dark-mode .timeline-item:hover .timeline-card {
     .projeto-cover {
         width: 100% !important;
         max-width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16 / 11 !important; /* Capa com altura menor e equilibrada */
-        max-height: 140px !important;
+        height: 120px !important;
+        aspect-ratio: auto !important;
         border-radius: var(--border-radius-sm) !important;
         overflow: hidden !important;
         margin-bottom: 0 !important;
