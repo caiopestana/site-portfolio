@@ -560,13 +560,18 @@ body.dark-mode .btn.outline:hover {
 
 .social-links {
     display: flex;
-    gap: 16px;
-    /* EspaÃ§o uniforme entre redes sociais */
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .social-icon {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
     border-radius: 12px;
     background-color: var(--bg-page);
     border: 1px solid rgba(0, 0, 0, 0.04);
@@ -576,11 +581,13 @@ body.dark-mode .btn.outline:hover {
     color: var(--text-main);
     text-decoration: none;
     font-size: 20px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.2s;
+    box-sizing: border-box;
 }
 
 .social-icon:hover {
     background-color: var(--bg-card-element);
+    transform: scale(1.05);
 }
 
 .divider {
@@ -811,23 +818,20 @@ body.dark-mode .nav-btn:hover {
     /* Suaviza para melhor hierarquia */
 }
 
-.projetos-controls {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
 .carousel-indicators {
     display: flex;
     align-items: center;
-    gap: 6px;
-    position: static;
-    z-index: 1;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 14px;
+    padding-right: 4px;
+    width: 100%;
+    z-index: 5;
 }
 
 .dot {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background-color: var(--border-color);
     cursor: pointer;
@@ -836,8 +840,8 @@ body.dark-mode .nav-btn:hover {
 
 .dot.active {
     background-color: var(--text-main);
-    width: 18px;
-    border-radius: 3px;
+    width: 20px;
+    border-radius: 4px;
 }
 
 /* Carreira Timeline */
@@ -1100,9 +1104,13 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 
     .projetos-slider-container {
-        padding: 6px 0 12px 0;
+        padding: 6px 0 6px 0;
         margin: 0;
         overflow: hidden;
+    }
+
+    .carousel-indicators {
+        margin-top: 10px;
     }
 
     .projeto-cover {
