@@ -1232,83 +1232,126 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 }
 
-/* Mobile specific UX/UI adjustments */
-@media (max-width: 600px) {
+/* ============================================================
+   RESPONSIVIDADE MOBILE & TABLET (<= 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+    html {
+        height: auto;
+        overflow-y: auto;
+    }
+
     body {
-        padding: 12px;
+        height: auto !important;
+        min-height: 100vh;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding: 16px 16px 40px 16px !important;
+        display: block !important;
+    }
+
+    .page-background {
+        height: auto !important;
+        max-width: 100% !important;
     }
 
     .container {
-        gap: 16px;
+        height: auto !important;
+        gap: 16px !important;
     }
 
     .card {
-        padding: 24px;
-        border-radius: var(--border-radius-md);
+        padding: 24px 20px !important;
+        border-radius: var(--border-radius-md) !important;
+        height: auto !important;
     }
 
+    /* Header Mobile */
     .header {
-        gap: 16px;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 20px !important;
+        padding: 28px 20px !important;
     }
 
     .profile-section {
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
-        width: 100%;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 16px !important;
+        width: 100% !important;
     }
 
     .profile-pic {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 8px;
+        width: 100px !important;
+        height: 100px !important;
+        margin: 0 auto !important;
     }
 
     .profile-pic-front,
     .profile-pic-back {
-        border-radius: var(--border-radius-md);
+        border-radius: var(--border-radius-md) !important;
+    }
+
+    .profile-details {
+        align-items: center !important;
+        text-align: center !important;
     }
 
     .profile-details h1 {
-        font-size: 20px;
-        margin-bottom: 4px;
+        font-size: 24px !important;
+        margin-bottom: 4px !important;
     }
 
     .profile-details h2 {
-        font-size: 14px;
-        margin-bottom: 2px;
+        font-size: 15px !important;
+        margin-bottom: 2px !important;
+        justify-content: center !important;
     }
 
     .profile-details p {
-        font-size: 12px;
-        color: var(--text-muted);
+        font-size: 13px !important;
+        color: var(--text-muted) !important;
+        justify-content: center !important;
     }
 
     .header-actions {
-        flex-direction: column;
-        gap: 32px; /* Aumenta a distância entre os grupos de botões */
-        margin-top: 16px;
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 24px !important;
+        margin-top: 8px !important;
     }
 
     .top-buttons {
-        width: 100%;
-        justify-content: center;
-        gap: 20px;
+        width: 100% !important;
+        justify-content: center !important;
+        gap: 16px !important;
     }
 
     .bottom-buttons {
-        width: 100%;
-        justify-content: center;
-        gap: 12px;
+        width: 100% !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        flex-wrap: wrap !important;
     }
 
     .bottom-buttons .btn {
-        flex: 0 1 auto; /* Não deixa o botão ocupar toda a largura */
-        min-width: 120px;
-        text-align: center;
-        padding: 10px 20px;
-        font-size: 14px;
-        border-radius: var(--border-radius-full);
+        flex: 1 1 130px !important;
+        max-width: 160px !important;
+        text-align: center !important;
+        padding: 10px 16px !important;
+        font-size: 13px !important;
+        border-radius: var(--border-radius-full) !important;
+    }
+
+    /* Layout & Sidebar Mobile */
+    .main-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        height: auto !important;
     }
 
     .sidebar {
@@ -1317,29 +1360,28 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 
     .sidebar::after {
-        display: none !important; /* Remove o fade do fundo que criava espaço vazio no mobile */
+        display: none !important;
     }
 
     .sidebar-scroll-area {
         display: flex !important;
         flex-direction: column !important;
-        gap: 28px !important; /* Espaçamento uniforme e harmônico entre todos os blocos */
-        margin-right: 0 !important;
-        padding-right: 0 !important;
-        padding-bottom: 0 !important; /* Remove o padding excessivo de 60px da rolagem desktop */
+        gap: 28px !important;
+        margin: 0 !important;
+        padding: 0 !important;
         overflow: visible !important;
         height: auto !important;
     }
 
     .section-block {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin: 0;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin: 0 !important;
     }
 
     .section-title {
-        text-align: left;
+        text-align: left !important;
         font-size: 13px !important;
         font-weight: 800 !important;
         letter-spacing: 1.5px !important;
@@ -1348,72 +1390,149 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 
     .text-content {
-        text-align: left;
-        font-size: 14px;
-        line-height: 1.6;
-        margin-bottom: 0;
+        text-align: left !important;
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 0 !important;
     }
 
     .list-content {
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        font-size: 14px;
-        margin: 0;
-        padding: 0;
+        text-align: left !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .skills-tags {
-        justify-content: flex-start;
-        gap: 8px;
-        margin: 0;
+        justify-content: flex-start !important;
+        gap: 8px !important;
+        margin: 0 !important;
     }
 
     .age-text {
-        text-align: left;
-        font-size: 15px;
-        font-weight: 700;
-        margin-top: 0;
-        margin-bottom: 0;
+        text-align: left !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        margin: 0 !important;
     }
 
     .social-links {
-        display: grid;
-        grid-template-columns: repeat(4, 44px);
-        gap: 12px;
-        margin-top: 4px;
+        display: grid !important;
+        grid-template-columns: repeat(4, 44px) !important;
+        gap: 12px !important;
+        margin-top: 4px !important;
     }
 
-    /* Melhorias na Linha do Tempo para Mobile */
+    .social-icon {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 12px !important;
+        font-size: 20px !important;
+    }
+
+    /* Área de Conteúdo Mobile */
+    .content-area {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+    }
+
+    /* Projetos Mobile */
+    .projetos-section {
+        padding: 24px 20px !important;
+        height: auto !important;
+    }
+
+    .projetos-header {
+        margin-bottom: 20px !important;
+    }
+
+    .projetos-slider-container {
+        overflow: visible !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .projetos-slider-track {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        transform: none !important;
+        gap: 24px !important;
+    }
+
+    .projeto-card {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .projeto-cover {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        max-height: none !important;
+        border-radius: var(--border-radius-md) !important;
+        overflow: hidden !important;
+        margin-bottom: 0 !important;
+    }
+
+    .projeto-cover img {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        object-fit: cover !important;
+    }
+
+    .carousel-indicators,
+    .projetos-nav {
+        display: none !important;
+    }
+
+    /* Carreira Mobile */
     .carreira-section {
-        padding: 24px !important;
+        padding: 24px 20px !important;
         height: auto !important;
     }
 
     .carreira-section .section-title {
-        margin-bottom: 24px !important; /* Respiro claro entre o título e a linha do tempo */
+        margin-bottom: 24px !important;
     }
 
     .timeline-container {
-        padding: 0 0 0 32px !important;
+        padding: 0 0 0 28px !important;
         margin: 0 !important;
+        display: flex !important;
         flex-direction: column !important;
-        gap: 24px !important; /* Espaçamento uniforme e harmônico entre todos os cards */
-        overflow-x: visible !important;
-        overflow-y: visible !important;
+        gap: 20px !important;
+        overflow: visible !important;
         position: relative !important;
+        align-items: stretch !important;
+        cursor: default !important;
     }
 
     .timeline-container::after {
-        display: none !important; /* Remove respiro extra horizontal de 60px do desktop */
+        display: none !important;
     }
 
     .timeline-line {
         position: absolute !important;
-        left: 8px !important;
-        top: 18px !important;
-        bottom: 24px !important;
+        left: 6px !important;
+        top: 14px !important;
+        bottom: 20px !important;
         width: 1px !important;
         height: auto !important;
         background-color: var(--border-color) !important;
@@ -1423,6 +1542,7 @@ body.dark-mode .timeline-item:hover .timeline-card {
 
     .timeline-item {
         position: relative !important;
+        display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         width: 100% !important;
@@ -1430,12 +1550,14 @@ body.dark-mode .timeline-item:hover .timeline-card {
         padding: 0 !important;
         gap: 6px !important;
         z-index: 2 !important;
+        transform: none !important;
+        opacity: 1 !important;
     }
 
     .timeline-point {
         position: absolute !important;
-        left: -28px !important;
-        top: 18px !important;
+        left: -27px !important;
+        top: 14px !important;
         width: 10px !important;
         height: 10px !important;
         margin: 0 !important;
@@ -1461,52 +1583,6 @@ body.dark-mode .timeline-item:hover .timeline-card {
         justify-content: flex-start !important;
         position: static !important;
         color: var(--text-main) !important;
-    }
-
-    /* Projetos Slider Mobile - Desativa o slider horizontal e empilha */
-    .projetos-slider-container {
-        overflow: visible !important; /* Permite ver a sombra ou borda se houver */
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .projetos-slider-track {
-        flex-direction: column !important;
-        width: 100% !important;
-        transform: none !important;
-        gap: 32px !important;
-        display: flex !important;
-    }
-
-    .projeto-card {
-        flex: 0 0 auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    .projeto-cover {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        min-height: 0;
-        border-radius: var(--border-radius-sm);
-        overflow: hidden;
-    }
-
-    .projeto-cover img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-    }
-
-    .carousel-indicators, .projetos-nav {
-        display: none !important;
     }
 }
 
@@ -2366,35 +2442,18 @@ body.dark-mode .project-cta-section {
 }
 
 /* ============================================================
-   RESPONSIVIDADE COMPLETA (MOBILE & TABLET)
+   RESPONSIVIDADE SUBPÁGINAS, GALERIAS & MODAIS (<= 900px)
    ============================================================ */
 
 @media (max-width: 900px) {
-    .main-layout {
-        grid-template-columns: 1fr;
-    }
-
     .project-vision-section {
         grid-template-columns: 1fr;
         gap: 32px;
     }
 
     .project-highlights-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 30px 24px;
-    }
-
-    .header-actions {
-        width: 100%;
-        margin-top: 24px;
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .gallery-grid {
@@ -2426,22 +2485,14 @@ body.dark-mode .project-cta-section {
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 16px;
-    }
-
-    .container {
-        gap: 20px;
-    }
-
     .profile-pic {
-        width: 80px;
-        height: 80px;
+        width: 80px !important;
+        height: 80px !important;
     }
 
     .profile-details h1 {
-        font-size: 22px;
-        letter-spacing: -0.5px;
+        font-size: 22px !important;
+        letter-spacing: -0.5px !important;
     }
 
     .project-title-area {
