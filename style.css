@@ -559,19 +559,16 @@ body.dark-mode .btn.outline:hover {
 }
 
 .social-links {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 44px);
     gap: 12px;
-    flex-wrap: wrap;
     align-items: center;
 }
 
 .social-icon {
     width: 44px;
     height: 44px;
-    min-width: 44px;
-    min-height: 44px;
     aspect-ratio: 1 / 1;
-    flex-shrink: 0;
     border-radius: 12px;
     background-color: var(--bg-page);
     border: 1px solid rgba(0, 0, 0, 0.04);
@@ -1094,6 +1091,11 @@ body.dark-mode .timeline-item:hover .timeline-card {
         gap: 16px;
     }
 
+    .social-links {
+        grid-template-columns: repeat(2, 44px);
+        gap: 12px;
+    }
+
     .projetos-section {
         min-height: 0;
         padding: 24px 30px;
@@ -1110,7 +1112,7 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 
     .carousel-indicators {
-        margin-top: 10px;
+        margin-top: 18px;
     }
 
     .projeto-cover {
@@ -1366,8 +1368,9 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 
     .social-links {
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, 44px);
+        gap: 12px;
         margin-top: 4px;
     }
 
