@@ -51,11 +51,19 @@
                     <div class="top-buttons">
                         <a href="index.html" class="icon-btn" aria-label="Home"><i class="ph ph-house"></i></a>
                         <button class="icon-btn" id="theme-toggle" aria-label="Toggle Theme"><i
-                                class="ph ph-sun"></i></button>
+                                 class="ph ph-sun"></i></button>
                         <button class="icon-btn" id="translate-btn" aria-label="Translate"><i
-                                class="ph ph-translate"></i></button>
+                                 class="ph ph-translate"></i></button>
+                        <button class="icon-btn mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu"><i
+                                 class="ph ph-list"></i></button>
                     </div>
-                    <div class="bottom-buttons">
+                    <div class="bottom-buttons" id="bottom-buttons">
+                        <div class="mobile-menu-quick-controls">
+                            <button class="icon-btn" id="mobile-theme-toggle" aria-label="Alternar Tema"><i
+                                    class="ph ph-sun"></i></button>
+                            <button class="icon-btn" id="mobile-translate-btn" aria-label="Idioma"><i
+                                    class="ph ph-translate"></i></button>
+                        </div>
                         <a href="sobre.html" class="btn outline" style="text-decoration: none;" data-pt="Sobre" data-en="About">Sobre</a>
                         <a href="https://drive.google.com/file/d/1W4PZo09TDJdN4RJf3fPxH-oQHSBo29sS/view?usp=drive_link"
                             target="_blank" class="btn outline" style="text-decoration: none;" data-pt="Currículo"
@@ -238,24 +246,49 @@
                 });
             }
 
-            const themeBtn = document.getElementById('theme-toggle');
-            const themeIcon = themeBtn ? themeBtn.querySelector('i') : null;
+            const themeToggleBtns = [document.getElementById('theme-toggle'), document.getElementById('mobile-theme-toggle')].filter(Boolean);
 
             function updateThemeIcon() {
-                if (!themeIcon) return;
-                if (document.body.classList.contains('dark-mode')) {
-                    themeIcon.className = 'ph ph-sun';
-                } else {
-                    themeIcon.className = 'ph ph-moon';
-                }
+                const isDark = document.body.classList.contains('dark-mode');
+                themeToggleBtns.forEach(btn => {
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.className = isDark ? 'ph ph-sun' : 'ph ph-moon';
+                    }
+                });
             }
 
-            if (themeBtn) {
-                themeBtn.addEventListener('click', () => {
+            themeToggleBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
                     const isDark = document.body.classList.toggle('dark-mode');
                     localStorage.setItem('dark-mode', isDark ? 'true' : 'false');
                     updateThemeIcon();
                     updatePetTheme();
+                });
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuToggleBtn = document.getElementById('mobile-menu-toggle');
+            const bottomButtonsContainer = document.getElementById('bottom-buttons');
+
+            if (mobileMenuToggleBtn && bottomButtonsContainer) {
+                mobileMenuToggleBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = bottomButtonsContainer.classList.toggle('mobile-menu-open');
+                    const icon = mobileMenuToggleBtn.querySelector('i');
+                    if (icon) {
+                        icon.className = isOpen ? 'ph ph-x' : 'ph ph-list';
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (bottomButtonsContainer.classList.contains('mobile-menu-open') &&
+                        !bottomButtonsContainer.contains(e.target) &&
+                        !mobileMenuToggleBtn.contains(e.target)) {
+                        bottomButtonsContainer.classList.remove('mobile-menu-open');
+                        const icon = mobileMenuToggleBtn.querySelector('i');
+                        if (icon) icon.className = 'ph ph-list';
+                    }
                 });
             }
 
@@ -266,14 +299,14 @@
                 updatePetTheme();
             });
 
-            const translateBtn = document.getElementById('translate-btn');
-            if (translateBtn) {
-                translateBtn.addEventListener('click', () => {
+            const translateBtns = [document.getElementById('translate-btn'), document.getElementById('mobile-translate-btn')].filter(Boolean);
+            translateBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
                     currentLang = currentLang === 'pt' ? 'en' : 'pt';
                     updateLanguage(currentLang);
                     document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
                 });
-            }
+            });
 
             // Virtual Pet Logic
             const pet = document.getElementById('virtual-pet');
