@@ -718,13 +718,6 @@
 
         function updateCarousel(index) {
             if (!projetosTrack) return;
-            
-            if (window.innerWidth <= 900) {
-                // Mobile layout empilhado verticalmente (um em cima do outro)
-                projetosTrack.style.transform = 'none';
-                return;
-            }
-
             const total = getTotalSlides();
             currentSlide = (index + total) % total;
             
@@ -732,9 +725,10 @@
                 // 1 projeto por página em telas intermediárias
                 projetosTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
             } else {
-                // 2 projetos por página no Desktop
+                // 2 projetos por página (Desktop e Mobile)
                 const containerWidth = projetosTrack.parentElement.offsetWidth;
-                const offset = currentSlide * (containerWidth + 24);
+                const gap = window.innerWidth <= 900 ? 12 : 24;
+                const offset = currentSlide * (containerWidth + gap);
                 projetosTrack.style.transform = `translateX(-${offset}px)`;
             }
 
