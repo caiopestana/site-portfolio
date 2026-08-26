@@ -1716,8 +1716,8 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 
     .timeline-container {
-        padding: 4px 6px 8px 0 !important;
-        margin: 0 !important;
+        padding: 4px 14px 8px 0 !important; /* Respiro de 14px à direita afastando os cards da scrollbar */
+        margin: 0 -4px 0 0 !important;
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
