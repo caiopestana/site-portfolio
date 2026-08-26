@@ -465,6 +465,7 @@ body.dark-mode .btn.outline:hover {
     padding-bottom: 60px;
     flex: 1;
     min-height: 0;
+    overflow-x: hidden;
 }
 
 .sidebar-scroll-area,
@@ -620,7 +621,10 @@ body.dark-mode .btn.outline:hover {
     font-size: 14px;
     font-weight: 500;
     font-variant-numeric: tabular-nums;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
+    display: inline-block;
+    line-height: 1.5;
 }
 
 /* Content Area */
