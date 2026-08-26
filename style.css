@@ -1443,35 +1443,35 @@ body.dark-mode .timeline-item:hover .timeline-card {
         padding: 0 !important;
     }
 
-    /* Projetos Mobile */
+    /* Projetos Slider Mobile - 2 projetos por página */
     .projetos-section {
-        padding: 24px 20px !important;
+        padding: 24px 20px 20px 20px !important;
         height: auto !important;
     }
 
     .projetos-header {
-        margin-bottom: 20px !important;
+        margin-bottom: 16px !important;
     }
 
     .projetos-slider-container {
-        overflow: visible !important;
+        overflow: hidden !important;
         width: 100% !important;
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 4px 0 6px 0 !important;
     }
 
     .projetos-slider-track {
         display: flex !important;
-        flex-direction: column !important;
+        flex-direction: row !important;
+        gap: 12px !important;
         width: 100% !important;
-        transform: none !important;
-        gap: 24px !important;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
 
     .projeto-card {
-        flex: 0 0 auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
+        flex: 0 0 calc((100% - 12px) / 2) !important;
+        width: calc((100% - 12px) / 2) !important;
+        max-width: calc((100% - 12px) / 2) !important;
         margin: 0 !important;
         display: flex !important;
         flex-direction: column !important;
@@ -1484,8 +1484,8 @@ body.dark-mode .timeline-item:hover .timeline-card {
         max-width: 100% !important;
         height: auto !important;
         aspect-ratio: 16 / 10 !important;
-        max-height: none !important;
-        border-radius: var(--border-radius-md) !important;
+        max-height: 140px !important;
+        border-radius: var(--border-radius-sm) !important;
         overflow: hidden !important;
         margin-bottom: 0 !important;
     }
@@ -1497,9 +1497,14 @@ body.dark-mode .timeline-item:hover .timeline-card {
         object-fit: cover !important;
     }
 
-    .carousel-indicators,
+    .carousel-indicators {
+        display: flex !important;
+        justify-content: flex-end !important;
+        margin-top: 14px !important;
+    }
+
     .projetos-nav {
-        display: none !important;
+        display: flex !important;
     }
 
     /* Carreira Mobile */

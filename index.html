@@ -713,7 +713,6 @@
         }
 
         function getTotalSlides() {
-            if (window.innerWidth <= 600) return 4;
             return isSingleProjectMode() ? 4 : 2;
         }
 
@@ -722,16 +721,14 @@
             const total = getTotalSlides();
             currentSlide = (index + total) % total;
             
-            if (window.innerWidth <= 600) {
-                // Mobile layout empilhado
-                projetosTrack.style.transform = 'none';
-            } else if (isSingleProjectMode()) {
-                // 1 projeto por página: move 100% por slide
+            if (isSingleProjectMode()) {
+                // 1 projeto por página em telas intermediárias
                 projetosTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
             } else {
-                // 2 projetos por página: move 100% (que são 2 cards) + o gap
+                // 2 projetos por página (Desktop e Mobile)
                 const containerWidth = projetosTrack.parentElement.offsetWidth;
-                const offset = currentSlide * (containerWidth + 24);
+                const gap = window.innerWidth <= 900 ? 12 : 24;
+                const offset = currentSlide * (containerWidth + gap);
                 projetosTrack.style.transform = `translateX(-${offset}px)`;
             }
 
@@ -759,9 +756,28 @@
             });
         }
 
-        window.addEventListener('resize', () => {
-            updateCarousel(currentSlide);
-        });
+        // Suporte a swipe no mobile (Touch Swipe)
+        const projetosContainer = document.querySelector('.projetos-slider-container');
+        if (projetosContainer) {
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            projetosContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            projetosContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const swipeDiff = touchStartX - touchEndX;
+                if (Math.abs(swipeDiff) > 40) {
+                    if (swipeDiff > 0) {
+                        updateCarousel(currentSlide + 1); // Swipe esquerda -> próximo
+                    } else {
+                        updateCarousel(currentSlide - 1); // Swipe direita -> anterior
+                    }
+                }
+            }, { passive: true });
+        }
 
         // Suporte a arrastar a timeline horizontal com o mouse (Drag to scroll)
         const timelineContainer = document.querySelector('.timeline-container');
