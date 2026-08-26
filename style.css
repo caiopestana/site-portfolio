@@ -3271,6 +3271,19 @@ body.dark-mode .location-text i {
     margin-bottom: 60px;
 }
 
+.about-photo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+}
+
+.about-photo-wrapper .spotify-status-container {
+    margin-top: 0 !important;
+    width: 100%;
+}
+
 .about-photo {
     width: 100%;
     position: relative;
@@ -3351,10 +3364,21 @@ body.dark-mode .about-photo {
         margin-bottom: 40px;
     }
 
-    .about-photo {
+    .about-photo-wrapper {
         order: -1;
+        width: 100%;
         max-width: 220px;
         align-self: center;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .about-photo {
+        width: 100%;
+        max-width: 220px;
         margin: 0 auto;
     }
 

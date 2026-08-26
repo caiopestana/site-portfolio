@@ -125,25 +125,6 @@
                                     Se você precisa de alguém que pensa marca, produto e conversão como parte do mesmo problema, bora conversar.
                                 </p>
 
-                                <!-- Widget Spotify Now Playing -->
-                                <div class="spotify-status-container" id="spotify-status-container" style="margin-top: 24px;">
-                                    <a href="https://open.spotify.com/user/gidz2532skpz4nia1n9c15sea?si=fc09109472d84b29" target="_blank" rel="noopener noreferrer" class="spotify-status-link" id="spotify-status-link">
-                                        <div class="spotify-icon-wrap">
-                                            <i class="ph-fill ph-spotify-logo spotify-icon"></i>
-                                            <span class="spotify-equalizer" id="spotify-equalizer">
-                                                <span class="eq-bar"></span>
-                                                <span class="eq-bar"></span>
-                                                <span class="eq-bar"></span>
-                                            </span>
-                                        </div>
-                                        <div class="spotify-text-content">
-                                            <span class="spotify-status-label" id="spotify-status-label" data-pt="Tocando agora" data-en="Now Playing">Tocando agora</span>
-                                            <span class="spotify-separator">—</span>
-                                            <span class="spotify-track-info" id="spotify-track-info">Carregando música...</span>
-                                        </div>
-                                    </a>
-                                </div>
-
                                 <!-- Redes Sociais logo ao final do texto -->
                                 <div class="social-links" style="margin-top: 20px; gap: 14px; display: flex; flex-wrap: wrap;">
                                     <a href="#" class="social-icon" id="email-copy-btn" aria-label="Email"
@@ -185,12 +166,33 @@
                                 </div>
                             </div>
                             
-                            <!-- Foto de Perfil à direita com Tooltip Balão de Fala -->
-                            <div class="about-photo" data-tooltip-pt="Esse sou eu." data-tooltip-en="That's me." data-tooltip="Esse sou eu.">
-                                <picture>
-                                    <source srcset="assets/foto-eu-mobile.webp" media="(max-width: 1024px)">
-                                    <img decoding="async" src="assets/foto-eu.webp" alt="Foto de Caio Pestana">
-                                </picture>
+                            <!-- Foto de Perfil à direita com Tooltip Balão de Fala e Widget Spotify abaixo -->
+                            <div class="about-photo-wrapper">
+                                <div class="about-photo" data-tooltip-pt="Esse sou eu." data-tooltip-en="That's me." data-tooltip="Esse sou eu.">
+                                    <picture>
+                                        <source srcset="assets/foto-eu-mobile.webp" media="(max-width: 1024px)">
+                                        <img decoding="async" src="assets/foto-eu.webp" alt="Foto de Caio Pestana">
+                                    </picture>
+                                </div>
+
+                                <!-- Widget Spotify Now Playing posicionado debaixo da foto -->
+                                <div class="spotify-status-container" id="spotify-status-container">
+                                    <a href="https://open.spotify.com/user/gidz2532skpz4nia1n9c15sea?si=fc09109472d84b29" target="_blank" rel="noopener noreferrer" class="spotify-status-link" id="spotify-status-link">
+                                        <div class="spotify-icon-wrap">
+                                            <i class="ph-fill ph-spotify-logo spotify-icon"></i>
+                                            <span class="spotify-equalizer" id="spotify-equalizer">
+                                                <span class="eq-bar"></span>
+                                                <span class="eq-bar"></span>
+                                                <span class="eq-bar"></span>
+                                            </span>
+                                        </div>
+                                        <div class="spotify-text-content">
+                                            <span class="spotify-status-label" id="spotify-status-label" data-pt="Tocando agora" data-en="Now Playing">Tocando agora</span>
+                                            <span class="spotify-separator">—</span>
+                                            <span class="spotify-track-info" id="spotify-track-info">Carregando música...</span>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </section>
 
@@ -664,8 +666,8 @@
         // Integração Spotify Now Playing (via Last.fm Scrobbler)
         const LASTFM_CONFIG = {
             username: 'caiopestanaa', // Usuário do Last.fm conectado ao seu Spotify
-            apiKey: 'd45b5974c05349e5d4cb058e5f29910d', // API Key pública do Last.fm
-            pollInterval: 25000 // Consulta atualizações a cada 25 segundos
+            apiKey: 'b25b959554ed76058ac220b7b2e0a026', // API Key pública funcional do Last.fm
+            pollInterval: 15000 // Consulta atualizações a cada 15 segundos
         };
 
         async function fetchSpotifyStatus() {
@@ -677,26 +679,30 @@
             if (!statusContainer || !statusLabel || !trackInfo || !statusLink) return;
 
             try {
-                const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${encodeURIComponent(LASTFM_CONFIG.username)}&api_key=${LASTFM_CONFIG.apiKey}&format=json&limit=1`;
+                // Limit 2 garante que sempre capturemos nowplaying ou a faixa recente anterior
+                const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${encodeURIComponent(LASTFM_CONFIG.username)}&api_key=${LASTFM_CONFIG.apiKey}&format=json&limit=2`;
                 const response = await fetch(url);
                 if (!response.ok) throw new Error('Falha ao obter status do Last.fm');
                 
                 const data = await response.json();
-                const recentTracks = data?.recenttracks?.track;
-                if (!recentTracks || recentTracks.length === 0) {
+                const tracks = data?.recenttracks?.track;
+                if (!tracks || (Array.isArray(tracks) && tracks.length === 0)) {
                     setDefaultFallbackStatus();
                     return;
                 }
 
-                const currentTrack = Array.isArray(recentTracks) ? recentTracks[0] : recentTracks;
+                const currentTrack = Array.isArray(tracks) ? tracks[0] : tracks;
                 const isNowPlaying = currentTrack['@attr'] && currentTrack['@attr'].nowplaying === 'true';
                 const trackName = currentTrack.name || 'Música';
                 const artistName = currentTrack.artist?.['#text'] || currentTrack.artist?.name || 'Artista';
-                const spotifyUrl = currentTrack.url || 'https://open.spotify.com';
+                
+                // Link de busca direta no Spotify para a faixa específica
+                const spotifyDirectSearchUrl = `https://open.spotify.com/search/${encodeURIComponent(trackName + ' ' + artistName)}`;
+                const trackUrl = spotifyDirectSearchUrl;
 
-                statusLink.href = spotifyUrl;
+                statusLink.href = trackUrl;
                 trackInfo.textContent = `${trackName} · ${artistName}`;
-                trackInfo.title = `${trackName} - ${artistName}`;
+                trackInfo.title = `${trackName} - ${artistName} (Abrir no Spotify)`;
 
                 if (isNowPlaying) {
                     statusContainer.classList.add('is-playing');
@@ -716,7 +722,6 @@
                     if (equalizer) equalizer.style.display = 'none';
                 }
             } catch (err) {
-                // Fallback gracioso se ainda não tiver configurado ou houver instabilidade de rede
                 setDefaultFallbackStatus();
             }
         }
