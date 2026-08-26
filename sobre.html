@@ -125,8 +125,27 @@
                                     Se você precisa de alguém que pensa marca, produto e conversão como parte do mesmo problema, bora conversar.
                                 </p>
 
+                                <!-- Widget Spotify Now Playing -->
+                                <div class="spotify-status-container" id="spotify-status-container" style="margin-top: 24px;">
+                                    <a href="https://open.spotify.com/user/gidz2532skpz4nia1n9c15sea?si=fc09109472d84b29" target="_blank" rel="noopener noreferrer" class="spotify-status-link" id="spotify-status-link">
+                                        <div class="spotify-icon-wrap">
+                                            <i class="ph-fill ph-spotify-logo spotify-icon"></i>
+                                            <span class="spotify-equalizer" id="spotify-equalizer">
+                                                <span class="eq-bar"></span>
+                                                <span class="eq-bar"></span>
+                                                <span class="eq-bar"></span>
+                                            </span>
+                                        </div>
+                                        <div class="spotify-text-content">
+                                            <span class="spotify-status-label" id="spotify-status-label" data-pt="Tocando agora" data-en="Now Playing">Tocando agora</span>
+                                            <span class="spotify-separator">—</span>
+                                            <span class="spotify-track-info" id="spotify-track-info">Carregando música...</span>
+                                        </div>
+                                    </a>
+                                </div>
+
                                 <!-- Redes Sociais logo ao final do texto -->
-                                <div class="social-links" style="margin-top: 16px; gap: 14px; display: flex; flex-wrap: wrap;">
+                                <div class="social-links" style="margin-top: 20px; gap: 14px; display: flex; flex-wrap: wrap;">
                                     <a href="#" class="social-icon" id="email-copy-btn" aria-label="Email"
                                         data-tooltip-pt="E-mail" data-tooltip-en="Email" data-tooltip="E-mail"><i
                                             class="ph ph-envelope"></i></a>
@@ -641,6 +660,91 @@
             localStorage.setItem('pet-pos-x', posX);
             localStorage.setItem('pet-direction', velX >= 0 ? '1' : '-1');
         });
+
+        // Integração Spotify Now Playing (via Last.fm Scrobbler)
+        const LASTFM_CONFIG = {
+            username: 'caiopestana', // Usuário do Last.fm conectado ao seu Spotify
+            apiKey: 'd45b5974c05349e5d4cb058e5f29910d', // API Key pública do Last.fm
+            pollInterval: 25000 // Consulta atualizações a cada 25 segundos
+        };
+
+        async function fetchSpotifyStatus() {
+            const statusContainer = document.getElementById('spotify-status-container');
+            const statusLabel = document.getElementById('spotify-status-label');
+            const trackInfo = document.getElementById('spotify-track-info');
+            const statusLink = document.getElementById('spotify-status-link');
+            const equalizer = document.getElementById('spotify-equalizer');
+            if (!statusContainer || !statusLabel || !trackInfo || !statusLink) return;
+
+            try {
+                const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${encodeURIComponent(LASTFM_CONFIG.username)}&api_key=${LASTFM_CONFIG.apiKey}&format=json&limit=1`;
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Falha ao obter status do Last.fm');
+                
+                const data = await response.json();
+                const recentTracks = data?.recenttracks?.track;
+                if (!recentTracks || recentTracks.length === 0) {
+                    setDefaultFallbackStatus();
+                    return;
+                }
+
+                const currentTrack = Array.isArray(recentTracks) ? recentTracks[0] : recentTracks;
+                const isNowPlaying = currentTrack['@attr'] && currentTrack['@attr'].nowplaying === 'true';
+                const trackName = currentTrack.name || 'Música';
+                const artistName = currentTrack.artist?.['#text'] || currentTrack.artist?.name || 'Artista';
+                const spotifyUrl = currentTrack.url || 'https://open.spotify.com';
+
+                statusLink.href = spotifyUrl;
+                trackInfo.textContent = `${trackName} · ${artistName}`;
+                trackInfo.title = `${trackName} - ${artistName}`;
+
+                if (isNowPlaying) {
+                    statusContainer.classList.add('is-playing');
+                    statusContainer.classList.remove('is-offline');
+                    statusLabel.setAttribute('data-pt', 'Tocando agora');
+                    statusLabel.setAttribute('data-en', 'Now Playing');
+                    const lang = document.documentElement.lang.startsWith('en') ? 'en' : 'pt';
+                    statusLabel.textContent = lang === 'en' ? 'Now Playing' : 'Tocando agora';
+                    if (equalizer) equalizer.style.display = 'inline-flex';
+                } else {
+                    statusContainer.classList.remove('is-playing');
+                    statusContainer.classList.add('is-offline');
+                    statusLabel.setAttribute('data-pt', 'Última ouvida');
+                    statusLabel.setAttribute('data-en', 'Last played');
+                    const lang = document.documentElement.lang.startsWith('en') ? 'en' : 'pt';
+                    statusLabel.textContent = lang === 'en' ? 'Last played' : 'Última ouvida';
+                    if (equalizer) equalizer.style.display = 'none';
+                }
+            } catch (err) {
+                // Fallback gracioso se ainda não tiver configurado ou houver instabilidade de rede
+                setDefaultFallbackStatus();
+            }
+        }
+
+        function setDefaultFallbackStatus() {
+            const statusContainer = document.getElementById('spotify-status-container');
+            const statusLabel = document.getElementById('spotify-status-label');
+            const trackInfo = document.getElementById('spotify-track-info');
+            const equalizer = document.getElementById('spotify-equalizer');
+            if (statusContainer) {
+                statusContainer.classList.remove('is-playing');
+                statusContainer.classList.add('is-offline');
+            }
+            if (statusLabel) {
+                statusLabel.setAttribute('data-pt', 'Spotify');
+                statusLabel.setAttribute('data-en', 'Spotify');
+                const lang = document.documentElement.lang.startsWith('en') ? 'en' : 'pt';
+                statusLabel.textContent = 'Spotify';
+            }
+            if (trackInfo) {
+                trackInfo.textContent = 'Ouvindo no Spotify';
+            }
+            if (equalizer) equalizer.style.display = 'none';
+        }
+
+        // Inicia a verificação e agenda o ciclo contínuo
+        fetchSpotifyStatus();
+        setInterval(fetchSpotifyStatus, LASTFM_CONFIG.pollInterval);
     </script>
     </div>
 </body>
