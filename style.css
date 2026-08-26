@@ -1483,8 +1483,9 @@ body.dark-mode .timeline-item:hover .timeline-card {
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        aspect-ratio: 16 / 10 !important;
-        max-height: 140px !important;
+        aspect-ratio: 4 / 5 !important; /* Capa vertical elegante e ampla */
+        min-height: 200px !important;
+        max-height: 250px !important;
         border-radius: var(--border-radius-sm) !important;
         overflow: hidden !important;
         margin-bottom: 0 !important;
