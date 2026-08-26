@@ -3404,9 +3404,14 @@ body.dark-mode .about-photo {
         text-align: left !important;
     }
 
+    .about-grid .social-links-title {
+        text-align: left !important;
+        margin-top: 24px !important;
+    }
+
     .about-grid .social-links {
-        justify-content: center !important;
-        margin: 24px auto 0 auto !important;
+        justify-content: flex-start !important;
+        margin: 14px 0 0 0 !important;
         width: 100%;
     }
     
