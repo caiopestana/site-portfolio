@@ -44,6 +44,21 @@
                     <div class="profile-details">
                         <h1>Caio Pestana</h1>
                         <h2><span id="role-slider">Analista de Marketing.</span></h2>
+                        <div class="spotify-status-container header-spotify" id="spotify-status-container">
+                            <a href="https://open.spotify.com/user/gidz2532skpz4nia1n9c15sea?si=fc09109472d84b29" target="_blank" rel="noopener noreferrer" class="spotify-status-link" id="spotify-status-link">
+                                <div class="spotify-icon-wrap">
+                                    <i class="ph-fill ph-spotify-logo spotify-icon"></i>
+                                    <span class="spotify-equalizer" id="spotify-equalizer">
+                                        <span class="eq-bar"></span>
+                                        <span class="eq-bar"></span>
+                                        <span class="eq-bar"></span>
+                                    </span>
+                                </div>
+                                <div class="spotify-text-content">
+                                    <span class="spotify-track-info" id="spotify-track-info">Carregando música...</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -636,6 +651,73 @@
             localStorage.setItem('pet-pos-x', posX);
             localStorage.setItem('pet-direction', velX >= 0 ? '1' : '-1');
         });
+
+        // Integração Spotify Now Playing (via Last.fm Scrobbler)
+        const LASTFM_CONFIG = {
+            username: 'caiopestanaa',
+            apiKey: 'b25b959554ed76058ac220b7b2e0a026',
+            pollInterval: 15000
+        };
+
+        async function fetchSpotifyStatus() {
+            const statusContainer = document.getElementById('spotify-status-container');
+            const trackInfo = document.getElementById('spotify-track-info');
+            const statusLink = document.getElementById('spotify-status-link');
+            const equalizer = document.getElementById('spotify-equalizer');
+            if (!statusContainer || !trackInfo || !statusLink) return;
+
+            try {
+                const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${encodeURIComponent(LASTFM_CONFIG.username)}&api_key=${LASTFM_CONFIG.apiKey}&format=json&limit=2`;
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Falha ao obter status do Last.fm');
+                
+                const data = await response.json();
+                const tracks = data?.recenttracks?.track;
+                if (!tracks || (Array.isArray(tracks) && tracks.length === 0)) {
+                    setDefaultFallbackStatus();
+                    return;
+                }
+
+                const currentTrack = Array.isArray(tracks) ? tracks[0] : tracks;
+                const isNowPlaying = currentTrack['@attr'] && currentTrack['@attr'].nowplaying === 'true';
+                const trackName = currentTrack.name || 'Música';
+                const artistName = currentTrack.artist?.['#text'] || currentTrack.artist?.name || 'Artista';
+                
+                const spotifyDirectSearchUrl = `https://open.spotify.com/search/${encodeURIComponent(trackName + ' ' + artistName)}`;
+                statusLink.href = spotifyDirectSearchUrl;
+                trackInfo.textContent = `${trackName} · ${artistName}`;
+                trackInfo.title = `${trackName} - ${artistName} (Ouvir no Spotify)`;
+
+                if (isNowPlaying) {
+                    statusContainer.classList.add('is-playing');
+                    statusContainer.classList.remove('is-offline');
+                    if (equalizer) equalizer.style.display = 'inline-flex';
+                } else {
+                    statusContainer.classList.remove('is-playing');
+                    statusContainer.classList.add('is-offline');
+                    if (equalizer) equalizer.style.display = 'none';
+                }
+            } catch (err) {
+                setDefaultFallbackStatus();
+            }
+        }
+
+        function setDefaultFallbackStatus() {
+            const statusContainer = document.getElementById('spotify-status-container');
+            const trackInfo = document.getElementById('spotify-track-info');
+            const equalizer = document.getElementById('spotify-equalizer');
+            if (statusContainer) {
+                statusContainer.classList.remove('is-playing');
+                statusContainer.classList.add('is-offline');
+            }
+            if (trackInfo) {
+                trackInfo.textContent = 'Spotify';
+            }
+            if (equalizer) equalizer.style.display = 'none';
+        }
+
+        fetchSpotifyStatus();
+        setInterval(fetchSpotifyStatus, LASTFM_CONFIG.pollInterval);
     </script>
     </div>
 </body>

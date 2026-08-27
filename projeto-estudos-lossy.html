@@ -44,6 +44,21 @@
                     <div class="profile-details">
                         <h1>Caio Pestana</h1>
                         <h2><span id="role-slider">Analista de Marketing.</span></h2>
+                        <div class="spotify-status-container header-spotify" id="spotify-status-container">
+                            <a href="https://open.spotify.com/user/gidz2532skpz4nia1n9c15sea?si=fc09109472d84b29" target="_blank" rel="noopener noreferrer" class="spotify-status-link" id="spotify-status-link">
+                                <div class="spotify-icon-wrap">
+                                    <i class="ph-fill ph-spotify-logo spotify-icon"></i>
+                                    <span class="spotify-equalizer" id="spotify-equalizer">
+                                        <span class="eq-bar"></span>
+                                        <span class="eq-bar"></span>
+                                        <span class="eq-bar"></span>
+                                    </span>
+                                </div>
+                                <div class="spotify-text-content">
+                                    <span class="spotify-track-info" id="spotify-track-info">Carregando música...</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -54,8 +69,16 @@
                                 class="ph ph-sun"></i></button>
                         <button class="icon-btn" id="translate-btn" aria-label="Translate"><i
                                 class="ph ph-translate"></i></button>
+                        <button class="icon-btn mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu"><i
+                                class="ph ph-list"></i></button>
                     </div>
-                    <div class="bottom-buttons">
+                    <div class="bottom-buttons" id="bottom-buttons">
+                        <div class="mobile-menu-quick-controls">
+                            <button class="icon-btn" id="mobile-theme-toggle" aria-label="Alternar Tema"><i
+                                    class="ph ph-sun"></i></button>
+                            <button class="icon-btn" id="mobile-translate-btn" aria-label="Idioma"><i
+                                    class="ph ph-translate"></i></button>
+                        </div>
                         <a href="sobre.html" class="btn outline" style="text-decoration: none;" data-pt="Sobre" data-en="About">Sobre</a>
                         <a href="https://drive.google.com/file/d/1W4PZo09TDJdN4RJf3fPxH-oQHSBo29sS/view?usp=drive_link"
                             target="_blank" class="btn outline" style="text-decoration: none;" data-pt="Currículo"
@@ -197,24 +220,49 @@
                 });
             }
 
-            const themeBtn = document.getElementById('theme-toggle');
-            const themeIcon = themeBtn ? themeBtn.querySelector('i') : null;
+            const themeToggleBtns = [document.getElementById('theme-toggle'), document.getElementById('mobile-theme-toggle')].filter(Boolean);
 
             function updateThemeIcon() {
-                if (!themeIcon) return;
-                if (document.body.classList.contains('dark-mode')) {
-                    themeIcon.className = 'ph ph-sun';
-                } else {
-                    themeIcon.className = 'ph ph-moon';
-                }
+                const isDark = document.body.classList.contains('dark-mode');
+                themeToggleBtns.forEach(btn => {
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.className = isDark ? 'ph ph-sun' : 'ph ph-moon';
+                    }
+                });
             }
 
-            if (themeBtn) {
-                themeBtn.addEventListener('click', () => {
+            themeToggleBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
                     const isDark = document.body.classList.toggle('dark-mode');
                     localStorage.setItem('dark-mode', isDark ? 'true' : 'false');
                     updateThemeIcon();
                     updatePetTheme();
+                });
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuToggleBtn = document.getElementById('mobile-menu-toggle');
+            const bottomButtonsContainer = document.getElementById('bottom-buttons');
+
+            if (mobileMenuToggleBtn && bottomButtonsContainer) {
+                mobileMenuToggleBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = bottomButtonsContainer.classList.toggle('mobile-menu-open');
+                    const icon = mobileMenuToggleBtn.querySelector('i');
+                    if (icon) {
+                        icon.className = isOpen ? 'ph ph-x' : 'ph ph-list';
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (bottomButtonsContainer.classList.contains('mobile-menu-open') &&
+                        !bottomButtonsContainer.contains(e.target) &&
+                        !mobileMenuToggleBtn.contains(e.target)) {
+                        bottomButtonsContainer.classList.remove('mobile-menu-open');
+                        const icon = mobileMenuToggleBtn.querySelector('i');
+                        if (icon) icon.className = 'ph ph-list';
+                    }
                 });
             }
 
@@ -225,14 +273,14 @@
                 updatePetTheme();
             });
 
-            const translateBtn = document.getElementById('translate-btn');
-            if (translateBtn) {
-                translateBtn.addEventListener('click', () => {
+            const translateBtns = [document.getElementById('translate-btn'), document.getElementById('mobile-translate-btn')].filter(Boolean);
+            translateBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
                     currentLang = currentLang === 'pt' ? 'en' : 'pt';
                     updateLanguage(currentLang);
                     document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
                 });
-            }
+            });
 
             // Virtual Pet Logic
             const pet = document.getElementById('virtual-pet');
@@ -563,6 +611,73 @@
             localStorage.setItem('pet-pos-x', posX);
             localStorage.setItem('pet-direction', velX >= 0 ? '1' : '-1');
         });
+
+        // Integração Spotify Now Playing (via Last.fm Scrobbler)
+        const LASTFM_CONFIG = {
+            username: 'caiopestanaa',
+            apiKey: 'b25b959554ed76058ac220b7b2e0a026',
+            pollInterval: 15000
+        };
+
+        async function fetchSpotifyStatus() {
+            const statusContainer = document.getElementById('spotify-status-container');
+            const trackInfo = document.getElementById('spotify-track-info');
+            const statusLink = document.getElementById('spotify-status-link');
+            const equalizer = document.getElementById('spotify-equalizer');
+            if (!statusContainer || !trackInfo || !statusLink) return;
+
+            try {
+                const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${encodeURIComponent(LASTFM_CONFIG.username)}&api_key=${LASTFM_CONFIG.apiKey}&format=json&limit=2`;
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Falha ao obter status do Last.fm');
+                
+                const data = await response.json();
+                const tracks = data?.recenttracks?.track;
+                if (!tracks || (Array.isArray(tracks) && tracks.length === 0)) {
+                    setDefaultFallbackStatus();
+                    return;
+                }
+
+                const currentTrack = Array.isArray(tracks) ? tracks[0] : tracks;
+                const isNowPlaying = currentTrack['@attr'] && currentTrack['@attr'].nowplaying === 'true';
+                const trackName = currentTrack.name || 'Música';
+                const artistName = currentTrack.artist?.['#text'] || currentTrack.artist?.name || 'Artista';
+                
+                const spotifyDirectSearchUrl = `https://open.spotify.com/search/${encodeURIComponent(trackName + ' ' + artistName)}`;
+                statusLink.href = spotifyDirectSearchUrl;
+                trackInfo.textContent = `${trackName} · ${artistName}`;
+                trackInfo.title = `${trackName} - ${artistName} (Ouvir no Spotify)`;
+
+                if (isNowPlaying) {
+                    statusContainer.classList.add('is-playing');
+                    statusContainer.classList.remove('is-offline');
+                    if (equalizer) equalizer.style.display = 'inline-flex';
+                } else {
+                    statusContainer.classList.remove('is-playing');
+                    statusContainer.classList.add('is-offline');
+                    if (equalizer) equalizer.style.display = 'none';
+                }
+            } catch (err) {
+                setDefaultFallbackStatus();
+            }
+        }
+
+        function setDefaultFallbackStatus() {
+            const statusContainer = document.getElementById('spotify-status-container');
+            const trackInfo = document.getElementById('spotify-track-info');
+            const equalizer = document.getElementById('spotify-equalizer');
+            if (statusContainer) {
+                statusContainer.classList.remove('is-playing');
+                statusContainer.classList.add('is-offline');
+            }
+            if (trackInfo) {
+                trackInfo.textContent = 'Spotify';
+            }
+            if (equalizer) equalizer.style.display = 'none';
+        }
+
+        fetchSpotifyStatus();
+        setInterval(fetchSpotifyStatus, LASTFM_CONFIG.pollInterval);
     </script>
     </div>
 </body>
