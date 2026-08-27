@@ -3372,40 +3372,31 @@ body.dark-mode .about-photo {
 
 @media (max-width: 1024px) {
     .about-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-        margin-bottom: 40px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 28px !important;
+        margin-bottom: 40px !important;
     }
 
-    .about-photo-wrapper {
-        order: -1;
-        width: 100%;
-        max-width: 220px;
-        align-self: center;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 14px;
-    }
-
+    /* Foto de perfil no topo no mobile (logo após o título SOBRE MIM) */
     .about-photo {
-        width: 100%;
-        max-width: 220px;
-        margin: 0 auto;
+        order: -1 !important;
+        width: 100% !important;
+        max-width: 220px !important;
+        align-self: center !important;
+        margin: 0 auto 12px auto !important;
     }
 
     .about-photo img {
-        width: 100%;
-        height: auto;
-        display: block;
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
     }
 
     .about-grid .project-vision-content {
-        align-items: flex-start;
-        text-align: left;
-        width: 100%;
+        align-items: flex-start !important;
+        text-align: left !important;
+        width: 100% !important;
     }
 
     .about-grid .project-vision-content p {
@@ -3421,12 +3412,18 @@ body.dark-mode .about-photo {
     .about-grid .social-links-title {
         text-align: left !important;
         margin-top: 24px !important;
+        width: 100% !important;
     }
 
+    /* Redes sociais perfeitamente equilibradas: 4 botões na 1ª linha e 4 na 2ª linha */
     .about-grid .social-links {
+        display: grid !important;
+        grid-template-columns: repeat(4, 44px) !important;
         justify-content: flex-start !important;
+        gap: 12px !important;
         margin: 14px 0 0 0 !important;
-        width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
     .custom-cta {
