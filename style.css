@@ -1725,6 +1725,22 @@ body.dark-mode .timeline-item:hover .timeline-card {
         flex-direction: column !important;
     }
 
+    /* Efeito de fade/blur no fundo do container de carreira para suavizar o scroll no mobile */
+    .carreira-section::after {
+        content: '' !important;
+        display: block !important;
+        position: absolute !important;
+        bottom: 24px !important;
+        left: 20px !important;
+        right: 20px !important;
+        height: 50px !important;
+        background: linear-gradient(to bottom, transparent, var(--bg-card)) !important;
+        pointer-events: none !important;
+        z-index: 10 !important;
+        border-bottom-left-radius: var(--border-radius-md) !important;
+        border-bottom-right-radius: var(--border-radius-md) !important;
+    }
+
     .carreira-section .section-title {
         margin-bottom: 16px !important;
     }
