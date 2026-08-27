@@ -3410,7 +3410,7 @@ body.dark-mode .about-photo {
     }
 
     .about-grid .social-links-title {
-        text-align: center !important;
+        text-align: left !important;
         margin-top: 24px !important;
         width: 100% !important;
     }
