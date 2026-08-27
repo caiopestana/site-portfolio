@@ -3484,41 +3484,37 @@ body.fade-out-active {
 }
 
 /* ==========================================================================
-   Widget Spotify Now Playing (Estilo Limpo em Linha / Sem Pílula)
+   Widget Spotify Now Playing no Header (Compacto & Sublinhado como Link)
    ========================================================================== */
 .spotify-status-container {
     display: flex;
     align-items: center;
     max-width: 100%;
-    margin-top: 24px;
+}
+
+.header-spotify {
+    margin-top: 4px !important;
 }
 
 .spotify-status-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     padding: 0;
     background: transparent;
     border: none;
-    border-radius: 0;
     text-decoration: none;
-    color: var(--text-main);
-    font-size: 14px;
+    color: var(--text-muted);
+    font-size: 12px;
     font-weight: 500;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease, color 0.2s ease;
     max-width: 100%;
     box-sizing: border-box;
 }
 
 .spotify-status-link:hover {
     background: transparent;
-    transform: none;
-    box-shadow: none;
-    opacity: 0.85;
-}
-
-body.dark-mode .spotify-status-link:hover {
-    box-shadow: none;
+    opacity: 1;
 }
 
 .spotify-icon-wrap {
@@ -3527,7 +3523,7 @@ body.dark-mode .spotify-status-link:hover {
     justify-content: center;
     position: relative;
     color: #1DB954; /* Verde Spotify */
-    font-size: 18px;
+    font-size: 15px;
     flex-shrink: 0;
 }
 
@@ -3536,7 +3532,7 @@ body.dark-mode .spotify-status-link:hover {
     display: none;
     align-items: flex-end;
     gap: 2px;
-    height: 12px;
+    height: 10px;
     margin-left: 2px;
 }
 
@@ -3548,7 +3544,7 @@ body.dark-mode .spotify-status-link:hover {
     width: 2px;
     height: 100%;
     background-color: #1DB954;
-    border-radius: 2px;
+    border-radius: 1px;
     animation: eqPulse 1.2s ease-in-out infinite alternate;
 }
 
@@ -3582,59 +3578,49 @@ body.dark-mode .spotify-status-link:hover {
 .spotify-text-content {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    line-height: 1.4;
+    line-height: 1.2;
 }
 
-.spotify-status-label {
-    font-weight: 600;
-    color: var(--text-main);
-    flex-shrink: 0;
-}
-
-.spotify-separator {
-    color: var(--text-muted);
-    opacity: 0.6;
-    flex-shrink: 0;
-}
-
+/* Linha de link sublinhado debaixo da música */
 .spotify-track-info {
     color: var(--text-muted);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    transition: color 0.2s ease;
+    text-decoration: underline;
+    text-decoration-color: rgba(128, 128, 128, 0.4);
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .spotify-status-link:hover .spotify-track-info {
     color: var(--text-main);
+    text-decoration-color: #1DB954;
 }
 
 /* Modo Offline / Última ouvida */
 .is-offline .spotify-icon {
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .is-offline .spotify-track-info {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 /* Responsivo para mobile */
-@media (max-width: 600px) {
-    .spotify-status-container {
-        width: 100%;
-        margin-top: 20px;
+@media (max-width: 900px) {
+    .header-spotify {
+        margin-top: 4px !important;
     }
     
     .spotify-status-link {
-        font-size: 13px;
-        gap: 6px;
+        font-size: 11.5px;
     }
     
     .spotify-track-info {
-        max-width: 200px;
+        max-width: 220px;
     }
 }
