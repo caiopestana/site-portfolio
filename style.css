@@ -3410,18 +3410,19 @@ body.dark-mode .about-photo {
     }
 
     .about-grid .social-links-title {
-        text-align: left !important;
+        text-align: center !important;
         margin-top: 24px !important;
         width: 100% !important;
     }
 
-    /* Redes sociais perfeitamente equilibradas: 4 botões na 1ª linha e 4 na 2ª linha */
+    /* Redes sociais perfeitamente equilibradas e centralizadas: 4 botões na 1ª linha e 4 na 2ª linha */
     .about-grid .social-links {
         display: grid !important;
         grid-template-columns: repeat(4, 44px) !important;
-        justify-content: flex-start !important;
+        justify-content: center !important;
+        justify-items: center !important;
         gap: 12px !important;
-        margin: 14px 0 0 0 !important;
+        margin: 14px auto 0 auto !important;
         width: 100% !important;
         max-width: 100% !important;
     }
