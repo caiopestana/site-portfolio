@@ -1725,20 +1725,8 @@ body.dark-mode .timeline-item:hover .timeline-card {
         flex-direction: column !important;
     }
 
-    /* Efeito de fade/blur no fundo do container de carreira para suavizar o scroll no mobile */
     .carreira-section::after {
-        content: '' !important;
-        display: block !important;
-        position: absolute !important;
-        bottom: 24px !important;
-        left: 20px !important;
-        right: 20px !important;
-        height: 50px !important;
-        background: linear-gradient(to bottom, transparent, var(--bg-card)) !important;
-        pointer-events: none !important;
-        z-index: 10 !important;
-        border-bottom-left-radius: var(--border-radius-md) !important;
-        border-bottom-right-radius: var(--border-radius-md) !important;
+        display: none !important;
     }
 
     .carreira-section .section-title {
@@ -1746,7 +1734,7 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 
     .timeline-container {
-        padding: 4px 14px 8px 0 !important; /* Respiro de 14px à direita afastando os cards da scrollbar */
+        padding: 4px 14px 28px 0 !important; /* Respiro à direita da scrollbar e 28px abaixo */
         margin: 0 -4px 0 0 !important;
         display: flex !important;
         flex-direction: column !important;
@@ -1760,6 +1748,9 @@ body.dark-mode .timeline-item:hover .timeline-card {
         -webkit-overflow-scrolling: touch !important;
         scrollbar-width: thin !important;
         scrollbar-color: var(--border-color) transparent !important;
+        /* Efeito de fade suave e natural diretamente no corte dos cards */
+        -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent 100%) !important;
+        mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent 100%) !important;
     }
 
     .timeline-container::-webkit-scrollbar {
