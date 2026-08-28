@@ -623,6 +623,13 @@
             }
         ];
 
+        // translation logic (inicializado antes do modal)
+        let currentLang = localStorage.getItem('portfolio-lang');
+        if (!currentLang) {
+            const userLang = navigator.language || navigator.userLanguage;
+            currentLang = userLang.startsWith('en') ? 'en' : 'pt';
+        }
+
         let currentCareerIndex = 0;
 
         // Modal Elements
@@ -641,137 +648,117 @@
         const modalDotsContainer = document.getElementById('modal-dots');
 
         // Create modal dots
-        careerData.forEach((_, i) => {
-            const dot = document.createElement('div');
-            dot.classList.add('modal-dot');
-            dot.addEventListener('click', () => updateModalContent(i));
-            modalDotsContainer.appendChild(dot);
-        });
+        if (modalDotsContainer) {
+            modalDotsContainer.innerHTML = '';
+            careerData.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('modal-dot');
+                dot.addEventListener('click', () => updateModalContent(i));
+                modalDotsContainer.appendChild(dot);
+            });
+        }
 
         function updateModalContent(index) {
             currentCareerIndex = index;
             const data = careerData[index];
-            const lang = currentLang;
+            if (!data) return;
+            const lang = currentLang || 'pt';
 
-            modalContent.classList.add('changing');
+            if (modalContent) modalContent.classList.add('changing');
 
             setTimeout(() => {
                 const role = lang === 'pt' ? data.role : data.roleEn;
-                modalRoleCompany.textContent = `${role} - ${data.company}`;
-                modalDate.textContent = lang === 'pt' ? data.date : data.dateEn;
-                modalDescription.textContent = lang === 'pt' ? data.details.pt : data.details.en;
+                if (modalRoleCompany) modalRoleCompany.textContent = `${role} - ${data.company}`;
+                if (modalDate) modalDate.textContent = lang === 'pt' ? data.date : data.dateEn;
+                if (modalDescription) modalDescription.textContent = lang === 'pt' ? data.details.pt : data.details.en;
 
-                modalTasksList.innerHTML = '';
-                const taskItems = lang === 'pt' ? data.tasks.pt : data.tasks.en;
-                taskItems.forEach(task => {
-                    const li = document.createElement('li');
-                    li.textContent = task;
-                    modalTasksList.appendChild(li);
-                });
+                if (modalTasksList) {
+                    modalTasksList.innerHTML = '';
+                    const taskItems = lang === 'pt' ? data.tasks.pt : data.tasks.en;
+                    taskItems.forEach(task => {
+                        const li = document.createElement('li');
+                        li.textContent = task;
+                        modalTasksList.appendChild(li);
+                    });
+                }
 
-                modalLearningsList.innerHTML = '';
-                const learningItems = lang === 'pt' ? data.learnings.pt : data.learnings.en;
-                learningItems.forEach(item => {
-                    const li = document.createElement('li');
-                    li.textContent = item;
-                    modalLearningsList.appendChild(li);
-                });
+                if (modalLearningsList) {
+                    modalLearningsList.innerHTML = '';
+                    const learningItems = lang === 'pt' ? data.learnings.pt : data.learnings.en;
+                    learningItems.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        modalLearningsList.appendChild(li);
+                    });
+                }
 
                 document.querySelectorAll('.modal-dot').forEach((d, i) => {
                     d.classList.toggle('active', i === index);
                 });
 
-                modalContent.classList.remove('changing');
-                modalBody.scrollTop = 0;
-            }, 300);
+                if (modalContent) modalContent.classList.remove('changing');
+                if (modalBody) modalBody.scrollTop = 0;
+            }, 200);
         }
 
-        // Open Modal com proteção refinada contra drag
-        let isTimelineDragging = false;
-        let timelineStartX = 0;
-        let timelineScrollLeft = 0;
-        let timelineHasMoved = false;
-
+        // Timeline Scroll & Item Click Logic
         const timelineContainer = document.querySelector('.timeline-container');
         if (timelineContainer) {
-            // Suporte para rolar horizontalmente com a roda do mouse
             timelineContainer.addEventListener('wheel', (e) => {
                 if (e.deltaY !== 0 && !e.shiftKey) {
                     timelineContainer.scrollLeft += e.deltaY * 0.8;
                 }
             }, { passive: true });
+        }
 
-            // Drag-to-scroll com mouse no desktop
-            timelineContainer.addEventListener('mousedown', (e) => {
-                isTimelineDragging = true;
-                timelineHasMoved = false;
-                timelineStartX = e.pageX - timelineContainer.offsetLeft;
-                timelineScrollLeft = timelineContainer.scrollLeft;
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                updateModalContent(index);
+                if (modalOverlay) modalOverlay.classList.add('active');
             });
+        });
 
-            window.addEventListener('mousemove', (e) => {
-                if (!isTimelineDragging) return;
-                const x = e.pageX - timelineContainer.offsetLeft;
-                const walk = (x - timelineStartX);
-                if (Math.abs(walk) > 5) {
-                    timelineHasMoved = true;
-                    timelineContainer.style.cursor = 'grabbing';
-                    timelineContainer.scrollLeft = timelineScrollLeft - (walk * 1.5);
-                }
+        // Close Modal
+        if (modalClose) {
+            modalClose.addEventListener('click', () => {
+                if (modalOverlay) modalOverlay.classList.remove('active');
             });
+        }
 
-            window.addEventListener('mouseup', () => {
-                if (isTimelineDragging) {
-                    isTimelineDragging = false;
-                    timelineContainer.style.cursor = 'default';
-                    // Reset após ciclo de eventos de clique
-                    setTimeout(() => {
-                        timelineHasMoved = false;
-                    }, 50);
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    modalOverlay.classList.remove('active');
                 }
             });
         }
 
-        document.querySelectorAll('.timeline-item').forEach((item, index) => {
-            item.addEventListener('click', (e) => {
-                if (timelineHasMoved) return; // Evita abrir o modal se foi um arraste de scroll
-                updateModalContent(index);
-                modalOverlay.classList.add('active');
-            });
-            item.style.cursor = 'pointer';
-        });
-
-        // Close Modal
-        modalClose.addEventListener('click', () => {
-            modalOverlay.classList.remove('active');
-        });
-
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                modalOverlay.classList.remove('active');
-            }
-        });
-
         // Slider Navigation
-        modalPrev.addEventListener('click', (e) => {
-            e.stopPropagation();
-            let index = currentCareerIndex - 1;
-            if (index < 0) index = careerData.length - 1;
-            updateModalContent(index);
-        });
+        if (modalPrev) {
+            modalPrev.addEventListener('click', (e) => {
+                e.stopPropagation();
+                let index = currentCareerIndex - 1;
+                if (index < 0) index = careerData.length - 1;
+                updateModalContent(index);
+            });
+        }
 
-        modalNext.addEventListener('click', (e) => {
-            e.stopPropagation();
-            let index = (currentCareerIndex + 1) % careerData.length;
-            updateModalContent(index);
-        });
+        if (modalNext) {
+            modalNext.addEventListener('click', (e) => {
+                e.stopPropagation();
+                let index = (currentCareerIndex + 1) % careerData.length;
+                updateModalContent(index);
+            });
+        }
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (!modalOverlay.classList.contains('active')) return;
+            if (!modalOverlay || !modalOverlay.classList.contains('active')) return;
             if (e.key === 'Escape') modalOverlay.classList.remove('active');
-            if (e.key === 'ArrowLeft') modalPrev.click();
-            if (e.key === 'ArrowRight') modalNext.click();
+            if (e.key === 'ArrowLeft' && modalPrev) modalPrev.click();
+            if (e.key === 'ArrowRight' && modalNext) modalNext.click();
         });
 
         // --- GLOBAL LOGIC ---
@@ -918,44 +905,6 @@
                     }
                 }
             }, { passive: true });
-        }
-
-        // Suporte a arrastar a timeline horizontal com o mouse (Drag to scroll)
-        const timelineContainer = document.querySelector('.timeline-container');
-        if (timelineContainer) {
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-
-            timelineContainer.addEventListener('mousedown', (e) => {
-                isDown = true;
-                timelineContainer.classList.add('active');
-                startX = e.pageX - timelineContainer.offsetLeft;
-                scrollLeft = timelineContainer.scrollLeft;
-            });
-
-            timelineContainer.addEventListener('mouseleave', () => {
-                isDown = false;
-            });
-
-            timelineContainer.addEventListener('mouseup', () => {
-                isDown = false;
-            });
-
-            timelineContainer.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - timelineContainer.offsetLeft;
-                const walk = (x - startX) * 1.5; // Velocidade de scroll
-                timelineContainer.scrollLeft = scrollLeft - walk;
-            });
-        }
-
-        // translation logic
-        let currentLang = localStorage.getItem('portfolio-lang');
-        if (!currentLang) {
-            const userLang = navigator.language || navigator.userLanguage;
-            currentLang = userLang.startsWith('en') ? 'en' : 'pt';
         }
 
         function updateLanguage(lang) {
