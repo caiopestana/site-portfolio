@@ -898,7 +898,8 @@ body.dark-mode .nav-btn:hover {
     align-items: center;
     justify-content: flex-end;
     gap: 8px;
-    margin-top: 14px;
+    margin-top: 24px;
+    padding-top: 4px;
     padding-right: 4px;
     width: 100%;
     z-index: 5;
@@ -1231,7 +1232,7 @@ body.dark-mode .timeline-item:hover .timeline-card {
     }
 
     .carousel-indicators {
-        margin-top: 18px;
+        margin-top: 22px;
     }
 
     .projeto-cover {
