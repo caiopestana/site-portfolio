@@ -888,7 +888,7 @@ body.dark-mode .nav-btn:hover {
     display: flex;
     justify-content: flex-start;
     margin-top: 0;
-    padding: 15px 40px 14px 40px;
+    padding: 15px 48px 20px 48px;
     margin-left: -40px;
     margin-right: -40px;
     gap: 32px;
@@ -903,25 +903,25 @@ body.dark-mode .nav-btn:hover {
 
 .timeline-container::after {
     content: '';
-    width: 40px; /* Garante espaço rolável extra para o hover e sombra do último item não cortarem */
+    width: 48px; /* Espaço rolável extra e seguro para hover */
     flex-shrink: 0;
     display: block;
 }
 
-/* Barra de rolagem horizontal interna e estilizada no Desktop */
+/* Barra de rolagem horizontal interna com espaçamento e padding elegante (UI/UX) */
 .timeline-container::-webkit-scrollbar {
     display: block;
-    height: 5px;
+    height: 4px;
 }
 
 .timeline-container::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.03);
+    background: rgba(0, 0, 0, 0.04);
     border-radius: 999px;
-    margin: 0 40px;
+    margin: 0 64px; /* Respiro refinado em relação às bordas do card */
 }
 
 body.dark-mode .timeline-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .timeline-container::-webkit-scrollbar-thumb {
@@ -936,10 +936,10 @@ body.dark-mode .timeline-container::-webkit-scrollbar-track {
 
 .timeline-line {
     position: absolute;
-    bottom: 45px;
-    /* Reajustado com precisão em relação à bolinha e à barra de rolagem */
-    left: 40px;
-    right: 40px;
+    bottom: 51px;
+    /* Alinhamento geométrico perfeito em relação ao centro dos pontos e à barra */
+    left: 48px;
+    right: 48px;
     height: 1px;
     background-color: var(--border-color);
     opacity: 0.6;
