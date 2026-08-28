@@ -770,8 +770,16 @@ body.dark-mode .nav-btn:hover {
     flex-direction: column;
     flex: 1;
     min-height: 420px;
-    /* Altura ideal para exibir projetos e carreira juntos */
     position: relative;
+    justify-content: space-between;
+}
+
+.projetos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-shrink: 0;
 }
 
 .projetos-slider-container {
@@ -779,18 +787,18 @@ body.dark-mode .nav-btn:hover {
     overflow: hidden;
     position: relative;
     width: 100%;
-    padding: 10px 0;
-    /* Respiro vertical para o translateY */
-    margin: -10px 0;
+    display: flex;
+    align-items: center;
 }
 
 .projetos-slider-track {
     display: flex;
     gap: 24px;
     height: 100%;
+    width: 100%;
     transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
     box-sizing: border-box;
-    width: 100%;
+    align-items: center;
 }
 
 .projetos-page {
@@ -799,14 +807,13 @@ body.dark-mode .nav-btn:hover {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    height: 100%;
+    align-items: center;
     box-sizing: border-box;
 }
 
 .projeto-card {
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 100%;
     text-decoration: none;
     color: inherit;
@@ -829,7 +836,7 @@ body.dark-mode .nav-btn:hover {
 .projetos-slider-track .projeto-card:hover {
     opacity: 1;
     filter: grayscale(0) blur(0);
-    transform: scale(1.02) translateY(-5px);
+    transform: scale(1.02) translateY(-4px);
 }
 
 /* Antigo placeholder - manter apenas para compatibilidade se necessário */
@@ -843,54 +850,32 @@ body.dark-mode .nav-btn:hover {
     background-color: var(--bg-card-element);
     width: 100%;
     aspect-ratio: 16 / 9;
-    /* MantÃ©m uma proporÃ§Ã£o constante para as capas */
     border-radius: var(--border-radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-muted);
     border: 1px solid rgba(0, 0, 0, 0.08);
-    /* Centralizado acima */
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
-    /* MantÃ©m a profundidade interna */
-    margin-bottom: 12px;
-    /* Reduzido de 20px para economizar altura */
+    margin-bottom: 0;
     overflow: hidden;
-    /* Garante que a imagem respeite o border-radius */
     flex-shrink: 0;
-    /* Impede que a capa seja esmagada */
 }
 
 .projeto-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projeto-card:hover .projeto-cover img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .projeto-info {
     display: none;
-}
-
-.projeto-title {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.2px;
-    color: var(--text-main);
-    margin-bottom: 4px;
-}
-
-.projeto-desc {
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: var(--text-muted);
-    opacity: 0.8;
-    /* Suaviza para melhor hierarquia */
 }
 
 .carousel-indicators {
@@ -898,11 +883,11 @@ body.dark-mode .nav-btn:hover {
     align-items: center;
     justify-content: flex-end;
     gap: 8px;
-    margin-top: 24px;
-    padding-top: 4px;
+    margin-top: 16px;
     padding-right: 4px;
     width: 100%;
     z-index: 5;
+    flex-shrink: 0;
 }
 
 .dot {
