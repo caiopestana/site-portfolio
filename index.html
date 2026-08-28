@@ -686,18 +686,17 @@
             }, 300);
         }
 
-        // Open Modal com proteção contra drag
+        // Open Modal com proteção refinada contra drag
         let isTimelineDragging = false;
         let timelineStartX = 0;
         let timelineScrollLeft = 0;
-        let timelineDragDistance = 0;
+        let timelineHasMoved = false;
 
         const timelineContainer = document.querySelector('.timeline-container');
         if (timelineContainer) {
             // Suporte para rolar horizontalmente com a roda do mouse
             timelineContainer.addEventListener('wheel', (e) => {
                 if (e.deltaY !== 0 && !e.shiftKey) {
-                    // Rola horizontalmente caso o usuário use a roda vertical
                     timelineContainer.scrollLeft += e.deltaY * 0.8;
                 }
             }, { passive: true });
@@ -705,31 +704,37 @@
             // Drag-to-scroll com mouse no desktop
             timelineContainer.addEventListener('mousedown', (e) => {
                 isTimelineDragging = true;
-                timelineDragDistance = 0;
+                timelineHasMoved = false;
                 timelineStartX = e.pageX - timelineContainer.offsetLeft;
                 timelineScrollLeft = timelineContainer.scrollLeft;
-                timelineContainer.style.cursor = 'grabbing';
             });
 
             window.addEventListener('mousemove', (e) => {
                 if (!isTimelineDragging) return;
                 const x = e.pageX - timelineContainer.offsetLeft;
-                const walk = (x - timelineStartX) * 1.5;
-                timelineDragDistance += Math.abs(x - timelineStartX);
-                timelineContainer.scrollLeft = timelineScrollLeft - walk;
+                const walk = (x - timelineStartX);
+                if (Math.abs(walk) > 5) {
+                    timelineHasMoved = true;
+                    timelineContainer.style.cursor = 'grabbing';
+                    timelineContainer.scrollLeft = timelineScrollLeft - (walk * 1.5);
+                }
             });
 
             window.addEventListener('mouseup', () => {
                 if (isTimelineDragging) {
                     isTimelineDragging = false;
                     timelineContainer.style.cursor = 'default';
+                    // Reset após ciclo de eventos de clique
+                    setTimeout(() => {
+                        timelineHasMoved = false;
+                    }, 50);
                 }
             });
         }
 
         document.querySelectorAll('.timeline-item').forEach((item, index) => {
-            item.addEventListener('click', () => {
-                if (timelineDragDistance > 8) return; // Evita abrir o modal se foi apenas um arraste
+            item.addEventListener('click', (e) => {
+                if (timelineHasMoved) return; // Evita abrir o modal se foi um arraste de scroll
                 updateModalContent(index);
                 modalOverlay.classList.add('active');
             });
