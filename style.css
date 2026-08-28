@@ -3375,17 +3375,80 @@ body.dark-mode .location-text i {
     position: relative;
     border-radius: var(--border-radius-lg);
     border: 1px solid rgba(0, 0, 0, 0.08); /* Cinza bem sutil no light mode */
+    overflow: visible;
 }
 
 body.dark-mode .about-photo {
     border: 1px solid rgba(255, 255, 255, 0.08); /* Cinza bem sutil no dark mode */
 }
 
-.about-photo img {
+.about-carousel-slides {
+    position: relative;
     width: 100%;
-    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    background-color: var(--bg-card-element);
+}
+
+.about-carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease;
+    z-index: 1;
+}
+
+.about-carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.about-carousel-slide picture,
+.about-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
     border-radius: var(--border-radius-lg);
+}
+
+/* Indicadores de bolinha sobrepostos na parte inferior da foto */
+.about-carousel-indicators {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 10;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 999px;
+    pointer-events: auto;
+}
+
+.about-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-dot.active {
+    background-color: #ffffff;
+    width: 16px;
+    border-radius: 4px;
 }
 
 /* Tooltip estilo Balão de Fala no topo da foto da página Sobre */

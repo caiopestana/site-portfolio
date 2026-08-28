@@ -184,12 +184,39 @@
                                 </div>
                             </div>
                             
-                            <!-- Foto de Perfil à direita com Tooltip Balão de Fala -->
-                            <div class="about-photo" data-tooltip-pt="Esse sou eu." data-tooltip-en="That's me." data-tooltip="Esse sou eu.">
-                                <picture>
-                                    <source srcset="assets/foto-eu-mobile.webp" media="(max-width: 1024px)">
-                                    <img decoding="async" src="assets/foto-eu.webp" alt="Foto de Caio Pestana">
-                                </picture>
+                            <!-- Carrossel de Fotos de Perfil à direita com Tooltip Balão de Fala e Transição Automática -->
+                            <div class="about-photo about-photo-carousel" id="about-photo-carousel" data-tooltip-pt="Esse sou eu." data-tooltip-en="This is me." data-tooltip="Esse sou eu.">
+                                <div class="about-carousel-slides">
+                                    <div class="about-carousel-slide active" data-tooltip-pt="Esse sou eu." data-tooltip-en="This is me.">
+                                        <picture>
+                                            <source srcset="assets/foto-eu-mobile.webp" media="(max-width: 1024px)">
+                                            <img decoding="async" src="assets/foto-eu.webp" alt="Esse sou eu">
+                                        </picture>
+                                    </div>
+                                    <div class="about-carousel-slide" data-tooltip-pt="Eu me formando" data-tooltip-en="My graduation">
+                                        <img decoding="async" src="assets/foto-eu-1.webp" alt="Eu me formando">
+                                    </div>
+                                    <div class="about-carousel-slide" data-tooltip-pt="Eu e meu amor" data-tooltip-en="Me and my love">
+                                        <img decoding="async" src="assets/foto-eu-2.webp" alt="Eu e meu amor">
+                                    </div>
+                                    <div class="about-carousel-slide" data-tooltip-pt="Eu no TCC" data-tooltip-en="Me at Thesis defense">
+                                        <img decoding="async" src="assets/foto-eu-3.webp" alt="Eu no TCC">
+                                    </div>
+                                    <div class="about-carousel-slide" data-tooltip-pt="Eu e Agnes" data-tooltip-en="Me and Agnes">
+                                        <img decoding="async" src="assets/foto-eu-4.webp" alt="Eu e Agnes">
+                                    </div>
+                                    <div class="about-carousel-slide" data-tooltip-pt="Te amo!" data-tooltip-en="Love you!">
+                                        <img decoding="async" src="assets/foto-eu-5.webp" alt="Te amo!">
+                                    </div>
+                                </div>
+                                <div class="about-carousel-indicators" id="about-carousel-indicators">
+                                    <span class="about-dot active"></span>
+                                    <span class="about-dot"></span>
+                                    <span class="about-dot"></span>
+                                    <span class="about-dot"></span>
+                                    <span class="about-dot"></span>
+                                    <span class="about-dot"></span>
+                                </div>
                             </div>
                         </section>
 
@@ -301,10 +328,75 @@
                     currentLang = currentLang === 'pt' ? 'en' : 'pt';
                     updateLanguage(currentLang);
                     document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
+                    if (window.updatePhotoTooltipLang) window.updatePhotoTooltipLang();
                 });
             });
 
-            // --- EMAIL COPY LOGIC ---
+            // --- CARROSSEL DE FOTOS NA PÁGINA SOBRE ---
+            const carouselContainer = document.getElementById('about-photo-carousel');
+            if (carouselContainer) {
+                const slides = carouselContainer.querySelectorAll('.about-carousel-slide');
+                const dots = carouselContainer.querySelectorAll('.about-dot');
+                let currentPhotoIndex = 0;
+                let photoInterval = null;
+
+                function updatePhotoSlide(index) {
+                    currentPhotoIndex = index;
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+
+                    // Atualiza o tooltip dinâmico de acordo com o slide ativo e o idioma atual
+                    const activeSlide = slides[index];
+                    if (activeSlide) {
+                        const ptText = activeSlide.getAttribute('data-tooltip-pt') || 'Esse sou eu.';
+                        const enText = activeSlide.getAttribute('data-tooltip-en') || 'This is me.';
+                        carouselContainer.setAttribute('data-tooltip-pt', ptText);
+                        carouselContainer.setAttribute('data-tooltip-en', enText);
+                        const isPt = currentLang === 'pt';
+                        carouselContainer.setAttribute('data-tooltip', isPt ? ptText : enText);
+                    }
+                }
+
+                function nextPhoto() {
+                    const nextIndex = (currentPhotoIndex + 1) % slides.length;
+                    updatePhotoSlide(nextIndex);
+                }
+
+                function startPhotoInterval() {
+                    if (!photoInterval) {
+                        photoInterval = setInterval(nextPhoto, 3500);
+                    }
+                }
+
+                function stopPhotoInterval() {
+                    if (photoInterval) {
+                        clearInterval(photoInterval);
+                        photoInterval = null;
+                    }
+                }
+
+                // Iniciar carrossel
+                updatePhotoSlide(0);
+                startPhotoInterval();
+
+                // Pausar transição ao passar o mouse para leitura confortável da foto e mensagem
+                carouselContainer.addEventListener('mouseenter', stopPhotoInterval);
+                carouselContainer.addEventListener('mouseleave', startPhotoInterval);
+
+                // Permitir navegação clicando nos dots
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        updatePhotoSlide(i);
+                        stopPhotoInterval();
+                        startPhotoInterval();
+                    });
+                });
+            }
             const emailBtn = document.getElementById('email-copy-btn');
             if (emailBtn) {
                 emailBtn.addEventListener('click', (e) => {
