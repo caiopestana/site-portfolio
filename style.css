@@ -876,7 +876,7 @@ body.dark-mode .nav-btn:hover {
 /* Carreira Timeline */
 .carreira-section {
     position: relative;
-    padding: 32px 40px !important;
+    padding: 32px 40px 24px 40px !important;
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
@@ -888,9 +888,8 @@ body.dark-mode .nav-btn:hover {
     display: flex;
     justify-content: flex-start;
     margin-top: 0;
-    padding: 15px 48px 20px 48px;
-    margin-left: -40px;
-    margin-right: -40px;
+    padding: 12px 16px 16px 16px;
+    margin: 0;
     gap: 32px;
     overflow-x: auto;
     overflow-y: hidden;
@@ -903,7 +902,7 @@ body.dark-mode .nav-btn:hover {
 
 .timeline-container::after {
     content: '';
-    width: 48px; /* Espaço rolável extra e seguro para hover */
+    width: 32px; /* Espaço rolável extra e seguro para hover */
     flex-shrink: 0;
     display: block;
 }
@@ -917,7 +916,7 @@ body.dark-mode .nav-btn:hover {
 .timeline-container::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.04);
     border-radius: 999px;
-    margin: 0 64px; /* Respiro refinado em relação às bordas do card */
+    margin: 0 16px; /* Respiro refinado nas extremidades da barra */
 }
 
 body.dark-mode .timeline-container::-webkit-scrollbar-track {
@@ -936,10 +935,10 @@ body.dark-mode .timeline-container::-webkit-scrollbar-track {
 
 .timeline-line {
     position: absolute;
-    bottom: 51px;
+    bottom: 47px;
     /* Alinhamento geométrico perfeito em relação ao centro dos pontos e à barra */
-    left: 48px;
-    right: 48px;
+    left: 16px;
+    right: 16px;
     height: 1px;
     background-color: var(--border-color);
     opacity: 0.6;
