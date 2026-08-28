@@ -930,15 +930,18 @@ body.dark-mode .timeline-container::-webkit-scrollbar-track {
 }
 
 .timeline-container::-webkit-scrollbar-thumb:hover {
-    background: var(--text-muted);
+    background: #2F836A; /* Verde menta escuro seguindo o design system no white mode */
+}
+
+body.dark-mode .timeline-container::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-element-dark); /* Verde menta claro no dark mode */
 }
 
 .timeline-line {
     position: absolute;
     bottom: 47px;
-    /* Alinhamento geométrico perfeito em relação ao centro dos pontos e à barra */
-    left: 16px;
-    right: 16px;
+    left: 96px; /* Alinhado exatamente ao centro do primeiro ponto */
+    width: calc(6 * 160px + 5 * 32px - 160px); /* Extensão total do primeiro ao último ponto */
     height: 1px;
     background-color: var(--border-color);
     opacity: 0.6;
