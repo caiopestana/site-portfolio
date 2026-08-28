@@ -830,15 +830,13 @@ body.dark-mode .nav-btn:hover {
 
 /* Efeito de foco: escurece os outros cards ao passar o mouse na track */
 .projetos-slider-track:hover .projeto-card {
-    opacity: 0.5;
-    filter: grayscale(0.1) blur(0.2px);
-    transform: scale(0.98);
+    opacity: 0.45;
+    filter: grayscale(0.2) brightness(0.85);
 }
 
 .projetos-slider-track .projeto-card:hover {
     opacity: 1;
-    filter: grayscale(0) blur(0);
-    transform: scale(1.02) translateY(-4px);
+    filter: grayscale(0) brightness(1.05);
 }
 
 /* Antigo placeholder - manter apenas para compatibilidade se necessário */
@@ -862,11 +860,6 @@ body.dark-mode .nav-btn:hover {
     margin-bottom: 0;
     overflow: hidden;
     flex-shrink: 0;
-    /* Garante que navegadores WebKit/Chromium respeitem 100% o border-radius no scale */
-    transform: translateZ(0);
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    mask-image: radial-gradient(white, black);
-    isolation: isolate;
 }
 
 .projeto-cover img {
@@ -875,12 +868,6 @@ body.dark-mode .nav-btn:hover {
     object-fit: cover;
     display: block;
     border-radius: inherit;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: center center;
-}
-
-.projeto-card:hover .projeto-cover img {
-    transform: scale(1.08);
 }
 
 .projeto-info {
