@@ -888,34 +888,58 @@ body.dark-mode .nav-btn:hover {
     display: flex;
     justify-content: flex-start;
     margin-top: 0;
-    padding: 15px 80px 10px 80px;
+    padding: 15px 40px 14px 40px;
     margin-left: -40px;
     margin-right: -40px;
-    /* Redução drástica para economizar altura */
     gap: 32px;
     overflow-x: auto;
-    scrollbar-width: none;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
     align-items: stretch;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 .timeline-container::after {
     content: '';
-    width: 60px; /* Garante espaço rolável extra para o hover e sombra do último item não cortarem */
+    width: 40px; /* Garante espaço rolável extra para o hover e sombra do último item não cortarem */
     flex-shrink: 0;
     display: block;
 }
 
+/* Barra de rolagem horizontal interna e estilizada no Desktop */
 .timeline-container::-webkit-scrollbar {
-    display: none;
-    /* Oculta no Chrome/Safari */
+    display: block;
+    height: 5px;
+}
+
+.timeline-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 999px;
+    margin: 0 40px;
+}
+
+body.dark-mode .timeline-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.timeline-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 999px;
+    transition: background-color 0.2s ease;
+}
+
+.timeline-container::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
 }
 
 .timeline-line {
     position: absolute;
-    bottom: 39px;
-    /* Reajustado para o novo padding ultra-compacto */
-    left: 80px;
-    right: 80px;
+    bottom: 45px;
+    /* Reajustado com precisão em relação à bolinha e à barra de rolagem */
+    left: 40px;
+    right: 40px;
     height: 1px;
     background-color: var(--border-color);
     opacity: 0.6;

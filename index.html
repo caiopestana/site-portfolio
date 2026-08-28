@@ -637,9 +637,50 @@
             }, 300);
         }
 
-        // Open Modal
+        // Open Modal com proteção contra drag
+        let isTimelineDragging = false;
+        let timelineStartX = 0;
+        let timelineScrollLeft = 0;
+        let timelineDragDistance = 0;
+
+        const timelineContainer = document.querySelector('.timeline-container');
+        if (timelineContainer) {
+            // Suporte para rolar horizontalmente com a roda do mouse
+            timelineContainer.addEventListener('wheel', (e) => {
+                if (e.deltaY !== 0 && !e.shiftKey) {
+                    // Rola horizontalmente caso o usuário use a roda vertical
+                    timelineContainer.scrollLeft += e.deltaY * 0.8;
+                }
+            }, { passive: true });
+
+            // Drag-to-scroll com mouse no desktop
+            timelineContainer.addEventListener('mousedown', (e) => {
+                isTimelineDragging = true;
+                timelineDragDistance = 0;
+                timelineStartX = e.pageX - timelineContainer.offsetLeft;
+                timelineScrollLeft = timelineContainer.scrollLeft;
+                timelineContainer.style.cursor = 'grabbing';
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isTimelineDragging) return;
+                const x = e.pageX - timelineContainer.offsetLeft;
+                const walk = (x - timelineStartX) * 1.5;
+                timelineDragDistance += Math.abs(x - timelineStartX);
+                timelineContainer.scrollLeft = timelineScrollLeft - walk;
+            });
+
+            window.addEventListener('mouseup', () => {
+                if (isTimelineDragging) {
+                    isTimelineDragging = false;
+                    timelineContainer.style.cursor = 'default';
+                }
+            });
+        }
+
         document.querySelectorAll('.timeline-item').forEach((item, index) => {
             item.addEventListener('click', () => {
+                if (timelineDragDistance > 8) return; // Evita abrir o modal se foi apenas um arraste
                 updateModalContent(index);
                 modalOverlay.classList.add('active');
             });
