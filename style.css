@@ -924,17 +924,25 @@ body.dark-mode .timeline-container::-webkit-scrollbar-track {
 }
 
 .timeline-container::-webkit-scrollbar-thumb {
-    background: var(--border-color);
-    border-radius: 999px;
-    transition: background-color 0.2s ease;
+    background: var(--border-color) !important;
+    border-radius: 999px !important;
+    transition: background-color 0.2s ease !important;
 }
 
 .timeline-container::-webkit-scrollbar-thumb:hover {
-    background: #2F836A; /* Verde menta escuro seguindo o design system no white mode */
+    background: #2F836A !important; /* Verde menta escuro no white mode */
+}
+
+body.dark-mode .timeline-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15) !important;
 }
 
 body.dark-mode .timeline-container::-webkit-scrollbar-thumb:hover {
-    background: var(--bg-element-dark); /* Verde menta claro no dark mode */
+    background: #CFFFE2 !important; /* Verde menta claro brilhante no dark mode */
+}
+
+body.dark-mode .timeline-container:hover {
+    scrollbar-color: #CFFFE2 transparent;
 }
 
 .timeline-line {
