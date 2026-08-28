@@ -210,12 +210,16 @@
                                     </div>
                                 </div>
                                 <div class="about-carousel-indicators" id="about-carousel-indicators">
-                                    <span class="about-dot active"></span>
-                                    <span class="about-dot"></span>
-                                    <span class="about-dot"></span>
-                                    <span class="about-dot"></span>
-                                    <span class="about-dot"></span>
-                                    <span class="about-dot"></span>
+                                    <button class="about-carousel-nav-btn" id="about-prev-btn" aria-label="Foto anterior"><i class="ph ph-caret-left"></i></button>
+                                    <div class="about-dots-wrapper">
+                                        <span class="about-dot active"></span>
+                                        <span class="about-dot"></span>
+                                        <span class="about-dot"></span>
+                                        <span class="about-dot"></span>
+                                        <span class="about-dot"></span>
+                                        <span class="about-dot"></span>
+                                    </div>
+                                    <button class="about-carousel-nav-btn" id="about-next-btn" aria-label="Próxima foto"><i class="ph ph-caret-right"></i></button>
                                 </div>
                             </div>
                         </section>
@@ -377,6 +381,32 @@
                         clearInterval(photoInterval);
                         photoInterval = null;
                     }
+                }
+
+                function prevPhoto() {
+                    const prevIndex = (currentPhotoIndex - 1 + slides.length) % slides.length;
+                    updatePhotoSlide(prevIndex);
+                }
+
+                const prevBtn = document.getElementById('about-prev-btn');
+                const nextBtn = document.getElementById('about-next-btn');
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        prevPhoto();
+                        stopPhotoInterval();
+                        startPhotoInterval();
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        nextPhoto();
+                        stopPhotoInterval();
+                        startPhotoInterval();
+                    });
                 }
 
                 // Iniciar carrossel
