@@ -671,14 +671,14 @@ body.dark-mode .timeline-container::-webkit-scrollbar-thumb:hover {
 .skills-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
 }
 
 .tag {
-    padding: 4px 12px;
+    padding: 3px 10px;
     border: 1px solid var(--text-main);
     border-radius: var(--border-radius-full);
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .age-text {
@@ -1671,7 +1671,7 @@ body.dark-mode .timeline-item:hover .timeline-card {
 
     .skills-tags {
         justify-content: flex-start !important;
-        gap: 8px !important;
+        gap: 6px !important;
         margin: 0 !important;
     }
 
