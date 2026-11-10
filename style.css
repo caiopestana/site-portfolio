@@ -482,8 +482,8 @@ body.dark-mode .btn.outline:hover {
     display: flex;
     flex-direction: column;
     gap: 28px;
-    margin-right: -6px;
-    padding-right: 10px;
+    margin-right: -20px;
+    padding-right: 20px;
     padding-bottom: 8px;
     flex: 1;
     min-height: 0;
@@ -1016,15 +1016,15 @@ body.dark-mode .projeto-cta {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin: 0;
-    padding: 0 8px 0 0;
+    margin: 0 -20px 0 0;
+    padding: 0 20px 0 0;
     gap: 10px;
     flex: 1;
     min-height: 0;
     overflow-y: auto;
     overflow-x: hidden;
     align-items: stretch;
-    width: 100%;
+    width: auto;
 }
 
 .timeline-container::after {
@@ -1283,8 +1283,8 @@ body.dark-mode .timeline-card .online-status {
 
     .sidebar-scroll-area {
         gap: 22px;
-        margin-right: -6px;
-        padding-right: 10px;
+        margin-right: -14px;
+        padding-right: 14px;
         padding-bottom: 8px;
     }
 
@@ -1338,8 +1338,9 @@ body.dark-mode .timeline-card .online-status {
     }
 
     .timeline-container {
-        padding: 0 8px 0 0;
-        margin: 0;
+        padding: 0 14px 0 0;
+        margin: 0 -14px 0 0;
+        width: auto;
         gap: 10px;
         overflow-y: auto !important;
         overflow-x: hidden !important;
