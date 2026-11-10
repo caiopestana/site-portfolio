@@ -134,6 +134,12 @@
                                     Formado em Publicidade e Propaganda pela Associação Educacional Luterana Bom Jesus/IELUSC, com pós-graduação em Marketing: Estratégias, Negócios Digitais e Experiência do Cliente. Ao longo da formação, aprofundei-me em estruturação de negócios digitais, UX Design e prototipação. Disciplinas que aplico diretamente no processo de criação de produtos digitais.
                                 </p>
 
+                                <div class="about-age-block" style="margin-top: 16px;">
+                                    <h4 class="section-title" data-pt="IDADE" data-en="AGE" style="margin-bottom: 8px !important;">IDADE</h4>
+                                    <p class="age-text" style="margin: 0;"><span id="age-counter">24.000000000000</span><span
+                                            data-pt=" anos de idade." data-en=" years old."> anos de idade.</span></p>
+                                </div>
+
                                 <p class="about-contact-intro" style="font-size: 15px; color: var(--text-muted); line-height: 1.6; max-width: 500px; margin-top: 32px; margin-bottom: 0;" 
                                    data-pt="Se você precisa de alguém que pensa marca, produto e conversão como parte do mesmo problema, bora conversar." 
                                    data-en="If you need someone who thinks about brand, product, and conversion as parts of the same problem, let's talk.">
@@ -245,6 +251,19 @@
                 const userLang = navigator.language || navigator.userLanguage;
                 currentLang = userLang.startsWith('en') ? 'en' : 'pt';
             }
+
+            // IDADE counter effect (R10)
+            const ageElement = document.getElementById('age-counter');
+            const birthDate = new Date('2001-11-01T00:00:00');
+
+            function updateAge() {
+                const now = new Date();
+                const ageInMs = now - birthDate;
+                const ageInYears = ageInMs / (1000 * 60 * 60 * 24 * 365.25);
+                if (ageElement) ageElement.textContent = ageInYears.toFixed(12);
+                requestAnimationFrame(updateAge);
+            }
+            updateAge();
 
             function updateLanguage(lang) {
                 currentLang = lang;
