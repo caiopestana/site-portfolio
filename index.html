@@ -31,7 +31,7 @@
         <div class="container">
             <header class="card header">
                 <div class="profile-section">
-                    <div class="profile-pic" id="profile-flipper" data-tooltip-pt="Olha eu aqui!" data-tooltip-en="Hello there!" data-tooltip="Olha eu aqui!">
+                    <div class="profile-pic" id="profile-flipper" role="button" tabindex="0" aria-label="Alternar foto de perfil" data-tooltip-pt="Olha eu aqui!" data-tooltip-en="Hello there!" data-tooltip="Olha eu aqui!">
                         <div class="profile-pic-inner">
                             <div class="profile-pic-front">
                                 <img decoding="async" src="assets/profile.webp" alt="Caio Pestana" fetchpriority="high" class="profile-img">
@@ -64,33 +64,26 @@
 
                 <div class="header-actions">
                     <div class="top-buttons">
-                        <a href="https://fern-lyric-bc0.notion.site/3a6a18203549806296c0e4f81b1b56b1?pvs=105"
-                            target="_blank" rel="noopener noreferrer" class="btn primary mobile-header-cta"
-                            data-pt="Entrar em contato" data-en="Get in touch">Entrar em contato</a>
-                        <a href="index.html" class="icon-btn" aria-label="Início"><i class="ph ph-house"></i></a>
-                        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Alternar tema"><i
+                        <a href="index.html" class="icon-btn" aria-label="Home"><i class="ph ph-house"></i></a>
+                        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><i
                                 class="ph ph-sun"></i></button>
-                        <button type="button" class="icon-btn" id="translate-btn" aria-label="Alternar idioma"><i
+                        <button class="icon-btn" id="translate-btn" aria-label="Translate"><i
                                 class="ph ph-translate"></i></button>
-                        <button type="button" class="icon-btn mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="bottom-buttons"><i
+                        <button class="icon-btn mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu"><i
                                 class="ph ph-list"></i></button>
                     </div>
                     <div class="bottom-buttons" id="bottom-buttons">
                         <div class="mobile-menu-quick-controls">
-                            <button type="button" class="icon-btn" id="mobile-theme-toggle" aria-label="Alternar tema"><i
+                            <button class="icon-btn" id="mobile-theme-toggle" aria-label="Alternar Tema"><i
                                     class="ph ph-sun"></i></button>
-                            <button type="button" class="icon-btn" id="mobile-translate-btn" aria-label="Alternar idioma"><i
+                            <button class="icon-btn" id="mobile-translate-btn" aria-label="Idioma"><i
                                     class="ph ph-translate"></i></button>
                         </div>
-                        <a href="https://fern-lyric-bc0.notion.site/3a6a18203549806296c0e4f81b1b56b1?pvs=105"
-                            target="_blank" rel="noopener noreferrer" class="btn primary desktop-header-cta"
-                            data-pt="Entrar em contato" data-en="Get in touch">Entrar em contato</a>
+                        <a href="sobre.html" class="btn outline" style="text-decoration: none;" data-pt="Sobre" data-en="About">Sobre</a>
                         <a href="https://drive.google.com/file/d/1W4PZo09TDJdN4RJf3fPxH-oQHSBo29sS/view?usp=drive_link"
-                            target="_blank" rel="noopener noreferrer" class="btn outline"
-                            data-pt="Ver currículo <i class='ph ph-download-simple'></i>"
-                            data-en="View resume <i class='ph ph-download-simple'></i>">Ver currículo <i class="ph ph-download-simple"></i></a>
-                        <a href="sobre.html" class="btn outline" data-pt="Sobre" data-en="About">Sobre</a>
-                        <a href="projetos-estudos.html" class="btn outline" data-pt="Estudos" data-en="Side projects">Estudos</a>
+                            target="_blank" class="btn outline" style="text-decoration: none;" data-pt="Currículo <i class='ph ph-download-simple'></i>"
+                            data-en="Resume <i class='ph ph-download-simple'></i>">Currículo <i class="ph ph-download-simple"></i></a>
+                        <a href="projetos-estudos.html" class="btn outline" style="text-decoration: none;" data-pt="Estudos" data-en="Side projects">Estudos</a>
                     </div>
                 </div>
 
@@ -102,282 +95,298 @@
             </header>
 
             <div class="main-layout">
-                <!-- 1. Apresentação breve -->
-                <section class="card sidebar-card intro-section" aria-label="Apresentação">
-                    <p class="location-text">
-                        <i class="ph ph-map-pin" aria-hidden="true"></i>
-                        <span data-pt="Entre Brasília (DF) e Joinville (SC)" data-en="Based between Brasília (DF) & Joinville (SC)">Entre Brasília (DF) e Joinville (SC)</span>
-                    </p>
-                    <p class="text-content" style="margin-top: 12px; margin-bottom: 0;"
-                        data-pt="Sou um Analista de Marketing apaixonado por design, construir e planejar soluções digitais."
-                        data-en="I'm a Marketing Analyst passionate about design, building, and planning digital solutions.">
-                        Sou um Analista de Marketing apaixonado por design, construir e planejar soluções digitais.
-                    </p>
-                </section>
+                <aside class="card sidebar">
+                    <div class="sidebar-scroll-area">
 
-                <!-- 2. Projetos -->
-                <section class="card projetos-section" aria-labelledby="projetos-heading">
-                    <div class="projetos-header">
-                        <h3 class="section-title" id="projetos-heading" data-pt="PROJETOS" data-en="PROJECTS">PROJETOS</h3>
-                        <div class="projetos-nav">
-                            <button type="button" class="nav-btn" id="prev-project" aria-label="Projetos anteriores" data-aria-pt="Projetos anteriores" data-aria-en="Previous projects"><i
-                                    class="ph ph-caret-left" aria-hidden="true"></i></button>
-                            <button type="button" class="nav-btn" id="next-project" aria-label="Próximos projetos" data-aria-pt="Próximos projetos" data-aria-en="Next projects"><i
-                                    class="ph ph-caret-right" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
-                    <div class="projetos-slider-container">
-                        <div class="projetos-slider-track" id="projetos-track">
-                            <!-- Página 1: StackX e Mentor.ia -->
-                            <div class="projetos-page">
-                                <a href="projeto-stackx.html" class="projeto-card">
-                                    <div class="projeto-cover">
-                                        <img loading="lazy" decoding="async" src="assets/projetos/projeto_4/1_Capa 1.webp" alt="Capa do projeto StackX">
-                                    </div>
-                                    <div class="projeto-info">
-                                        <span class="projeto-category" data-pt="Branding e website" data-en="Branding & website">Branding e website</span>
-                                        <h4 class="projeto-title" data-pt="StackX" data-en="StackX">StackX</h4>
-                                        <p class="projeto-desc"
-                                            data-pt="Redesign completo da identidade visual da marca e do site institucional, do diagnóstico ao lançamento."
-                                            data-en="Complete redesign of the brand's visual identity and institutional website, from diagnosis to launch.">
-                                            Redesign completo da identidade visual da marca e do site institucional, do diagnóstico ao lançamento.</p>
-                                        <span class="projeto-cta" data-pt="Ver projeto <i class='ph ph-arrow-right'></i>" data-en="View project <i class='ph ph-arrow-right'></i>">Ver projeto <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-                                    </div>
-                                </a>
-                                <a href="projeto-mentor.html" class="projeto-card">
-                                    <div class="projeto-cover">
-                                        <img loading="lazy" decoding="async" src="assets/projetos/projeto_2/1_Capa.webp" alt="Capa do projeto Mentor.ia">
-                                    </div>
-                                    <div class="projeto-info">
-                                        <span class="projeto-category" data-pt="Identidade visual e página de vendas" data-en="Visual identity & sales page">Identidade visual e página de vendas</span>
-                                        <h4 class="projeto-title" data-pt="Mentor.ia" data-en="Mentor.ia">Mentor.ia</h4>
-                                        <p class="projeto-desc"
-                                            data-pt="Identidade Visual completa e design da página de vendas, do conceito e estratégia de conversão até a publicação."
-                                            data-en="Complete visual identity and sales page design, from concept and conversion strategy to publishing.">
-                                            Identidade Visual completa e design da página de vendas, do conceito e estratégia de conversão até a publicação.</p>
-                                        <span class="projeto-cta" data-pt="Ver projeto <i class='ph ph-arrow-right'></i>" data-en="View project <i class='ph ph-arrow-right'></i>">Ver projeto <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-                                    </div>
-                                </a>
+                        <section class="section-block">
+                            <p class="location-text">
+                                <i class="ph ph-map-pin"></i> BSB (DF) - JLLE (SC)
+                            </p>
+                            <p class="text-content" style="margin-top: 12px; margin-bottom: 0;" data-pt="Sou um Analista de Marketing apaixonado por design, construir e planejar soluções digitais." data-en="I'm a Marketing Analyst passionate about design, building, and planning digital solutions.">
+                                Sou um Analista de Marketing apaixonado por design, construir e planejar soluções digitais.
+                            </p>
+                        </section>
+
+                        <div class="divider"></div>
+
+                        <section class="section-block">
+                            <h3 class="section-title" data-pt="FORMAÇÃO" data-en="EDUCATION">FORMAÇÃO</h3>
+                            <ul class="list-content">
+                                <li>
+                                    <strong
+                                        data-pt="Pós-graduação em Marketing: Estratégias, Negócios Digitais e Experiência do Cliente"
+                                        data-en="Postgraduate in Marketing: Strategies, Digital Business and Customer Experience">Pós-graduação
+                                        em Marketing: Estratégias, Negócios Digitais e Experiência do
+                                        Cliente</strong><br>
+                                    <span style="color: var(--text-muted); font-size: 13px;">PUC Paraná &bull; Mai 2025
+                                        &mdash; Jun 2026</span>
+                                </li>
+                                <li>
+                                    <strong data-pt="Graduação em Publicidade e Propaganda"
+                                        data-en="Bachelor's in Advertising and Public Relations">Graduação em
+                                        Publicidade e Propaganda</strong><br>
+                                    <span style="color: var(--text-muted); font-size: 13px;">Faculdade IELUSC &bull; Fev
+                                        2020 &mdash; Dez 2024</span>
+                                </li>
+                                <li>
+                                    <strong data-pt="Técnico de Informática" data-en="IT Technician">Técnico de
+                                        Informática</strong><br>
+                                    <span style="color: var(--text-muted); font-size: 13px;">SENAI SC &bull; 2018
+                                        &mdash; 2019</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <div class="divider"></div>
+
+                        <section class="section-block">
+                            <h3 class="section-title" data-pt="HABILIDADES" data-en="SKILLS">HABILIDADES</h3>
+                            <div class="skills-tags is-collapsed" id="skills-tags">
+                                <!-- 6 habilidades prioritárias -->
+                                <span class="tag" data-pt="Estratégia de marketing" data-en="Marketing strategy">Estratégia de marketing</span>
+                                <span class="tag" data-pt="Posicionamento" data-en="Positioning">Posicionamento</span>
+                                <span class="tag" data-pt="Branding" data-en="Branding">Branding</span>
+                                <span class="tag" data-pt="Pesquisa de usuários" data-en="User research">Pesquisa de usuários</span>
+                                <span class="tag" data-pt="Gestão de produtos" data-en="Product management">Gestão de produtos</span>
+                                <span class="tag" data-pt="KPIs e métricas" data-en="KPIs & metrics">KPIs e métricas</span>
+                                <!-- Demais habilidades (expansíveis) -->
+                                <span class="tag skill-extra" data-pt="SEO" data-en="SEO">SEO</span>
+                                <span class="tag skill-extra" data-pt="Análise competitiva" data-en="Competitive analysis">Análise competitiva</span>
+                                <span class="tag skill-extra" data-pt="Lançamentos" data-en="Launch strategy">Lançamentos</span>
+                                <span class="tag skill-extra" data-pt="Naming" data-en="Naming">Naming</span>
+                                <span class="tag skill-extra" data-pt="Conteúdo" data-en="Content marketing">Conteúdo</span>
+                                <span class="tag skill-extra" data-pt="Inbound" data-en="Inbound marketing">Inbound</span>
+                                <span class="tag skill-extra" data-pt="Growth" data-en="Growth">Growth</span>
+                                <span class="tag skill-extra" data-pt="Análise de dados" data-en="Data analysis">Análise de dados</span>
+                                <span class="tag skill-extra" data-pt="Público-alvo e personas" data-en="Target audience & personas">Público-alvo e personas</span>
+                                <span class="tag skill-extra" data-pt="Gestão de projetos" data-en="Project management">Gestão de projetos</span>
+                                <span class="tag skill-extra" data-pt="Comunicação" data-en="Effective communication">Comunicação</span>
+                                <span class="tag skill-extra" data-pt="Pensamento analítico" data-en="Analytical thinking">Pensamento analítico</span>
                             </div>
+                            <button type="button" class="skills-toggle-btn" id="skills-toggle-btn" aria-expanded="false" aria-controls="skills-tags">
+                                <span class="skills-toggle-label" data-pt="Ver todas as habilidades (+12)" data-en="View all skills (+12)">Ver todas as habilidades (+12)</span>
+                                <i class="ph ph-caret-down" aria-hidden="true"></i>
+                            </button>
+                        </section>
 
-                            <!-- Página 2: Conexão.IA e Trueleven -->
-                            <div class="projetos-page">
-                                <a href="projeto-conexao.html" class="projeto-card">
-                                    <div class="projeto-cover">
-                                        <img loading="lazy" decoding="async" src="assets/projetos/projeto_3/1_Capa.webp" alt="Capa do projeto Conexão.IA">
-                                    </div>
-                                    <div class="projeto-info">
-                                        <span class="projeto-category" data-pt="Identidade visual e website" data-en="Visual identity & website">Identidade visual e website</span>
-                                        <h4 class="projeto-title" data-pt="Conexão.IA" data-en="Conexão.IA">Conexão.IA</h4>
-                                        <p class="projeto-desc"
-                                            data-pt="Identidade Visual completa e desenvolvimento do website, do conceito estético até a arquitetura de dois públicos e publicação."
-                                            data-en="Complete visual identity and website development, from aesthetic concept to dual-audience architecture and publishing.">
-                                            Identidade Visual completa e desenvolvimento do website, do conceito estético até a arquitetura de dois públicos e publicação.</p>
-                                        <span class="projeto-cta" data-pt="Ver projeto <i class='ph ph-arrow-right'></i>" data-en="View project <i class='ph ph-arrow-right'></i>">Ver projeto <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-                                    </div>
-                                </a>
-                                <a href="projeto-trueleven.html" class="projeto-card">
-                                    <div class="projeto-cover">
-                                        <img loading="lazy" decoding="async" src="assets/projetos/projeto_1/1_Capa.webp" alt="Capa do projeto Trueleven">
-                                    </div>
-                                    <div class="projeto-info">
-                                        <span class="projeto-category" data-pt="Identidade visual e website" data-en="Visual identity & website">Identidade visual e website</span>
-                                        <h4 class="projeto-title" data-pt="Trueleven" data-en="Trueleven">Trueleven</h4>
-                                        <p class="projeto-desc"
-                                            data-pt="Identidade Visual completa e desenvolvimento do website, do conceito estético até a arquitetura de informação e publicação."
-                                            data-en="Complete visual identity and website development, from aesthetic concept to information architecture and publishing.">
-                                            Identidade Visual completa e desenvolvimento do website, do conceito estético até a arquitetura de informação e publicação.</p>
-                                        <span class="projeto-cta" data-pt="Ver projeto <i class='ph ph-arrow-right'></i>" data-en="View project <i class='ph ph-arrow-right'></i>">Ver projeto <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-indicators" id="projetos-dots" role="tablist" aria-label="Páginas de projetos">
-                        <button type="button" class="dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Página 1 de projetos"></button>
-                        <button type="button" class="dot" data-slide="1" role="tab" aria-selected="false" aria-label="Página 2 de projetos"></button>
-                    </div>
-                </section>
+                        <div class="divider"></div>
 
-                <!-- 3. Carreira -->
-                <section class="card carreira-section" aria-labelledby="carreira-heading">
-                    <h3 class="section-title" id="carreira-heading" data-pt="CARREIRA" data-en="CAREER">CARREIRA</h3>
-                    <div class="timeline-container" role="list">
-                        <div class="timeline-line" aria-hidden="true"></div>
+                        <section class="section-block">
+                            <h3 class="section-title" data-pt="IDADE" data-en="AGE">IDADE</h3>
+                            <p class="age-text"><span id="age-counter">24.000000000000</span><span
+                                    data-pt=" anos de idade." data-en=" years old."> anos de idade.</span></p>
+                        </section>
 
-                        <div class="timeline-item" role="button" tabindex="0" aria-label="Analista de Marketing na TECJATO | FEBRATEC, Ago 2026 até o momento">
-                            <div class="timeline-card">
-                                <div class="timeline-card-main">
-                                    <div class="company">TECJATO | FEBRATEC</div>
-                                    <div class="role" data-pt="Analista de Marketing" data-en="Marketing Analyst">Analista de Marketing</div>
-                                </div>
-                                <div class="timeline-card-meta">
-                                    <div class="date-range" data-pt="Ago 2026 &mdash; Atual"
-                                        data-en="Aug 2026 &mdash; Present">Ago 2026 &mdash; Atual</div>
-                                    <div class="timeline-year online-status">
-                                        <span class="pulse-dot" aria-hidden="true"></span> <span data-pt="ATUAL" data-en="CURRENT">ATUAL</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="divider"></div>
 
-                        <div class="timeline-item" role="button" tabindex="0" aria-label="Analista de Marketing na StackX, Jan 2024 a Ago 2026">
-                            <div class="timeline-card">
-                                <div class="timeline-card-main">
-                                    <div class="company">StackX</div>
-                                    <div class="role" data-pt="Analista de Marketing" data-en="Marketing Analyst">Analista de Marketing</div>
-                                </div>
-                                <div class="timeline-card-meta">
-                                    <div class="date-range" data-pt="Jan 2024 &mdash; Ago 2026"
-                                        data-en="Jan 2024 &mdash; Aug 2026">Jan 2024 &mdash; Ago 2026</div>
-                                    <div class="timeline-year">2024</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item" role="button" tabindex="0" aria-label="Estagiário de Design na StackX, Ago 2022 a Jan 2024">
-                            <div class="timeline-card">
-                                <div class="timeline-card-main">
-                                    <div class="company">StackX</div>
-                                    <div class="role" data-pt="Estagiário de Design" data-en="Design Intern">Estagiário de Design</div>
-                                </div>
-                                <div class="timeline-card-meta">
-                                    <div class="date-range" data-pt="Ago 2022 &mdash; Jan 2024" data-en="Aug 2022 &mdash; Jan 2024">Ago 2022 &mdash; Jan 2024</div>
-                                    <div class="timeline-year">2022</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item" role="button" tabindex="0" aria-label="Estagiário de Marketing na Faculdade ACE (Faculdade Guilherme Guimbala), Set 2021 a Mai 2022">
-                            <div class="timeline-card">
-                                <div class="timeline-card-main">
-                                    <div class="company">Faculdade ACE (FGG)</div>
-                                    <div class="role" data-pt="Estagiário de Marketing" data-en="Marketing Intern">Estagiário de Marketing</div>
-                                </div>
-                                <div class="timeline-card-meta">
-                                    <div class="date-range" data-pt="Set 2021 &mdash; Mai 2022" data-en="Sep 2021 &mdash; May 2022">Set 2021 &mdash; Mai 2022</div>
-                                    <div class="timeline-year">2021</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item" role="button" tabindex="0" aria-label="Estagiário de Marketing no Espaço DesEnvolver, Mai 2021 a Out 2021">
-                            <div class="timeline-card">
-                                <div class="timeline-card-main">
-                                    <div class="company">Espaço DesEnvolver</div>
-                                    <div class="role" data-pt="Estagiário de Marketing" data-en="Marketing Intern">Estagiário de Marketing</div>
-                                </div>
-                                <div class="timeline-card-meta">
-                                    <div class="date-range" data-pt="Mai 2021 &mdash; Out 2021" data-en="May 2021 &mdash; Oct 2021">Mai 2021 &mdash; Out 2021</div>
-                                    <div class="timeline-year">2021</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item" role="button" tabindex="0" aria-label="Estagiário de Marketing na Agência AEP, Mar 2021 a Jul 2021">
-                            <div class="timeline-card">
-                                <div class="timeline-card-main">
-                                    <div class="company">Agência AEP</div>
-                                    <div class="role" data-pt="Estagiário de Marketing" data-en="Marketing Intern">Estagiário de Marketing</div>
-                                </div>
-                                <div class="timeline-card-meta">
-                                    <div class="date-range" data-pt="Mar 2021 &mdash; Jul 2021" data-en="Mar 2021 &mdash; Jul 2021">Mar 2021 &mdash; Jul 2021</div>
-                                    <div class="timeline-year">2021</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 4. Formação -->
-                <section class="card sidebar-card education-section" aria-labelledby="formacao-heading">
-                    <h3 class="section-title" id="formacao-heading" data-pt="FORMAÇÃO" data-en="EDUCATION">FORMAÇÃO</h3>
-                    <ul class="list-content">
-                        <li>
-                            <strong
-                                data-pt="Pós-graduação em Marketing: Estratégias, Negócios Digitais e Experiência do Cliente"
-                                data-en="Postgraduate in Marketing: Strategies, Digital Business and Customer Experience">Pós-graduação
-                                em Marketing: Estratégias, Negócios Digitais e Experiência do
-                                Cliente</strong><br>
-                            <span class="education-meta" data-pt="PUC Paraná &bull; Mai 2025 &mdash; Jun 2026" data-en="PUC Paraná &bull; May 2025 &mdash; Jun 2026">PUC Paraná &bull; Mai 2025
-                                &mdash; Jun 2026</span>
-                        </li>
-                        <li>
-                            <strong data-pt="Graduação em Publicidade e Propaganda"
-                                data-en="Bachelor's in Advertising and Public Relations">Graduação em
-                                Publicidade e Propaganda</strong><br>
-                            <span class="education-meta" data-pt="Faculdade IELUSC &bull; Fev 2020 &mdash; Dez 2024" data-en="Faculdade IELUSC &bull; Feb 2020 &mdash; Dec 2024">Faculdade IELUSC &bull; Fev
-                                2020 &mdash; Dez 2024</span>
-                        </li>
-                        <li>
-                            <strong data-pt="Técnico de Informática" data-en="IT Technician">Técnico de
-                                Informática</strong><br>
-                            <span class="education-meta">SENAI SC &bull; 2018 &mdash; 2019</span>
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- 5. Habilidades -->
-                <section class="card sidebar-card skills-section" aria-labelledby="habilidades-heading">
-                    <h3 class="section-title" id="habilidades-heading" data-pt="HABILIDADES" data-en="SKILLS">HABILIDADES</h3>
-                    <div class="skills-tags" id="skills-tags-list">
-                        <!-- 8 Habilidades Prioritárias -->
-                        <span class="tag" data-pt="Estratégia de marketing" data-en="Marketing strategy">Estratégia de marketing</span>
-                        <span class="tag" data-pt="Posicionamento" data-en="Positioning">Posicionamento</span>
-                        <span class="tag" data-pt="Branding" data-en="Branding">Branding</span>
-                        <span class="tag" data-pt="Growth" data-en="Growth">Growth</span>
-                        <span class="tag" data-pt="SEO" data-en="SEO">SEO</span>
-                        <span class="tag" data-pt="Pesquisa de usuários" data-en="User research">Pesquisa de usuários</span>
-                        <span class="tag" data-pt="Análise de dados" data-en="Data analysis">Análise de dados</span>
-                        <span class="tag" data-pt="Gestão de produtos" data-en="Product management">Gestão de produtos</span>
-                        <!-- Demais Habilidades (Expansíveis) -->
-                        <span class="tag tag-extra" data-pt="Análise competitiva" data-en="Competitive analysis">Análise competitiva</span>
-                        <span class="tag tag-extra" data-pt="Lançamentos" data-en="Launch strategy">Lançamentos</span>
-                        <span class="tag tag-extra" data-pt="Naming" data-en="Naming">Naming</span>
-                        <span class="tag tag-extra" data-pt="Conteúdo" data-en="Content marketing">Conteúdo</span>
-                        <span class="tag tag-extra" data-pt="Inbound" data-en="Inbound marketing">Inbound</span>
-                        <span class="tag tag-extra" data-pt="KPIs e métricas" data-en="KPIs & metrics">KPIs e métricas</span>
-                        <span class="tag tag-extra" data-pt="Público-alvo e personas" data-en="Target audience & personas">Público-alvo e personas</span>
-                        <span class="tag tag-extra" data-pt="Gestão de projetos" data-en="Project management">Gestão de projetos</span>
-                        <span class="tag tag-extra" data-pt="Comunicação" data-en="Effective communication">Comunicação</span>
-                        <span class="tag tag-extra" data-pt="Pensamento analítico" data-en="Analytical thinking">Pensamento analítico</span>
-                    </div>
-                    <button type="button" class="skills-toggle-btn" id="skills-toggle-btn" aria-expanded="false" aria-controls="skills-tags-list"
-                        data-pt="Ver todas as habilidades (+10)" data-en="View all skills (+10)"
-                        data-pt-less="Mostrar menos" data-en-less="Show less">
-                        Ver todas as habilidades (+10)
-                    </button>
-                </section>
-
-                <!-- 6. Redes e Contato -->
-                <section class="card sidebar-card contact-section" aria-labelledby="contato-heading">
-                    <h3 class="section-title" id="contato-heading" data-pt="REDES E CONTATO" data-en="SOCIAL & CONTACT">REDES E CONTATO</h3>
-                    <div class="contact-actions-stack">
-                        <button type="button" class="btn outline copy-email-btn" id="email-copy-btn"
-                            data-pt="<i class='ph ph-copy'></i> Copiar e-mail: caiobpestana@gmail.com"
-                            data-en="<i class='ph ph-copy'></i> Copy email: caiobpestana@gmail.com">
-                            <i class="ph ph-copy" aria-hidden="true"></i> Copiar e-mail: caiobpestana@gmail.com
-                        </button>
                         <div class="social-links">
-                            <a href="https://www.linkedin.com/in/caio-pestana/" target="_blank"
-                                rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"
-                                data-tooltip-pt="LinkedIn" data-tooltip-en="LinkedIn" data-tooltip="LinkedIn"><i
-                                    class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+                            <a href="#" class="social-icon" id="email-copy-btn" aria-label="Email"
+                                data-tooltip-pt="E-mail" data-tooltip-en="Email" data-tooltip="E-mail"><i
+                                    class="ph ph-envelope"></i></a>
                             <a href="https://www.behance.net/caio-pestana" target="_blank" rel="noopener noreferrer"
                                 class="social-icon" aria-label="Behance"
                                 data-tooltip-pt="Behance" data-tooltip-en="Behance" data-tooltip="Behance"><i
-                                    class="ph ph-behance-logo" aria-hidden="true"></i></a>
+                                    class="ph ph-behance-logo"></i></a>
                             <a href="https://www.instagram.com/caiopestanaa/" target="_blank" rel="noopener noreferrer"
                                 class="social-icon" aria-label="Instagram"
                                 data-tooltip-pt="Instagram" data-tooltip-en="Instagram" data-tooltip="Instagram"><i
-                                    class="ph ph-instagram-logo" aria-hidden="true"></i></a>
-                            <a href="https://fern-lyric-bc0.notion.site/3a6a18203549806296c0e4f81b1b56b1?pvs=105" target="_blank"
-                                rel="noopener noreferrer" class="social-icon" aria-label="Formulário de contato"
-                                data-tooltip-pt="Formulário" data-tooltip-en="Contact form" data-tooltip="Formulário"><i
-                                    class="ph ph-paper-plane-tilt" aria-hidden="true"></i></a>
+                                    class="ph ph-instagram-logo"></i></a>
+                            <a href="https://www.linkedin.com/in/caio-pestana/" target="_blank"
+                                rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"
+                                data-tooltip-pt="LinkedIn" data-tooltip-en="LinkedIn" data-tooltip="LinkedIn"><i
+                                    class="ph ph-linkedin-logo"></i></a>
                         </div>
                     </div>
-                </section>
+                </aside>
+
+                <main class="content-area">
+                    <section class="card projetos-section">
+                        <div class="projetos-header">
+                            <h3 class="section-title" data-pt="PROJETOS" data-en="PROJECTS">PROJETOS</h3>
+                            <div class="projetos-nav">
+                                <button type="button" class="nav-btn" id="prev-project" aria-label="Projeto anterior" data-aria-pt="Projeto anterior" data-aria-en="Previous project"><i
+                                        class="ph ph-caret-left" aria-hidden="true"></i></button>
+                                <button type="button" class="nav-btn" id="next-project" aria-label="Próximo projeto" data-aria-pt="Próximo projeto" data-aria-en="Next project"><i
+                                        class="ph ph-caret-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                        <div class="projetos-slider-container">
+                            <div class="projetos-slider-track" id="projetos-track">
+                                <!-- Página 1: StackX e Mentor.ia -->
+                                <div class="projetos-page">
+                                    <a href="projeto-stackx.html" class="projeto-card">
+                                        <div class="projeto-cover" data-tooltip-pt="Ver projeto" data-tooltip-en="View project" data-tooltip="Ver projeto">
+                                            <img loading="lazy" decoding="async" src="assets/projetos/projeto_4/1_Capa 1.webp" alt="Capa do projeto StackX">
+                                        </div>
+                                        <div class="projeto-info">
+                                            <span class="projeto-category" data-pt="Branding e website" data-en="Branding & website">Branding e website</span>
+                                            <h4 class="projeto-title" data-pt="StackX" data-en="StackX">StackX</h4>
+                                            <p class="projeto-desc"
+                                                data-pt="Redesign completo da identidade visual da marca e do site institucional, do diagnóstico ao lançamento."
+                                                data-en="Complete redesign of the brand's visual identity and institutional website, from diagnosis to launch.">
+                                                Redesign completo da identidade visual da marca e do site institucional, do diagnóstico ao lançamento.</p>
+                                            <span class="projeto-cta" data-pt="Ver projeto <i class='ph ph-arrow-right' aria-hidden='true'></i>" data-en="View project <i class='ph ph-arrow-right' aria-hidden='true'></i>">Ver projeto <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                                        </div>
+                                    </a>
+                                    <a href="projeto-mentor.html" class="projeto-card">
+                                        <div class="projeto-cover" data-tooltip-pt="Ver projeto" data-tooltip-en="View project" data-tooltip="Ver projeto">
+                                            <img loading="lazy" decoding="async" src="assets/projetos/projeto_2/1_Capa.webp" alt="Capa do projeto Mentor.ia">
+                                        </div>
+                                        <div class="projeto-info">
+                                            <span class="projeto-category" data-pt="Identidade visual e landing page" data-en="Visual identity & landing page">Identidade visual e landing page</span>
+                                            <h4 class="projeto-title" data-pt="Mentor.ia" data-en="Mentor.ia">Mentor.ia</h4>
+                                            <p class="projeto-desc"
+                                                data-pt="Identidade visual completa e design da página de vendas, do conceito e estratégia de conversão até a publicação."
+                                                data-en="Complete visual identity and sales page design, from concept and conversion strategy to publishing.">
+                                                Identidade visual completa e design da página de vendas, do conceito e
+                                                estratégia de conversão até a publicação.</p>
+                                            <span class="projeto-cta" data-pt="Ver projeto <i class='ph ph-arrow-right' aria-hidden='true'></i>" data-en="View project <i class='ph ph-arrow-right' aria-hidden='true'></i>">Ver projeto <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- Página 2: Conexão.IA e Trueleven -->
+                                <div class="projetos-page">
+                                    <a href="projeto-conexao.html" class="projeto-card">
+                                        <div class="projeto-cover" data-tooltip-pt="Ver projeto" data-tooltip-en="View project" data-tooltip="Ver projeto">
+                                            <img loading="lazy" decoding="async" src="assets/projetos/projeto_3/1_Capa.webp" alt="Capa do projeto Conexão.IA">
+                                        </div>
+                                        <div class="projeto-info">
+                                            <span class="projeto-category" data-pt="Identidade visual e website" data-en="Visual identity & website">Identidade visual e website</span>
+                                            <h4 class="projeto-title" data-pt="Conexão.IA" data-en="Conexão.IA">Conexão.IA</h4>
+                                            <p class="projeto-desc"
+                                                data-pt="Identidade visual completa e desenvolvimento do website, do conceito estético até a arquitetura de dois públicos e publicação."
+                                                data-en="Complete visual identity and website development, from aesthetic concept to dual-audience architecture and publishing.">
+                                                Identidade visual completa e desenvolvimento do website, do conceito
+                                                estético até a arquitetura de dois públicos e publicação.</p>
+                                            <span class="projeto-cta" data-pt="Ver projeto <i class='ph ph-arrow-right' aria-hidden='true'></i>" data-en="View project <i class='ph ph-arrow-right' aria-hidden='true'></i>">Ver projeto <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                                        </div>
+                                    </a>
+                                    <a href="projeto-trueleven.html" class="projeto-card">
+                                        <div class="projeto-cover" data-tooltip-pt="Ver projeto" data-tooltip-en="View project" data-tooltip="Ver projeto">
+                                            <img loading="lazy" decoding="async" src="assets/projetos/projeto_1/1_Capa.webp" alt="Capa do projeto Trueleven">
+                                        </div>
+                                        <div class="projeto-info">
+                                            <span class="projeto-category" data-pt="Identidade visual e website" data-en="Visual identity & website">Identidade visual e website</span>
+                                            <h4 class="projeto-title" data-pt="Trueleven" data-en="Trueleven">Trueleven</h4>
+                                            <p class="projeto-desc"
+                                                data-pt="Identidade visual completa e desenvolvimento do website, do conceito estético até a arquitetura de informação e publicação."
+                                                data-en="Complete visual identity and website development, from aesthetic concept to information architecture and publishing.">
+                                                Identidade visual completa e desenvolvimento do website, do conceito
+                                                estético até a arquitetura de informação e publicação.</p>
+                                            <span class="projeto-cta" data-pt="Ver projeto <i class='ph ph-arrow-right' aria-hidden='true'></i>" data-en="View project <i class='ph ph-arrow-right' aria-hidden='true'></i>">Ver projeto <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-indicators" id="projetos-dots" role="tablist" aria-label="Páginas de projetos">
+                            <button type="button" class="dot active" data-slide="0" aria-label="Página 1 de projetos" aria-current="true"></button>
+                            <button type="button" class="dot" data-slide="1" aria-label="Página 2 de projetos" aria-current="false"></button>
+                            <button type="button" class="dot dot-single-only" data-slide="2" aria-label="Página 3 de projetos" aria-current="false"></button>
+                            <button type="button" class="dot dot-single-only" data-slide="3" aria-label="Página 4 de projetos" aria-current="false"></button>
+                        </div>
+                    </section>
+
+                    <section class="card carreira-section">
+                        <h3 class="section-title" data-pt="CARREIRA" data-en="CAREER">CARREIRA</h3>
+                        <div class="timeline-container" role="list">
+                            <div class="timeline-line" aria-hidden="true"></div>
+
+                            <div class="timeline-item" role="button" tabindex="0" aria-label="TECJATO | FEBRATEC - Analista de Marketing, Ago 2026 até Atual">
+                                <div class="timeline-card">
+                                    <div class="timeline-card-main">
+                                        <div class="company">TECJATO | FEBRATEC</div>
+                                        <div class="role" data-pt="Analista de Marketing" data-en="Marketing Analyst">Analista de Marketing</div>
+                                    </div>
+                                    <div class="timeline-card-meta">
+                                        <div class="date-range" data-pt="Ago 2026 &mdash; Atual"
+                                            data-en="Aug 2026 &mdash; Present">Ago 2026 &mdash; Atual</div>
+                                        <div class="timeline-year online-status">
+                                            <span class="pulse-dot" aria-hidden="true"></span> ONLINE
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-point" aria-hidden="true"></div>
+                            </div>
+
+                            <div class="timeline-item" role="button" tabindex="0" aria-label="StackX - Analista de Marketing, Jan 2024 até Ago 2026">
+                                <div class="timeline-card">
+                                    <div class="timeline-card-main">
+                                        <div class="company">StackX</div>
+                                        <div class="role" data-pt="Analista de Marketing" data-en="Marketing Analyst">Analista de Marketing</div>
+                                    </div>
+                                    <div class="timeline-card-meta">
+                                        <div class="date-range" data-pt="Jan 2024 &mdash; Ago 2026"
+                                            data-en="Jan 2024 &mdash; Aug 2026">Jan 2024 &mdash; Ago 2026</div>
+                                        <div class="timeline-year">2024</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-point" aria-hidden="true"></div>
+                            </div>
+
+                            <div class="timeline-item" role="button" tabindex="0" aria-label="StackX - Estagiário de Design, Ago 2022 até Jan 2024">
+                                <div class="timeline-card">
+                                    <div class="timeline-card-main">
+                                        <div class="company">StackX</div>
+                                        <div class="role" data-pt="Estagiário de Design" data-en="Design Intern">Estagiário de Design</div>
+                                    </div>
+                                    <div class="timeline-card-meta">
+                                        <div class="date-range" data-pt="Ago 2022 &mdash; Jan 2024"
+                                            data-en="Aug 2022 &mdash; Jan 2024">Ago 2022 &mdash; Jan 2024</div>
+                                        <div class="timeline-year">2022</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-point" aria-hidden="true"></div>
+                            </div>
+
+                            <div class="timeline-item" role="button" tabindex="0" aria-label="Faculdade ACE - Estagiário de Marketing, Set 2021 até Mai 2022">
+                                <div class="timeline-card">
+                                    <div class="timeline-card-main">
+                                        <div class="company">Faculdade ACE <span class="company-sub">(Faculdade Guilherme Guimbala)</span></div>
+                                        <div class="role" data-pt="Estagiário de Marketing" data-en="Marketing Intern">Estagiário de Marketing</div>
+                                    </div>
+                                    <div class="timeline-card-meta">
+                                        <div class="date-range" data-pt="Set 2021 &mdash; Mai 2022"
+                                            data-en="Sep 2021 &mdash; May 2022">Set 2021 &mdash; Mai 2022</div>
+                                        <div class="timeline-year">2021</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-point" aria-hidden="true"></div>
+                            </div>
+
+                            <div class="timeline-item" role="button" tabindex="0" aria-label="Espaço DesEnvolver - Estagiário de Marketing, Mai 2021 até Out 2021">
+                                <div class="timeline-card">
+                                    <div class="timeline-card-main">
+                                        <div class="company">Espaço DesEnvolver</div>
+                                        <div class="role" data-pt="Estagiário de Marketing" data-en="Marketing Intern">Estagiário de Marketing</div>
+                                    </div>
+                                    <div class="timeline-card-meta">
+                                        <div class="date-range" data-pt="Mai 2021 &mdash; Out 2021"
+                                            data-en="May 2021 &mdash; Oct 2021">Mai 2021 &mdash; Out 2021</div>
+                                        <div class="timeline-year">2021</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-point" aria-hidden="true"></div>
+                            </div>
+
+                            <div class="timeline-item" role="button" tabindex="0" aria-label="Agência AEP - Estagiário de Marketing, Mar 2021 até Jul 2021">
+                                <div class="timeline-card">
+                                    <div class="timeline-card-main">
+                                        <div class="company">Agência AEP</div>
+                                        <div class="role" data-pt="Estagiário de Marketing" data-en="Marketing Intern">Estagiário de Marketing</div>
+                                    </div>
+                                    <div class="timeline-card-meta">
+                                        <div class="date-range" data-pt="Mar 2021 &mdash; Jul 2021"
+                                            data-en="Mar 2021 &mdash; Jul 2021">Mar 2021 &mdash; Jul 2021</div>
+                                        <div class="timeline-year">2021</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-point" aria-hidden="true"></div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
             </div>
         </div>
     </div>
@@ -427,8 +436,8 @@
         const careerData = [
             {
                 company: "TECJATO | FEBRATEC",
-                role: "Analista de Marketing",
-                roleEn: "Marketing Analyst",
+                role: "Analista de Mkt.",
+                roleEn: "Mkt. Analyst",
                 date: "Ago 2026 — Atual",
                 dateEn: "Aug 2026 — Present",
                 details: {
@@ -464,8 +473,8 @@
             },
             {
                 company: "StackX",
-                role: "Analista de Marketing",
-                roleEn: "Marketing Analyst",
+                role: "Analista de Mkt.",
+                roleEn: "Mkt. Analyst",
                 date: "Jan 2024 — Ago 2026",
                 dateEn: "Jan 2024 — Aug 2026",
                 details: {
@@ -547,8 +556,8 @@
                 }
             },
             {
-                company: "Faculdade ACE (FGG)",
-                role: "Estagiário de Marketing",
+                company: "Faculdade ACE",
+                role: "Estagiário de Mkt.",
                 roleEn: "Marketing Intern",
                 date: "Set 2021 — Mai 2022",
                 dateEn: "Sep 2021 — May 2022",
@@ -581,7 +590,7 @@
             },
             {
                 company: "Espaço DesEnvolver",
-                role: "Estagiário de Marketing",
+                role: "Estagiário de Mkt.",
                 roleEn: "Marketing Intern",
                 date: "Mai 2021 — Out 2021",
                 dateEn: "May 2021 — Oct 2021",
@@ -616,7 +625,7 @@
             },
             {
                 company: "Agência AEP",
-                role: "Estagiário de Marketing",
+                role: "Estagiário de Mkt.",
                 roleEn: "Marketing Intern",
                 date: "Mar 2021 — Jul 2021",
                 dateEn: "Mar 2021 — Jul 2021",
@@ -723,8 +732,9 @@
                 }
 
                 document.querySelectorAll('.modal-dot').forEach((d, i) => {
-                    d.classList.toggle('active', i === index);
-                    d.setAttribute('aria-current', i === index ? 'true' : 'false');
+                    const isActive = i === index;
+                    d.classList.toggle('active', isActive);
+                    d.setAttribute('aria-current', isActive ? 'true' : 'false');
                 });
 
                 if (modalContent) modalContent.classList.remove('changing');
@@ -794,6 +804,19 @@
 
         // --- GLOBAL LOGIC ---
 
+        // IDADE counter effect
+        const ageElement = document.getElementById('age-counter');
+        const birthDate = new Date('2001-11-01T00:00:00');
+
+        function updateAge() {
+            const now = new Date();
+            const ageInMs = now - birthDate;
+            const ageInYears = ageInMs / (1000 * 60 * 60 * 24 * 365.25);
+            if (ageElement) ageElement.textContent = ageInYears.toFixed(12);
+            requestAnimationFrame(updateAge);
+        }
+        updateAge();
+
         // theme toggle effect
         const themeToggleBtns = [document.getElementById('theme-toggle'), document.getElementById('mobile-theme-toggle')].filter(Boolean);
 
@@ -825,7 +848,6 @@
             mobileMenuToggleBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const isOpen = bottomButtonsContainer.classList.toggle('mobile-menu-open');
-                mobileMenuToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
                 const icon = mobileMenuToggleBtn.querySelector('i');
                 if (icon) {
                     icon.className = isOpen ? 'ph ph-x' : 'ph ph-list';
@@ -838,30 +860,9 @@
                     !bottomButtonsContainer.contains(e.target) &&
                     !mobileMenuToggleBtn.contains(e.target)) {
                     bottomButtonsContainer.classList.remove('mobile-menu-open');
-                    mobileMenuToggleBtn.setAttribute('aria-expanded', 'false');
                     const icon = mobileMenuToggleBtn.querySelector('i');
                     if (icon) icon.className = 'ph ph-list';
                 }
-            });
-        }
-
-        // Skills Expand/Collapse Toggle (R10)
-        const skillsToggleBtn = document.getElementById('skills-toggle-btn');
-        const skillsTagsList = document.getElementById('skills-tags-list');
-
-        function updateSkillsButtonText() {
-            if (!skillsToggleBtn || !skillsTagsList) return;
-            const isExpanded = skillsTagsList.classList.contains('expanded');
-            const attrName = isExpanded ? `data-${currentLang}-less` : `data-${currentLang}`;
-            const label = skillsToggleBtn.getAttribute(attrName);
-            if (label) skillsToggleBtn.textContent = label;
-        }
-
-        if (skillsToggleBtn && skillsTagsList) {
-            skillsToggleBtn.addEventListener('click', () => {
-                const isExpanded = skillsTagsList.classList.toggle('expanded');
-                skillsToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-                updateSkillsButtonText();
             });
         }
 
@@ -870,6 +871,41 @@
         if (profileFlipper) {
             profileFlipper.addEventListener('click', () => {
                 profileFlipper.classList.toggle('flipped');
+            });
+            profileFlipper.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    profileFlipper.classList.toggle('flipped');
+                }
+            });
+        }
+
+        // Skills Toggle Logic (R10)
+        const skillsTagsContainer = document.getElementById('skills-tags');
+        const skillsToggleBtn = document.getElementById('skills-toggle-btn');
+
+        function updateSkillsButtonText() {
+            if (!skillsTagsContainer || !skillsToggleBtn) return;
+            const isCollapsed = skillsTagsContainer.classList.contains('is-collapsed');
+            const labelEl = skillsToggleBtn.querySelector('.skills-toggle-label');
+            const iconEl = skillsToggleBtn.querySelector('i');
+            const ptText = isCollapsed ? 'Ver todas as habilidades (+12)' : 'Mostrar menos habilidades';
+            const enText = isCollapsed ? 'View all skills (+12)' : 'Show fewer skills';
+            if (labelEl) {
+                labelEl.setAttribute('data-pt', ptText);
+                labelEl.setAttribute('data-en', enText);
+                labelEl.textContent = currentLang === 'en' ? enText : ptText;
+            }
+            if (iconEl) {
+                iconEl.className = isCollapsed ? 'ph ph-caret-down' : 'ph ph-caret-up';
+            }
+            skillsToggleBtn.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        }
+
+        if (skillsToggleBtn && skillsTagsContainer) {
+            skillsToggleBtn.addEventListener('click', () => {
+                skillsTagsContainer.classList.toggle('is-collapsed');
+                updateSkillsButtonText();
             });
         }
 
@@ -903,7 +939,7 @@
             projetosDots.forEach((d, i) => {
                 const isActive = i === currentSlide;
                 d.classList.toggle('active', isActive);
-                d.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                d.setAttribute('aria-current', isActive ? 'true' : 'false');
             });
         }
 
@@ -957,7 +993,6 @@
             currentLang = lang;
             localStorage.setItem('portfolio-lang', lang);
             document.querySelectorAll('[data-pt]').forEach(el => {
-                if (el.id === 'skills-toggle-btn') return;
                 const text = el.getAttribute(`data-${lang}`);
                 if (text) el.innerHTML = text;
             });
@@ -1187,32 +1222,30 @@
                 e.preventDefault();
                 const email = 'caiobpestana@gmail.com';
                 navigator.clipboard.writeText(email).then(() => {
-                    const isEn = document.documentElement.lang.startsWith('en');
-                    emailBtn.classList.add('copied');
-                    emailBtn.innerHTML = isEn
-                        ? "<i class='ph ph-check' aria-hidden='true'></i> Email copied: caiobpestana@gmail.com"
-                        : "<i class='ph ph-check' aria-hidden='true'></i> E-mail copiado: caiobpestana@gmail.com";
-
-                    const petSpeech = document.getElementById('pet-speech');
-                    const pet = document.getElementById('virtual-pet');
-                    if (petSpeech && pet) {
-                        petSpeech.textContent = isEn ? "Email copied!" : "E-mail copiado!";
-                        pet.style.setProperty('--bubble-opacity', '1');
-                        petSpeech.style.opacity = '1';
-                        petSpeech.style.transform = 'translateX(-50%) translateY(-15px)';
+                    const icon = emailBtn.querySelector('i');
+                    if (icon) {
+                        const originalClass = icon.className;
+                        icon.className = 'ph ph-check';
                         
+                        const petSpeech = document.getElementById('pet-speech');
+                        const pet = document.getElementById('virtual-pet');
+                        if (petSpeech && pet) {
+                            const isEn = document.documentElement.lang.startsWith('en');
+                            petSpeech.textContent = isEn ? "Email copied!" : "E-mail copiado!";
+                            pet.style.setProperty('--bubble-opacity', '1');
+                            petSpeech.style.opacity = '1';
+                            petSpeech.style.transform = 'translateX(-50%) translateY(-15px)';
+                            
+                            setTimeout(() => {
+                                petSpeech.style.opacity = '';
+                                petSpeech.style.transform = '';
+                            }, 2000);
+                        }
+
                         setTimeout(() => {
-                            petSpeech.style.opacity = '';
-                            petSpeech.style.transform = '';
+                            icon.className = originalClass;
                         }, 2000);
                     }
-
-                    setTimeout(() => {
-                        emailBtn.classList.remove('copied');
-                        const lang = document.documentElement.lang.startsWith('en') ? 'en' : 'pt';
-                        const defaultHtml = emailBtn.getAttribute(`data-${lang}`);
-                        if (defaultHtml) emailBtn.innerHTML = defaultHtml;
-                    }, 2500);
                 }).catch(err => {
                     console.error('Erro ao copiar o e-mail: ', err);
                 });
