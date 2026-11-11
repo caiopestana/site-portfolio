@@ -461,8 +461,42 @@ body.dark-mode .btn.outline:hover {
     position: relative;
 }
 
-.sidebar::after {
-    display: none;
+.sidebar::after,
+.carreira-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 24px;
+    bottom: 0;
+    height: 52px;
+    pointer-events: none;
+    z-index: 4;
+    background: linear-gradient(
+        to bottom,
+        rgba(249, 248, 246, 0) 0%,
+        rgba(249, 248, 246, 0.72) 55%,
+        var(--bg-card) 100%
+    );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 65%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 65%);
+    transition: opacity 0.25s ease;
+}
+
+body.dark-mode .sidebar::after,
+body.dark-mode .carreira-section::after {
+    background: linear-gradient(
+        to bottom,
+        rgba(27, 27, 27, 0) 0%,
+        rgba(27, 27, 27, 0.72) 55%,
+        var(--bg-card) 100%
+    );
+}
+
+.sidebar.is-scrolled-end::after,
+.carreira-section.is-scrolled-end::after {
+    opacity: 0;
 }
 
 .sidebar-scroll-area {
@@ -471,7 +505,7 @@ body.dark-mode .btn.outline:hover {
     gap: 28px;
     margin-right: -20px;
     padding-right: 20px;
-    padding-bottom: 8px;
+    padding-bottom: 28px;
     flex: 1;
     min-height: 0;
     overflow-y: auto;
@@ -1031,7 +1065,7 @@ body.dark-mode .projeto-cta {
     flex-direction: column;
     justify-content: flex-start;
     margin: 0 -20px 0 0;
-    padding: 4px 20px 4px 0;
+    padding: 4px 20px 28px 0;
     gap: 10px;
     flex: 1;
     min-height: 0;
@@ -1344,11 +1378,13 @@ body.dark-mode .timeline-card .online-status {
         gap: 22px;
         margin-right: -14px;
         padding-right: 14px;
-        padding-bottom: 8px;
+        padding-bottom: 28px;
     }
 
-    .sidebar::after {
-        display: none;
+    .sidebar::after,
+    .carreira-section::after {
+        right: 18px;
+        height: 48px;
     }
 
     .content-area {
@@ -1397,7 +1433,7 @@ body.dark-mode .timeline-card .online-status {
     }
 
     .timeline-container {
-        padding: 4px 14px 4px 0;
+        padding: 4px 14px 28px 0;
         margin: 0 -14px 0 0;
         width: auto;
         gap: 10px;

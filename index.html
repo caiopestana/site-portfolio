@@ -1400,6 +1400,25 @@
         // Inicia a verificação e agenda o ciclo contínuo
         fetchSpotifyStatus();
         setInterval(fetchSpotifyStatus, LASTFM_CONFIG.pollInterval);
+
+        // Controle do efeito de blur/fade inferior nas seções com scroll interno (Sidebar e Carreira)
+        function setupBottomScrollFade(scrollSelector, parentSelector) {
+            const scrollEl = document.querySelector(scrollSelector);
+            const parentEl = document.querySelector(parentSelector);
+            if (!scrollEl || !parentEl) return;
+
+            const updateFadeState = () => {
+                const isAtBottom = scrollEl.scrollTop + scrollEl.clientHeight >= scrollEl.scrollHeight - 6;
+                parentEl.classList.toggle('is-scrolled-end', isAtBottom);
+            };
+
+            scrollEl.addEventListener('scroll', updateFadeState, { passive: true });
+            window.addEventListener('resize', updateFadeState);
+            updateFadeState();
+        }
+
+        setupBottomScrollFade('.sidebar-scroll-area', '.sidebar');
+        setupBottomScrollFade('.timeline-container', '.carreira-section');
     </script>
 </body>
 
