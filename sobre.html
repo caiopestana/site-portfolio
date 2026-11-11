@@ -128,26 +128,20 @@
                                     Um exemplo desse trabalho foi o redesign completo da identidade visual e do site da StackX. Reestruturei conteúdo, hierarquia de navegação, sistema de cores e uma biblioteca própria de ícones e componentes, com foco em acessibilidade e conversão. Resultado: +45% em tráfego e tempo de permanência no site, e +35% na taxa de conversão de leads em relação ao modelo anterior.
                                 </p>
                                 
-                                <h3 data-pt="Formação" data-en="Education" style="font-size: 24px; font-weight: 700; color: var(--text-main); margin-top: 20px; margin-bottom: 0;">Formação</h3>
+                                <h3 data-pt="Formação" data-en="Education">Formação</h3>
                                 <p data-pt="Formado em Publicidade e Propaganda pela Associação Educacional Luterana Bom Jesus/IELUSC, com pós-graduação em Marketing: Estratégias, Negócios Digitais e Experiência do Cliente. Ao longo da formação, aprofundei-me em estruturação de negócios digitais, UX Design e prototipação. Disciplinas que aplico diretamente no processo de criação de produtos digitais."
                                    data-en="Graduated in Advertising and Public Relations from Associação Educacional Luterana Bom Jesus/IELUSC, with a postgraduate degree in Marketing: Strategies, Digital Businesses, and Customer Experience. Throughout my studies, I deepened my knowledge in digital business structuring, UX Design, and prototyping—disciplines I apply directly to the digital product creation process.">
                                     Formado em Publicidade e Propaganda pela Associação Educacional Luterana Bom Jesus/IELUSC, com pós-graduação em Marketing: Estratégias, Negócios Digitais e Experiência do Cliente. Ao longo da formação, aprofundei-me em estruturação de negócios digitais, UX Design e prototipação. Disciplinas que aplico diretamente no processo de criação de produtos digitais.
                                 </p>
 
-                                <div class="about-age-block" style="margin-top: 16px;">
-                                    <h4 class="section-title" data-pt="IDADE" data-en="AGE" style="margin-bottom: 8px !important;">IDADE</h4>
-                                    <p class="age-text" style="margin: 0;"><span id="age-counter">24.000000000000</span><span
-                                            data-pt=" anos de idade." data-en=" years old."> anos de idade.</span></p>
-                                </div>
-
-                                <p class="about-contact-intro" style="font-size: 15px; color: var(--text-muted); line-height: 1.6; max-width: 500px; margin-top: 32px; margin-bottom: 0;" 
+                                <p class="about-contact-intro"
                                    data-pt="Se você precisa de alguém que pensa marca, produto e conversão como parte do mesmo problema, bora conversar." 
                                    data-en="If you need someone who thinks about brand, product, and conversion as parts of the same problem, let's talk.">
                                     Se você precisa de alguém que pensa marca, produto e conversão como parte do mesmo problema, bora conversar.
                                 </p>
 
                                 <!-- Título das Redes Sociais -->
-                                <h4 class="social-links-title" data-pt="Onde me encontrar:" data-en="Let's connect:" style="font-size: 18px; font-weight: 700; color: var(--text-main); margin-top: 28px; margin-bottom: 0; letter-spacing: -0.2px;">Onde me encontrar:</h4>
+                                <h4 class="social-links-title" data-pt="Onde me encontrar:" data-en="Let's connect:">Onde me encontrar:</h4>
 
                                 <!-- Redes Sociais logo ao final do texto -->
                                 <div class="social-links" style="margin-top: 14px; gap: 14px; display: flex; flex-wrap: wrap;">
@@ -251,19 +245,6 @@
                 const userLang = navigator.language || navigator.userLanguage;
                 currentLang = userLang.startsWith('en') ? 'en' : 'pt';
             }
-
-            // IDADE counter effect (R10)
-            const ageElement = document.getElementById('age-counter');
-            const birthDate = new Date('2001-11-01T00:00:00');
-
-            function updateAge() {
-                const now = new Date();
-                const ageInMs = now - birthDate;
-                const ageInYears = ageInMs / (1000 * 60 * 60 * 24 * 365.25);
-                if (ageElement) ageElement.textContent = ageInYears.toFixed(12);
-                requestAnimationFrame(updateAge);
-            }
-            updateAge();
 
             function updateLanguage(lang) {
                 currentLang = lang;
