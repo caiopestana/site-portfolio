@@ -110,17 +110,6 @@ body.dark-mode .card {
     background-color: var(--bg-card);
 }
 
-
-body.dark-mode .timeline-card {
-    background-color: var(--bg-card-element);
-    color: #111111;
-}
-
-body.dark-mode .timeline-card .role {
-    color: #1F4A38;
-    font-weight: 500;
-}
-
 /* Bolinhas inativas no dark mode */
 body.dark-mode .dot:not(.active)::before,
 body.dark-mode .modal-dot:not(.active)::before {
@@ -1124,9 +1113,11 @@ body.dark-mode .timeline-container:hover {
     z-index: 10;
 }
 
+/* Cargos anteriores: superfície secundária suave seguindo o Design System (sem preto no Light Mode) */
 .timeline-card {
-    background-color: var(--bg-element-dark);
-    color: var(--bg-page);
+    background-color: #EBF5F0;
+    border: 1px solid rgba(162, 213, 198, 0.65);
+    color: var(--text-main);
     padding: 16px 24px;
     border-radius: var(--border-radius-sm);
     width: 100%;
@@ -1138,7 +1129,25 @@ body.dark-mode .timeline-container:hover {
     gap: 16px;
     flex: 1;
     height: auto;
-    transition: box-shadow 0.25s ease, background-color 0.25s ease;
+    transition: box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+body.dark-mode .timeline-card {
+    background-color: #242625;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+}
+
+/* Cargo atual em destaque (Verde-Menta do Design System) */
+.timeline-item.is-current .timeline-card,
+body.dark-mode .timeline-item.is-current .timeline-card {
+    background-color: var(--bg-card-element);
+    border-color: rgba(47, 131, 106, 0.35);
+    color: #111111;
+}
+
+body.dark-mode .timeline-item.is-current .timeline-card {
+    border-color: rgba(207, 255, 226, 0.4);
 }
 
 .timeline-card-main {
@@ -1161,12 +1170,24 @@ body.dark-mode .timeline-container:hover {
 
 .timeline-item:hover .timeline-card,
 .timeline-item:focus-visible .timeline-card {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background-color: #E1F0E8;
+    border-color: #2F836A;
+    box-shadow: 0 8px 24px rgba(47, 131, 106, 0.12);
 }
 
 body.dark-mode .timeline-item:hover .timeline-card,
 body.dark-mode .timeline-item:focus-visible .timeline-card {
+    background-color: #2B2E2C;
+    border-color: rgba(162, 213, 198, 0.4);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.timeline-item.is-current:hover .timeline-card,
+.timeline-item.is-current:focus-visible .timeline-card,
+body.dark-mode .timeline-item.is-current:hover .timeline-card,
+body.dark-mode .timeline-item.is-current:focus-visible .timeline-card {
+    background-color: #95CEBD;
+    border-color: #2F836A;
 }
 
 .timeline-card .company {
@@ -1175,29 +1196,47 @@ body.dark-mode .timeline-item:focus-visible .timeline-card {
     letter-spacing: -0.2px;
     line-height: 1.3;
     margin: 0;
+    color: var(--text-main);
     word-break: break-word;
+}
+
+.timeline-item.is-current .timeline-card .company,
+body.dark-mode .timeline-item.is-current .timeline-card .company {
+    color: #111111;
 }
 
 .timeline-card .company-sub {
     font-weight: 400;
     font-size: 13px;
-    opacity: 0.68;
+    color: var(--text-muted);
 }
 
 .timeline-card .role {
     font-weight: 500;
     font-size: 14px;
-    color: var(--bg-card-element);
+    color: var(--text-secondary);
     line-height: 1.4;
     margin: 0;
+}
+
+.timeline-item.is-current .timeline-card .role,
+body.dark-mode .timeline-item.is-current .timeline-card .role {
+    color: #1B4D3E;
+    font-weight: 600;
 }
 
 .timeline-card .date-range {
     font-weight: 400;
     font-size: 12.5px;
-    opacity: 0.72;
+    color: var(--text-muted);
     margin: 0;
     line-height: 1.3;
+}
+
+.timeline-item.is-current .timeline-card .date-range,
+body.dark-mode .timeline-item.is-current .timeline-card .date-range {
+    color: rgba(17, 17, 17, 0.75);
+    font-weight: 500;
 }
 
 .timeline-point {
@@ -1207,8 +1246,7 @@ body.dark-mode .timeline-item:focus-visible .timeline-card {
 .timeline-year {
     font-size: 11.5px;
     font-weight: 500;
-    color: inherit;
-    opacity: 0.58;
+    color: var(--text-muted);
     height: auto;
     line-height: 1.2;
     display: inline-flex;
@@ -1217,10 +1255,11 @@ body.dark-mode .timeline-item:focus-visible .timeline-card {
 }
 
 /* Status Online Animations */
-.online-status {
+.online-status,
+body.dark-mode .timeline-card .online-status {
     opacity: 1;
-    color: #10B981;
-    background: rgba(16, 185, 129, 0.14);
+    color: #064E3B;
+    background: rgba(16, 185, 129, 0.25);
     padding: 4px 10px;
     border-radius: 999px;
     font-size: 11px;
@@ -1228,11 +1267,6 @@ body.dark-mode .timeline-item:focus-visible .timeline-card {
     letter-spacing: 0.5px;
     gap: 6px;
     line-height: 1.2;
-}
-
-body.dark-mode .timeline-card .online-status {
-    color: #064E3B;
-    background: rgba(16, 185, 129, 0.28);
 }
 
 .pulse-dot {
@@ -2009,8 +2043,8 @@ body.dark-mode .timeline-card .online-status {
     }
 
     .timeline-year {
-        font-size: 12px !important;
-        font-weight: 700 !important;
+        font-size: 11.5px !important;
+        font-weight: 500 !important;
         margin: 0 !important;
         padding: 0 !important;
         height: auto !important;
@@ -2019,7 +2053,7 @@ body.dark-mode .timeline-card .online-status {
         align-items: center !important;
         justify-content: flex-end !important;
         position: static !important;
-        color: inherit !important;
+        color: var(--text-muted) !important;
         letter-spacing: 0.5px !important;
     }
 
@@ -2027,6 +2061,9 @@ body.dark-mode .timeline-card .online-status {
         display: inline-flex !important;
         align-items: center !important;
         gap: 6px !important;
+        padding: 4px 10px !important;
+        color: #064E3B !important;
+        font-weight: 700 !important;
     }
 }
 
